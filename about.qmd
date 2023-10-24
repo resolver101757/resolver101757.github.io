@@ -1,0 +1,21 @@
+---
+title: "About"
+image: me.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/alex_paul_kelly
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/alexpkelly/
+    - icon: github
+      text: Github
+      href: https://github.com/resolver101757
+    - icon: YouTube
+      text: YouTube
+      href: https://www.youtube.com/channel/UCSvljQLn9fYKilazatpKYCg
+---
+
+About this blog
