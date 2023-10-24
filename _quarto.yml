@@ -1,9 +1,11 @@
 project:
   type: website
+  output-dir: docs  # This is the new line to specify the output directory
 
 website:
   title: "AlexPaulKelly"
-  navbar:
+
+navbar:
     right:
       - about.qmd
       - icon: github
