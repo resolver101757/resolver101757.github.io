@@ -1,12 +1,12 @@
 ---
-title: "AlexPaulKelly"
+title: "Everything AI Blog"
 listing:
   contents: posts
   sort: "date desc"
   type: default
   categories: true
   sort-ui: false
-  filter-ui: True
+  filter-ui: False
 page-layout: full
-title-block-banner: true
+title-block-banner: True
 ---

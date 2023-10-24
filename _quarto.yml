@@ -4,14 +4,15 @@ project:
 
 website:
   title: "AlexPaulKelly"
-
-navbar:
+  navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/resolver101757
       - icon: twitter
         href: https://twitter.com/alex_paul_kelly
+      - icon: linkedin
+        href: https://www.linkedin.com/in/alexpkelly/
 format:
   html:
     theme: cosmo
