@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alex Paul Kelly">
+<meta name="dcterms.date" content="2023-10-25">
+
+<title>AlexPaulKelly - Exploring GPT4 vision, fastai study hacks and what it means for industry 4.0</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">AlexPaulKelly</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/resolver101757" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/alex_paul_kelly" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/alexpkelly/" rel="" target=""><i class="bi bi-linkedin" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Exploring GPT4 vision, fastai study hacks and what it means for industry 4.0</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">ai</div>
+                <div class="quarto-category">manufacturing</div>
+                <div class="quarto-category">fastai</div>
+                <div class="quarto-category">gpt4</div>
+                <div class="quarto-category">chatgpt</div>
+                <div class="quarto-category">rpa</div>
+                <div class="quarto-category">automation</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alex Paul Kelly </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">October 25, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul>
+  <li><a href="#what-is-gpt4-vision" id="toc-what-is-gpt4-vision" class="nav-link" data-scroll-target="#what-is-gpt4-vision">What is GPT4 vision?</a></li>
+  <li><a href="#fastai-study-hacks-with-chatgpt-vision" id="toc-fastai-study-hacks-with-chatgpt-vision" class="nav-link" data-scroll-target="#fastai-study-hacks-with-chatgpt-vision">fastai study hacks with chatgpt vision</a>
+  <ul class="collapse">
+  <li><a href="#a-loss-chart-in-fast.ai" id="toc-a-loss-chart-in-fast.ai" class="nav-link" data-scroll-target="#a-loss-chart-in-fast.ai">a loss chart in fast.ai</a></li>
+  <li><a href="#sec.-4.6-coding-capability-with-vision" id="toc-sec.-4.6-coding-capability-with-vision" class="nav-link" data-scroll-target="#sec.-4.6-coding-capability-with-vision">Sec. 4.6 Coding Capability with Vision</a></li>
+  <li><a href="#sec.-4.4-scene-text-table-chart-and-document-reasoning" id="toc-sec.-4.4-scene-text-table-chart-and-document-reasoning" class="nav-link" data-scroll-target="#sec.-4.4-scene-text-table-chart-and-document-reasoning">Sec. 4.4 Scene Text, Table, Chart, and Document Reasoning</a></li>
+  <li><a href="#sec.-4.6-coding-capability-with-vision-1" id="toc-sec.-4.6-coding-capability-with-vision-1" class="nav-link" data-scroll-target="#sec.-4.6-coding-capability-with-vision-1">Sec. 4.6 Coding Capability with Vision</a></li>
+  </ul></li>
+  <li><a href="#shot-learning" id="toc-shot-learning" class="nav-link" data-scroll-target="#shot-learning">2 shot learning</a></li>
+  <li><a href="#spatial-relationship-understanding" id="toc-spatial-relationship-understanding" class="nav-link" data-scroll-target="#spatial-relationship-understanding">Spatial Relationship Understanding</a></li>
+  <li><a href="#rpa-robotic-process-automation" id="toc-rpa-robotic-process-automation" class="nav-link" data-scroll-target="#rpa-robotic-process-automation">RPA (Robotic Process Automation)</a></li>
+  <li><a href="#i-will-be-performing-future-research-using-real-life-company-data." id="toc-i-will-be-performing-future-research-using-real-life-company-data." class="nav-link" data-scroll-target="#i-will-be-performing-future-research-using-real-life-company-data.">I will be performing Future research using real life company data.</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>Hi, this is a explority view of GPT4 vision, study hacks and it’s uses in manufacturing and industry 4.0. Its a commentary of microsoft paper <a href="https://browse.arxiv.org/pdf/2309.17421.pdf">TheDawnofLMMs: PreliminaryExplorationswithGPT-4V(ision)</a> picking out the highlights, my take on how GPT4 vision can be used in daily life, how to maximise my studying of the fast.ai course and what GPT4 vision means for the future of manufacturing and industry 4.0.</p>
+<p>The paper and chatgpt vision was discussed with the Fast.AI study group. The study group is a multi-national group of people who are passionate about deep learning and AI. We meet online on Saturdays to run through the course work provided by fastAI, discuss papers and latest trends and get to know each other.</p>
+<p><img src="dawn_of_AI.png" class="img-fluid"></p>
+<section id="what-is-gpt4-vision" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-gpt4-vision">What is GPT4 vision?</h2>
+<p>GPT4 vision is a new model from openAI. GPT4 is a LMM (Large Multi-Modal Model). Multimodal technology refers to systems that can process and integrate multiple types of inputs and outputs, in gpt4 vision case its input can be text and images and its output is text only (as of this writing, i imagine more will follow).</p>
+<p>GPT-4 uses a transformer-style architecture in its neural network. A transformer architecture allows for a better understanding of relationships. It also uses an attention mechanism that allows the neural network to parse out which pieces of data are more relevant than others.</p>
+<p>As of writing GPT4 vision is only available to chatgpt premium users and no general api availability. a open source competitor only is <a href="https://github.com/haotian-liu/LLaVA">LLaVA</a>.</p>
+</section>
+<section id="fastai-study-hacks-with-chatgpt-vision" class="level2">
+<h2 class="anchored" data-anchor-id="fastai-study-hacks-with-chatgpt-vision">fastai study hacks with chatgpt vision</h2>
+<section id="a-loss-chart-in-fast.ai" class="level3">
+<h3 class="anchored" data-anchor-id="a-loss-chart-in-fast.ai">a loss chart in fast.ai</h3>
+<p>Someone posted a loss chart in the fast.ai study group and didnt know what was going on. Why not ask your AI study buddy (chatgpt vision) for help instead or along side of posting in fast ai. Whether your a seasoned deep learning pro or a beginner, it might be something simple (or difficult) that chatgpt vision could give you a few ideas for better training or get you passed this road block so you can continue your study…</p>
+<p>I wonder how many people have stopped fast.ai (or any course) due to a road block that could have been easily solved with chatgpt vision.</p>
+<p><img src="loss_learning_chart.png" class="img-fluid"></p>
+</section>
+<section id="sec.-4.6-coding-capability-with-vision" class="level3">
+<h3 class="anchored" data-anchor-id="sec.-4.6-coding-capability-with-vision">Sec. 4.6 Coding Capability with Vision</h3>
+<p>add a image of a formula you’ve seen on a paper and get the results back in latex or even python code. This could be used to help you understand the paper better or even help you write your own paper / model.</p>
+</section>
+<section id="sec.-4.4-scene-text-table-chart-and-document-reasoning" class="level3">
+<h3 class="anchored" data-anchor-id="sec.-4.4-scene-text-table-chart-and-document-reasoning">Sec. 4.4 Scene Text, Table, Chart, and Document Reasoning</h3>
+<p>add a image of a table and get the results back in latex or even python code. This could be used to help you understand the paper better or even help you write your own paper / model.</p>
+<p>add a image of a paper and ask the model to summarise it for you. Vision will have the benefit over llms (large language models) due to its ability to understand images, charts along with the text.</p>
+<p>add a image of a floor plan or cad drawing a get a detailed description of what the floor plan will produce.</p>
+</section>
+<section id="sec.-4.6-coding-capability-with-vision-1" class="level3">
+<h3 class="anchored" data-anchor-id="sec.-4.6-coding-capability-with-vision-1">Sec. 4.6 Coding Capability with Vision</h3>
+<p>like a chart on a paper, ask chatgpt to reproduce it with in the format required, e.g.&nbsp;python code and and it will be returned and ready to be ran in your jupyter notebook.</p>
+</section>
+</section>
+<section id="shot-learning" class="level2">
+<h2 class="anchored" data-anchor-id="shot-learning">2 shot learning</h2>
+<p>In the study group, before studying this particular paper we looked at prompting for LLM’s (large language models) and one short learning were giving good results. It seams Chatgpt vision, gives better results with 2 shots or more.</p>
+<p><img src="2shot_learning.png" class="img-fluid"></p>
+</section>
+<section id="spatial-relationship-understanding" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-relationship-understanding">Spatial Relationship Understanding</h2>
+<p>During the study group, we we’re amazed by what chatgpt vision understood in this picture. It described the dog as jumping up, and the man has thrown the frispy. Theres quite a lot to unpack here. Does it understand real world physics to work out whats going on in the photo, or is it just using the a history of similar photos with stored text. I think its a bit of both, probably more the former, whatever it is, it’s still amazing.</p>
+<p><img src="dog_spacial_awareness.png" class="img-fluid"></p>
+</section>
+<section id="rpa-robotic-process-automation" class="level2">
+<h2 class="anchored" data-anchor-id="rpa-robotic-process-automation">RPA (Robotic Process Automation)</h2>
+<p>I beleive the uses of this model will be transformational in the RPA space. RPA is a technology that allows anyone today to configure computer software, or a “robot” to emulate and integrate the actions of a human interacting within digital systems to execute a business process. RPA robots utilize the user interface to capture data and manipulate applications just like humans do. They interpret, trigger responses and communicate with other systems in order to perform on a vast variety of repetitive tasks. Only substantially better: an RPA software robot never sleeps and makes zero mistakes.</p>
+<p>In manufacturing alone, there are 100’s of use cases to automate processes and tasks. The problem is that RPA is very brittle and requires a lot of manual work to configure and maintain. GPT4 vision will allow for a more natural way to interact with the RPA system. For example, if you want to automate a process that requires you to look at a screen and click on a button, you can now just take a picture of the screen and ask the RPA system to click on the button and if it has knowledge of the system in its weights, it will also know the subquent steps speeding up the process. This will allow for a more natural way to interact with the RPA system and will make it easier to automate processes. The system could provide a feedback loop by continuous monitoring the screens and taking the appropriate action or highlight any issues ready for a oporator to take action.</p>
+<p>Here of Generative AI from <a href="https://www.youtube.com/watch?v=Ncs987vzNgo">genta</a> using text only model. Imagine what could be done with gpt4 vision.</p>
+<p>In the example below I have given chatgpt a screen and tabs it has never seen and returned something that could easily be used for, the full prompt is “this is a SAP customer screen, pretend your operating it like a human and update all the details in customer with fictitious details .e.g name, address ect. describe each screen click and key presses and provide a json in a format that uipath would accept<br>
+”</p>
+<p>Personally I’ve never seen SAP but I know a lot of manufacturers use this system and there exist lots of screen shots online so its likely chatgpt could help automate a pipeline to update customer details in SAP and much more. I’ve also seen a lot of RPA systems that use json to describe the steps to take so this could be used to automate the process.ks</p>
+<p><img src="SAP_Customer_Data_Update.png" class="img-fluid"></p>
+</section>
+<section id="i-will-be-performing-future-research-using-real-life-company-data." class="level2">
+<h2 class="anchored" data-anchor-id="i-will-be-performing-future-research-using-real-life-company-data.">I will be performing Future research using real life company data.</h2>
+<ul>
+<li>Defect detection : have parts been assembled correctly, any missing parts, parts with defects, etc.</li>
+<li>Safety inspection : are all safety features in place, are all safety features working, are people wearing safety equipment (e.g.&nbsp;helmets, gloves, etc.)</li>
+<li>Component identification : This will be useful to check if the operator has packed all components before shipping to customer, or if the operator has assembled all components before shipping to customer.</li>
+<li>Spot the difference : take a few one shot or 2 shot examples of our products and compare to a fresh product of the assembly line and see how they match.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
