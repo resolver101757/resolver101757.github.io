@@ -41,21 +41,27 @@ I wonder how many people have stopped fast.ai (or any course) due to a road bloc
 
 add a image of a formula you've seen on a paper and get the results back in latex or even python code.  This could be used to help you understand the paper better or even help you write your own paper / model.
 
+![](math_to_latex.png)
+
 ### Recreate a chart from picture, analyse paper or floor plan 
 
 (see paper Sec. 4.4 Scene Text, Table, Chart, and Document Reasoning)
-
-add a image of a table and get the results back in latex or even python code.  This could be used to help you understand the paper better or even help you write your own paper / model.
  
 add a image of a paper and ask the model to summarise it for you.  Vision will have the benefit over llms (large language models) due to its ability to understand images, charts along with the text.  
 
+![](paper_explanation.png)
+
 add a image of a floor plan or cad drawing a get a detailed description of what the floor plan will produce. 
+
+![](house_plan.png)
 
 ### recreate a chart from picture
 
 (See paper Sec. 4.6 Coding Capability with Vision)
 
 like a chart on a paper, ask chatgpt to reproduce it with in the format required, e.g. python code and and it will be returned and ready to be ran in your jupyter notebook.
+
+![](recreate_charts.png.png)
 
 ### Improve your blog or website 
 
@@ -75,7 +81,6 @@ In the study group, before studying this particular paper we looked at prompting
 During the study group, we we're amazed by what chatgpt vision understood in this picture.  It described the dog as jumping up, and the man has thrown the frispy.  Theres quite a lot to unpack here.   Does it understand real world physics to work out whats going on in the photo, or is it just using the a history of similar photos with stored text.  I think its a bit of both, probably more the former, whatever it is, it's still amazing.  
 
 ![](dog_spacial_awareness.png)
-
 
 
 ## RPA (Robotic Process Automation)
