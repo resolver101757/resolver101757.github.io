@@ -24,22 +24,26 @@ GPT-4 uses a transformer-style architecture in its neural network. A transformer
 As of writing GPT4 vision is only available to chatgpt premium users and no general api availability. a open source competitor only is [LLaVA](https://github.com/haotian-liu/LLaVA).
 
 
-## fastai study hacks with chatgpt vision
+## FastAI study hacks with chatgpt vision
 
-### a loss chart in fast.ai 
+### Get feedback on your training loss chart 
 
-Someone posted a loss chart in the fast.ai study group and didnt know what was going on.  Why not ask your AI study buddy (chatgpt vision) for help instead or along side of posting in fast ai.   Whether your a seasoned deep learning pro or a beginner, it might be something simple (or difficult) that chatgpt vision could give you a few ideas for better training or get you passed this road block so you can continue your study... 
+Someone posted a training loss chart in the fast.ai study group and didnt know what was going on.  Why not ask your AI study buddy (chatgpt vision) for help instead or along side of posting in fast ai.   Whether your a seasoned deep learning pro or a beginner, it might be something simple (or difficult) that chatgpt vision could give you a few ideas for better training or get you passed this road block so you can continue your study... 
 
 I wonder how many people have stopped fast.ai (or any course) due to a road block that could have been easily solved with chatgpt vision.
 
-![](loss_learning_chart.png)
+![](Improve-Deep-Learning-Chart.png)
 
 
-### Sec. 4.6 Coding Capability with Vision
+### Convert image of a formula to latex/code
+
+(see paper Sec. 4.6 Coding Capability with Vision)
 
 add a image of a formula you've seen on a paper and get the results back in latex or even python code.  This could be used to help you understand the paper better or even help you write your own paper / model.
 
-### Sec. 4.4 Scene Text, Table, Chart, and Document Reasoning
+### Recreate a chart from picture, analyse paper or floor plan 
+
+(see paper Sec. 4.4 Scene Text, Table, Chart, and Document Reasoning)
 
 add a image of a table and get the results back in latex or even python code.  This could be used to help you understand the paper better or even help you write your own paper / model.
  
@@ -47,13 +51,22 @@ add a image of a paper and ask the model to summarise it for you.  Vision will h
 
 add a image of a floor plan or cad drawing a get a detailed description of what the floor plan will produce. 
 
-### Sec. 4.6 Coding Capability with Vision
+### recreate a chart from picture
 
-like a chart on a paper, ask chatgpt to reproduce it with in the format required, e.g. python code and and it will be returned and ready to be ran in your jupyter notebook.  
+(See paper Sec. 4.6 Coding Capability with Vision)
+
+like a chart on a paper, ask chatgpt to reproduce it with in the format required, e.g. python code and and it will be returned and ready to be ran in your jupyter notebook.
+
+### Improve your blog or website 
+
+Take a screen shot of your website or blog and ask chatgpt vision to improve it.  It will offer suggestions.  This could be used to improve your website or blog, or even give you ideas for a new website or blog.  It could also be used to generate new content for your website or blog.  This could be used to improve your SEO (search engine optimisation) and increase your traffic to your website or blog.
+
+![](Improve_blog.png)
+
 
 ## 2 shot learning
 
-In the study group, before studying this particular paper we looked at prompting for LLM's (large language models) and one short learning were giving good results.  It seams Chatgpt vision, gives better results with 2 shots or more.  
+In the study group, before studying this particular paper we looked at prompting for LLM's (large language models) and one short learning were giving good results.  It seams Chatgpt vision, gives better results with 2 shots or more.
 
 ![](2shot_learning.png)
 
