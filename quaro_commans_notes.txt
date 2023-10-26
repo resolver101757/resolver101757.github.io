@@ -1,9 +1,0 @@
-to run a preview 
-quarto preview .
-
-to Create update the files 
-quarto render .
-
-to create a project 
-quarto create project_name --template=blog
-
