@@ -1,5 +1,5 @@
 ---
-title: "Everything AI Blog"
+title: "AI: The Catalyst of the 4th Industrial Transformation"
 listing:
   contents: posts
   sort: "date desc"
@@ -10,3 +10,7 @@ listing:
 page-layout: full
 title-block-banner: True
 ---
+
+### Stepping into the heart of the 4th industrial revolution, this blog series examines the future of manufacturing, with AI and data analytics positioned at the core of this momentous transformation.
+
+<br>
