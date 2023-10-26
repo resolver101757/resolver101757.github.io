@@ -1,0 +1,98 @@
+---
+title: "Maximizing Your Commute: Learning on the Go with ChatGPT Voice"
+author: "Alex Paul Kelly"
+date: "2023-10-26"
+categories: [ai, fastai, chatbot, gpt, nlp, audio]
+toc: true
+toc-depth: 4
+references:
+  - id: ChatGPT_learning
+    type: web
+    title: "How to use ChatGPT to easily learn any skill you want"
+    URL: "https://www.youtube.com/watch?v=MnDudvCyWpc&t=365s"
+    accessed:
+      day: 26
+      month: 10
+      year: 2023
+---
+
+# Overview
+
+I have 20 minute drive into work and back home everyday where I usually listen to a podcast, audio book or sometimes just stair at the road.  I'm always thinking, how can I make better use of my time.... I saw a twitter post from Le Cunn, the legendary Data Scientist from Meta and that i fearously agree with "["books are a user interface to knowledge."](https://twitter.com/ylecun/status/1715503233983017145).
+
+That's what AI assistants are poised to become: "AI assistants will be a better user interface to knowledge."
+
+This is a short blog on how im using chatgpt to study and making use of spare time on journes to work. 
+
+![](Car_ai_asistant.png)
+
+# What is ChatGPT voice
+
+Chatgpt voice is based on GPT 3.5 model and includes features giving that give it the ability to hear and speak.  
+
+For the voice feature, OpenAI uses Whisper, its speech recognition system, to transcribe a user's spoken words into text and a new text-to-speech model that can generate human-like audio from text with just a few seconds of speech. 
+
+I have a selection of 5 voices to choose from and have been using "sky" and it sounds really natural.  You can still tell its a computer speech which I imagine is on purpose, it gets the pauses and tone, emotion right, im really impressed.
+
+It available on the plus and enterprise edition, not the free edition of ChatGPT.
+
+# Whats wrong with podcast and audiobooks
+
+I've been using ChatGPT voice conversations for over a month now (it's still in beta) and for me its a game changer for studying and making the spare time useful on the journey to work and back.
+
+Listening to podcasts or audiobooks can be enriching, yet they come with limitations. Sometimes they delve into topics that don't interest you. At other times, they might present information in a convoluted manner. There's also the issue of pacing: some podcasts assume advanced knowledge, leaving you lost, while others may cover familiar ground, leading to frustration
+
+# why use ChatGPT voice 
+
+ChatGPT Voice offers a versatile learning experience by tapping into a wealth of internet knowledge. It can adapt its conversational style to mimic various tones, such as Shakespearean language or the distinctive styles of well-known educators like Richard Feynman and Jeremy Howard. While I haven't personally tried these specific modes, they could resonate better with your learning preferences
+
+# How to use ChatGPT Voice
+
+Do you have a favourite educator?  Ask GPT voice to give explanations like that educator, don't understand something, ask it to explain it in a different way. Ask it to explain it to a 5 year old, a 10 year old, say what you understand and what you dont understand and for me, its filled in the gaps.
+
+Ask it to give you a topic and ask for a questions at the end to make sure you understand.
+
+What are the most important facts, dates, or formulas related to (topic)? Help me create a memorization technique to remember them easily.
+
+Give it a statement and ask chatgpt to give feedback, any corrections or improvements.
+
+Ask voice GPT to create models or analogies to help me understand and remember "optimization techinques in deep learning".
+
+Do you have a difficult concept to understand, ask Chatgpt to Guide you through a visualization exercise to help me internalize the term optimization techinques and imagine yourself successfully applying it to a real-life situation.  This has really helped me on difficult concepts, highly recommend you try it.
+
+My favourite is to ask chatgpt voice "I want you to act as a Socrat and use the Socratic method to help me improve my critical thinking, logic, and reasoning skills. Your task is to ask open-ended questions to the statement 'optimization techinques in deep learning', give me constructive feedback to each response before you ask the next question.""
+
+All conversations are saved in text format when your return to your computer and phone, you can review the conversation and save it to your notes or share it.
+
+# Other Uses
+
+Do you have a important conversation coming up, talk it through with ChatGPT first to get your thoughts in order and ask for opionions on how other positions, react and respond and how to frame the conversation. You can have this conversation as many times as you want, it will never get bored, it will never get angry and its always available 24 hours a day 7 days a week, 365 days a year.
+
+Potential use cases:
+
+- Negotiations
+- Interviews
+- Sales
+- Presentations
+- Conflict resolution
+- Difficult conversations
+- Asking for a raise
+- Asking for a promotion
+- Asking for a date
+
+# Things that need improving 
+
+- Sometimes Chatgpt voices cuts the converstation off half way throgh me saying something if i pause while im thinking about how to phrase something.  I wish it would wait a bit longer before cutting off the conversation.
+- Sometimes I want to cut off what the chatgpt voice is saying because it/I haven't fully explained the context.   I wish it would stop speaking and go into listening mode or be able to do both.
+- I wish it would give me a summary of the conversation at the end, it would be useful to have a summary of the conversation to help me remember what we talked about.
+
+# Conclusion 
+
+I will be using this more and more, I think its a game changer for me, I can see myself using it.  I'm really excited about the future of AI assistants and how they will help us learn and understand the world together.  It will be interesting to know how bigger or better models will improve the experience.  I'm sure there will be a lot of research in this area. 
+
+Try ChatGPT, I think it will change the way you think about AI assistants and how you can use them to learn and understand together. 
+
+
+### References
+
+[@ChatGPT_learning]
