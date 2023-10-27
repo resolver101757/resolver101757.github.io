@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AlexPaulKelly - Testing a random jupyter notebook</title>
+<title>AlexPaulKelly - Quarto Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -149,7 +149,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Testing a random jupyter notebook</h1>
+      <h1 class="title">Quarto Basics</h1>
                       </div>
   </div>
     
@@ -175,7 +175,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup-enviroment" class="level1">
 <h1>setup enviroment</h1>
 <div class="cell" data-outputid="78d23737-60f2-4dd9-f51e-c17ed8410999">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install datasets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Collecting datasets
   Downloading datasets-2.14.5-py3-none-any.whl (519 kB)
@@ -221,14 +224,20 @@ Successfully installed datasets-2.14.5 dill-0.3.7 huggingface-hub-0.17.3 multipr
 </div>
 </div>
 <div class="cell" data-outputid="c85cf046-97f5-4fbc-99ea-8b9382687598">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> google.colab <span class="im">import</span> drive</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>drive.mount(<span class="st">'/content/drive'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Mounted at /content/drive</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="5d006702-51e6-456c-acb3-39790e4ef4f9">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install torcheval</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Collecting torcheval
   Downloading torcheval-0.0.7-py3-none-any.whl (179 kB)
@@ -239,14 +248,19 @@ Successfully installed torcheval-0.0.7</code></pre>
 </div>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sys.path.append(<span class="st">'/content/drive/MyDrive/Learning/data_science/'</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="accelerated-sgd" class="level1">
 <h1>Accelerated SGD</h1>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle,gzip,math,os,time,shutil,torch,matplotlib <span class="im">as</span> mpl,numpy <span class="im">as</span> np,matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> fastcore.<span class="bu">all</span> <span class="im">as</span> fc</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> collections.abc <span class="im">import</span> Mapping</span>
@@ -269,8 +283,11 @@ Successfully installed torcheval-0.0.7</code></pre>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> miniai.learner <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> miniai.activations <span class="im">import</span> <span class="op">*</span></span>
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> miniai.init <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastcore.test <span class="im">import</span> test_close</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>torch.set_printoptions(precision<span class="op">=</span><span class="dv">2</span>, linewidth<span class="op">=</span><span class="dv">140</span>, sci_mode<span class="op">=</span><span class="va">False</span>)</span>
@@ -280,8 +297,11 @@ Successfully installed torcheval-0.0.7</code></pre>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>logging.disable(logging.WARNING)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell" data-outputid="c7429331-6557-47ad-81b6-db686d7d338c">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>xl,yl <span class="op">=</span> <span class="st">'image'</span>,<span class="st">'label'</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">"fashion_mnist"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>dsd <span class="op">=</span> load_dataset(name)</span>
@@ -294,6 +314,7 @@ Successfully installed torcheval-0.0.7</code></pre>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>tds <span class="op">=</span> dsd.with_transform(transformi)</span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> DataLoaders.from_dd(tds, bs, num_workers<span class="op">=</span><span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-display">
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id":"5e6d682b50df4951bb8d605f12c8d654","version_major":2,"version_minor":0,"quarto_mimetype":"application/vnd.jupyter.widget-view+json"}
@@ -355,12 +376,15 @@ Successfully installed torcheval-0.0.7</code></pre>
 </div>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> MetricsCB(accuracy<span class="op">=</span>MulticlassAccuracy())</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>astats <span class="op">=</span> ActivationStats(fc.risinstance(GeneralRelu))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cbs <span class="op">=</span> [DeviceCB(), metrics, ProgressCB(plot<span class="op">=</span><span class="va">True</span>), astats]</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>act_gr <span class="op">=</span> partial(GeneralRelu, leak<span class="op">=</span><span class="fl">0.1</span>, sub<span class="op">=</span><span class="fl">0.4</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>iw <span class="op">=</span> partial(init_weights, leaky<span class="op">=</span><span class="fl">0.1</span>)</span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>lrf_cbs <span class="op">=</span> [DeviceCB(), LRFinderCB()]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="optimizers" class="level2">
 <h2 class="anchored" data-anchor-id="optimizers">Optimizers</h2>
@@ -368,6 +392,8 @@ Successfully installed torcheval-0.0.7</code></pre>
 <section id="sgd" class="level3">
 <h3 class="anchored" data-anchor-id="sgd">SGD</h3>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># SGD estimates the gradient using just a single data point or a small batch of data points at each iteration.</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This makes SGD faster and more computationally efficient</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SGD:</span>
@@ -391,8 +417,11 @@ Successfully installed torcheval-0.0.7</code></pre>
 <span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Zeros out the gradient for all parameters.</span></span>
 <span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> zero_grad(<span class="va">self</span>):</span>
 <span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> p <span class="kw">in</span> <span class="va">self</span>.params: p.grad.data.zero_()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># adam is a comparison between Adam and</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Adam(SGD):</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, params, lr, wd<span class="op">=</span><span class="fl">0.</span>, beta1<span class="op">=</span><span class="fl">0.9</span>, beta2<span class="op">=</span><span class="fl">0.99</span>, eps<span class="op">=</span><span class="fl">1e-5</span>):</span>
@@ -407,13 +436,19 @@ Successfully installed torcheval-0.0.7</code></pre>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>        p.sqr_avg <span class="op">=</span> <span class="va">self</span>.beta2<span class="op">*</span>p.sqr_avg <span class="op">+</span> (<span class="dv">1</span><span class="op">-</span><span class="va">self</span>.beta2)<span class="op">*</span>(p.grad<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>        unbias_sqr_avg <span class="op">=</span> p.sqr_avg <span class="op">/</span> (<span class="dv">1</span> <span class="op">-</span> (<span class="va">self</span>.beta2<span class="op">**</span>(<span class="va">self</span>.i<span class="op">+</span><span class="dv">1</span>)))</span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        p <span class="op">-=</span> <span class="va">self</span>.lr <span class="op">*</span> unbias_avg <span class="op">/</span> (unbias_sqr_avg <span class="op">+</span> <span class="va">self</span>.eps).sqrt()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<div class="cell" data-outputid="d2c07c0d-0888-4d41-cd7f-41041648f76b">
+<div id="fig-polar" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<details>
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>set_seed(<span class="dv">42</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> get_model(act_gr, norm<span class="op">=</span>nn.BatchNorm2d).<span class="bu">apply</span>(iw)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> TrainLearner(model, dls, F.cross_entropy, lr<span class="op">=</span><span class="fl">6e-3</span>, cbs<span class="op">=</span>cbs, opt_func<span class="op">=</span>Adam)</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>learn.fit(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
+</details>
+<div id="fig-polar-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
 
 <style>
     /* Turns off some styling */
@@ -430,8 +465,11 @@ Successfully installed torcheval-0.0.7</code></pre>
         background: #F44336;
     }
 </style>
+<figcaption class="figure-caption">(a) A line plot on a polar axis</figcaption>
+</figure>
 </div>
-<div class="cell-output cell-output-display">
+<div id="fig-polar-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
 <table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
@@ -480,10 +518,19 @@ Successfully installed torcheval-0.0.7</code></pre>
 </tr>
 </tbody>
 </table>
+<figcaption class="figure-caption">(b) <strong>?(caption)</strong></figcaption>
+</figure>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="Adam_optimizer_files/figure-html/cell-16-output-3.png" class="img-fluid"></p>
+<div id="fig-polar-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="no_code_folding_files/figure-html/fig-polar-output-3.png" class="img-fluid figure-img" data-ref-parent="fig-polar"></p>
+<figcaption class="figure-caption">(c)</figcaption>
+</figure>
 </div>
+</div>
+<figcaption class="figure-caption">Figure&nbsp;1: <strong>?(caption)</strong></figcaption>
+</figure>
 </div>
 <p>Adam with Automatic Annealer<br><br> Automatic annealing refers to the automatic adjustment of the learning rate during training. Unlike a constant or step-wise decayed learning rate, automatic annealers adjust the learning rate based on the model’s performance, generally on the validation set. Criteria such as validation loss, training loss, or some other metric can be used for this adjustment. <br><br> For instance, if the validation loss plateaus or increases, the annealer may reduce the learning rate, effectively “cooling down” the optimization and allowing the model to escape local minima or saddle points. Conversely, if the model is learning effectively, the annealer might maintain or even slightly increase the learning rate.</p>
 
