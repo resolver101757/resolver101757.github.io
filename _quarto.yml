@@ -3,7 +3,7 @@ project:
   output-dir: docs  # This is the new line to specify the output directory
 
 website:
-  title: "AlexPaulKelly"
+  title: "Alex Paul Kelly"
   navbar:
     right:
       - about.qmd

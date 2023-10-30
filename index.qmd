@@ -1,5 +1,5 @@
 ---
-title: "AI: The Catalyst of the 4th Industrial Transformation"
+title: "AI: The Catalyst of the 4th Industrial transformation"
 listing:
   contents: posts
   sort: "date desc"
