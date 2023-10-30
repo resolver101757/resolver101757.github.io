@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -139,7 +173,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#why-initialization-model-weights-before-starting-the-optimization" id="toc-why-initialization-model-weights-before-starting-the-optimization" class="nav-link active" data-scroll-target="#why-initialization-model-weights-before-starting-the-optimization">Why initialization model weights before starting the optimization</a></li>
+  <li><a href="#why-am-i-writing-about-lsuv" id="toc-why-am-i-writing-about-lsuv" class="nav-link active" data-scroll-target="#why-am-i-writing-about-lsuv">Why am I writing about LSUV?</a></li>
+  <li><a href="#why-initialization-model-weights-before-starting-the-optimization" id="toc-why-initialization-model-weights-before-starting-the-optimization" class="nav-link" data-scroll-target="#why-initialization-model-weights-before-starting-the-optimization">Why initialization model weights before starting the optimization</a></li>
+  <li><a href="#lsuv-vs-other-methods" id="toc-lsuv-vs-other-methods" class="nav-link" data-scroll-target="#lsuv-vs-other-methods">LSUV vs other methods</a></li>
   </ul>
 </nav>
     </div>
@@ -149,17 +185,49 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="why-am-i-writing-about-lsuv" class="level1">
+<h1>Why am I writing about LSUV?</h1>
+<p>I’m watching online videos series by Fast.ai where we are looking at re-creating neural networks from scratch using Python ensuring we fully understand innerworkings of each aspect of a nerual network. This will enable me to create new techniques and improve existing techniques and enable me to piece together the right neural network for the right task.</p>
+<p>On top of that we meet up online for a study group and share/discuss what we have been studying. This blog post is why we need a better way to initialize weights than just choosing random values.</p>
+</section>
 <section id="why-initialization-model-weights-before-starting-the-optimization" class="level1">
 <h1>Why initialization model weights before starting the optimization</h1>
 <p><img src="weight_initialization.png" class="img-fluid"></p>
 <p>Proper initialization can affect how quickly the model converges to a minimum loss, or even whether it converges at all. Its not just about the initialization of the 1st layer of weights, its about all the weights from layer 1 to the last to the outputs.</p>
-<p>Here are a few key points on weight initialations</p>
+<p>Here are a few key points on weight initialations :</p>
 <ol type="1">
 <li>The hardware has floating point limitations that mean it processes limited number of bits and stores in a limited amount of memory. If the weights are too high or too low then it ends up calculating the results with too high or too low to store into memory specified which are called exploding or vanishing neurons (i.e.. dead neurons) at anypoint level in the nereual network. This results in information lost, which are called dead neurons or neurons that dont contribute to the end result in a optimal way.<br>
 </li>
 <li>The mean should be close to zero, if the number is far away from zero, you will more likely end up with exploding or vanishing neurons (i.e.. dead neurons) that don’t contribute to the end prediction or classification. Enforcing a mean of zero is a way to optimize the weights so when calculated against the inputs they give a optimal result in the floating point range that the hardware can handle.</li>
 <li>The standard deviation should be near 1 so that the values don’t vary too far from the mean (i.e.&nbsp;0 mentioned in point 2). A standard deviation that’s too high or too low could lead to weights that are too disparate or too similar, affecting the learning dynamics.</li>
 </ol>
+</section>
+<section id="lsuv-vs-other-methods" class="level1">
+<h1>LSUV vs other methods</h1>
+<p>Each model comes with its own issues and choosing the right initialization model is key to success. Some initializations work better with large models, some with small and some depend on the activation functions, sometimes you have to experiment to see which ones work best. Here are a few examples of initialization techniques :</p>
+<ul>
+<li>LSUV (Layer-Sequential Unit-Variance) Initialization</li>
+<li>Zero Initialization</li>
+<li>Random Initialization</li>
+<li>Xavier/Glorot Initialization</li>
+<li>He Initialization</li>
+<li>LeCun Initialization</li>
+</ul>
+<p>LSUV is a valuable weight initialization technique, especially for deeper architectures where traditional techniques might not be as effective. However, the choice of weight initialization should be based on the network architecture, activation function, and specific challenges of the problem at hand.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torchvision.transforms.functional <span class="im">as</span> TF</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> contextlib <span class="im">import</span> contextmanager</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch <span class="im">import</span> nn,tensor</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset,load_dataset_builder</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> miniai.datasets <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> miniai.conv <span class="im">import</span> <span class="op">*</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> logging</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastcore.test <span class="im">import</span> test_close</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 
 
 </section>

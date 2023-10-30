@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/demo_quarto_jupyter_ref/LSUV_for_the_blog.html",
       "/posts/demo_quarto_jupyter_ref/no_code_folding.html",
       "/posts/initialization_neural_networks/index.html",
       "/posts/chatGPT_audio_conversation/index.html",
