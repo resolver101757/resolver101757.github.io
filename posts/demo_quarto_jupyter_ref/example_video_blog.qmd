@@ -3,6 +3,7 @@ title: "My Blog Post"
 author: "Your Name"
 date: "November 8, 2023"
 format: html
+draft: True
 ---
 
 # My Interesting Blog Post

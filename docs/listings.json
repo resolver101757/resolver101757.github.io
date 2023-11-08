@@ -3,7 +3,6 @@
     "listing": "/index.html",
     "items": [
       "/posts/initialization_neural_networks/index.html",
-      "/posts/demo_quarto_jupyter_ref/example_video_blog.html",
       "/posts/chatGPT_audio_conversation/index.html",
       "/posts/Exploring_GTP4V_paper/index.html"
     ]
