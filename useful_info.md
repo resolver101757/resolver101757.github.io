@@ -1,4 +1,4 @@
-# commands to run quarto
+# Commands to run quarto
 
 to create a project (run once at the beginning to create the project files)
 - quarto create project_name --template=blog
@@ -13,6 +13,8 @@ to Create update the files (run before pushing to github)
 
 - Video of somone showing how to use quarto https://www.youtube.com/watch?v=nllKcuX7rEc
 - ilovetensoor coppied a good link here : https://discord.com/channels/689892369998676007/1096981866248147014/1167453441291984936
+- example blog http://vishalbakshi.com/blog/posts/2023-10-09-nn-rf-embeddings/
+- example blog https://ilovetensor.tech/posts/neural-nets-from-scratch/
 
 
 # quarto reference page : 
