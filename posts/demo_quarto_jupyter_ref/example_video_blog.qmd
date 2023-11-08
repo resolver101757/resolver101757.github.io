@@ -1,0 +1,33 @@
+---
+title: "My Blog Post"
+author: "Your Name"
+date: "November 8, 2023"
+format: html
+---
+
+# My Interesting Blog Post
+
+Welcome to my blog post. Here's an interesting video I found:
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+</div>
+
+## Introduction
+
+Here's some introduction text. You can use Markdown to format your text.
+
+For example, you can use **bold** text or *italic* text. 
+
+You can also create lists:
+
+- Point one
+- Point two
+- Point three
+
+## Analysis
+
+Let's dive deeper into the topic with some analysis.
+
+You can even include code blocks if you're talking about code:
+
