@@ -177,17 +177,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
+<<<<<<< HEAD
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
   <ul class="collapse">
   <li><a href="#why-am-i-writing-about-lsuv" id="toc-why-am-i-writing-about-lsuv" class="nav-link" data-scroll-target="#why-am-i-writing-about-lsuv">Why am I writing about LSUV?</a></li>
+=======
+  <li><a href="#why-am-i-writing-about-lsuv" id="toc-why-am-i-writing-about-lsuv" class="nav-link active" data-scroll-target="#why-am-i-writing-about-lsuv">Why am I writing about LSUV?</a></li>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
   <li><a href="#why-initialization-model-weights-before-starting-the-optimization" id="toc-why-initialization-model-weights-before-starting-the-optimization" class="nav-link" data-scroll-target="#why-initialization-model-weights-before-starting-the-optimization">Why initialization model weights before starting the optimization</a></li>
   <li><a href="#lsuv-vs-other-weight-optimization-techniques" id="toc-lsuv-vs-other-weight-optimization-techniques" class="nav-link" data-scroll-target="#lsuv-vs-other-weight-optimization-techniques">LSUV vs other weight optimization techniques</a></li>
   <li><a href="#the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results" id="toc-the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results" class="nav-link" data-scroll-target="#the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results">The following sections guide you through the code along with comments and reflections on the results</a></li>
   <li><a href="#setup-environment-loading-the-dataset-transforming-the-data-for-training" id="toc-setup-environment-loading-the-dataset-transforming-the-data-for-training" class="nav-link" data-scroll-target="#setup-environment-loading-the-dataset-transforming-the-data-for-training">Setup environment, loading the dataset, transforming the data for training</a></li>
+<<<<<<< HEAD
   </ul></li>
   <li><a href="#find-the-optimal-learning-rate" id="toc-find-the-optimal-learning-rate" class="nav-link" data-scroll-target="#find-the-optimal-learning-rate">Find the optimal learning rate</a></li>
   <li><a href="#example-of-poorly-initialized-model-no-input-or-weight-initialization" id="toc-example-of-poorly-initialized-model-no-input-or-weight-initialization" class="nav-link" data-scroll-target="#example-of-poorly-initialized-model-no-input-or-weight-initialization">Example of poorly initialized model (No input or weight initialization)</a></li>
   <li><a href="#improve-the-model-by-input-normalization" id="toc-improve-the-model-by-input-normalization" class="nav-link" data-scroll-target="#improve-the-model-by-input-normalization">Improve the model by input normalization</a></li>
+=======
+  <li><a href="#find-the-optimal-learning-rate" id="toc-find-the-optimal-learning-rate" class="nav-link" data-scroll-target="#find-the-optimal-learning-rate">Find the optimal learning rate</a></li>
+  <li><a href="#example-of-poorly-initialized-model-no-input-or-weight-initialization" id="toc-example-of-poorly-initialized-model-no-input-or-weight-initialization" class="nav-link" data-scroll-target="#example-of-poorly-initialized-model-no-input-or-weight-initialization">Example of poorly initialized model (No input or weight initialization)</a></li>
+  <li><a href="#improve-the-model-by-standardizing-the-inputs" id="toc-improve-the-model-by-standardizing-the-inputs" class="nav-link" data-scroll-target="#improve-the-model-by-standardizing-the-inputs">Improve the model by standardizing the inputs</a></li>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
   <li><a href="#batch-normalization-with-leaky-relu-activation-and-kaiming-normalization." id="toc-batch-normalization-with-leaky-relu-activation-and-kaiming-normalization." class="nav-link" data-scroll-target="#batch-normalization-with-leaky-relu-activation-and-kaiming-normalization.">Batch Normalization with Leaky ReLU activation and Kaiming normalization.</a></li>
   <li><a href="#implement-lsuv-initialization-as-a-class" id="toc-implement-lsuv-initialization-as-a-class" class="nav-link" data-scroll-target="#implement-lsuv-initialization-as-a-class">implement LSUV initialization as a class</a></li>
   </ul>
@@ -199,18 +209,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<<<<<<< HEAD
 <section id="overview" class="level1">
 <h1>Overview</h1>
 <section id="why-am-i-writing-about-lsuv" class="level2">
 <h2 class="anchored" data-anchor-id="why-am-i-writing-about-lsuv">Why am I writing about LSUV?</h2>
+=======
+<section id="why-am-i-writing-about-lsuv" class="level1">
+<h1>Why am I writing about LSUV?</h1>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <p>I’m watching online videos series by Fast.ai where we are looking at re-creating neural networks from scratch using Python ensuring we fully understand inner workings of each aspect of a neural network. This will allow me to create new techniques and improve existing techniques and enable me to piece together the right neural network for the right task.</p>
 <p>On top of that we meet up online for a study group and share/discuss what we have been studying. This blog post is why we need a better way to initialize weights than just choosing random values.</p>
 </section>
 <section id="why-initialization-model-weights-before-starting-the-optimization" class="level2">
 <h2 class="anchored" data-anchor-id="why-initialization-model-weights-before-starting-the-optimization">Why initialization model weights before starting the optimization</h2>
 <p><img src="weight_initialization.png" class="img-fluid"></p>
+<<<<<<< HEAD
 <p>Proper initialization can affect how quickly the model converges to a minimum loss, or even whether it converges at all. It’s not just about the initialization of the 1st layer of weights, its about all of the layers weights from the 1st to the last.</p>
 <p>Here are a few key points on weight initializations:</p>
+=======
+<p>Proper initialization can affect how quickly the model converges to a minimum loss, or even whether it converges at all. Its not just about the initialization of the 1st layer of weights, its about all of the layers weights from the 1st to the last.</p>
+<p>Here are a few key points on weight initializations :</p>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <ol type="1">
 <li>The hardware has floating point limitations that mean it processes a limited number of bits and stores in a limited amount of memory. if the weights are too high or too low, then the resulting calculations can exceed the numerical range that can be represented in the specified memory, leading to what is known as exploding or vanishing gradients (i.e.. inactive neurons) at any level in the neural network. This results in information lost, which are called inactive neurons or neurons that dont contribute to the end result in a optimal way.<br>
 </li>
@@ -218,8 +238,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>The standard deviation should be near 1 so that the values don’t vary too far from the mean (i.e.&nbsp;0 mentioned in point 2). A standard deviation that’s too high or too low could lead to weights that are too disparate or too similar, affecting the learning dynamics.</li>
 </ol>
 </section>
+<<<<<<< HEAD
 <section id="lsuv-vs-other-weight-optimization-techniques" class="level2">
 <h2 class="anchored" data-anchor-id="lsuv-vs-other-weight-optimization-techniques">LSUV vs other weight optimization techniques</h2>
+=======
+<section id="lsuv-vs-other-weight-optimization-techniques" class="level1">
+<h1>LSUV vs other weight optimization techniques</h1>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <p>Each model comes with its own issues and choosing the right initialization model is key to success. Some initializations work better with large models, some with small and some depend on the activation functions, sometimes you have to experiment to see which ones work best with your data and model. Here are a few examples of initialization techniques and when to use them :</p>
 <ul>
 <li><p>LSUV (Layer-Sequential Unit-Variance) Initialization: Initializes neural network weights in a way that the variance of the outputs of each layer is unitary, aiming to combat the vanishing and exploding gradient problem.</p></li>
@@ -231,8 +256,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>LSUV is a valuable weight initialization technique, especially for deeper architectures where traditional techniques might not be as effective. However, the choice of weight initialization should be based on the network architecture, activation function, and specific challenges of the problem at hand.</p>
 </section>
+<<<<<<< HEAD
 <section id="the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results" class="level2">
 <h2 class="anchored" data-anchor-id="the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results">The following sections guide you through the code along with comments and reflections on the results</h2>
+=======
+<section id="the-following-sections-guide-you-through-the-code-along-with-comments-and-reflections-on-the-results" class="level1">
+<h1>The following sections guide you through the code along with comments and reflections on the results</h1>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <p>The aim of the notebook is create my own callback using LSUV, along the way we will start with the simplest of models and build up to more complex models, viewing and critiqueing the results along the way. All the code and data is here to recreate the results.</p>
 <p>We will be covering :</p>
 <ul>
@@ -244,12 +274,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>LSUV training method</li>
 </ul>
 <p>each of the learner sections where we will be running the model will have the following charts :</p>
+<<<<<<< HEAD
 <p><br> <strong>loss and accuracy :</strong> learner loss and accuracy for the training and validation data sets <br> <strong>Color_dim :</strong> The color represents the frequency of activations in a specific range. We’re using the Viridis colormap, yellow indicates higher frequencies (many activations in that range), and purple indicates lower frequencies. So, areas with more intense yellow mean those activation values occur more frequently along the (y axis) for that batch (X axis). Ideally want the yellow spread accross the y axis which you will see demostrated across the sections. <br> <strong>Dead_chart :</strong> Shows how many inactive neurons there are, 1 being all neurons are inactive and 0 meaning no neurons are inactive. Having more neurons contributing the the results is better. <br> <strong>Plot_stats :</strong> Means close to zero but standard deviations far off expected goal of 1, to far from 1 to train optimally. <br> <br> - and finally the conclusion of the results</p>
 </section>
 <section id="setup-environment-loading-the-dataset-transforming-the-data-for-training" class="level2">
 <h2 class="anchored" data-anchor-id="setup-environment-loading-the-dataset-transforming-the-data-for-training">Setup environment, loading the dataset, transforming the data for training</h2>
 <p>This code sets up a pipeline to preprocess and load the Street View House Numbers (SVHN) dataset for machine learning with PyTorch. It installs required packages, imports libraries, configures settings, fetches the dataset, converts images to grayscale, applies data transformations, and creates data loaders for training.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:472825,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023340232,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="57f9d48a-b16e-426e-ff9f-2e9a6438567c">
+=======
+<p><br> <strong>loss and accuracy :</strong> learner loss and accuracy for the training and validation data sets <br> <strong>Color_dim :</strong> The color represents the frequency of activations in a specific range. We’re using the Viridis colormap, yellow indicates higher frequencies (many activations in that range), and purple indicates lower frequencies. So, areas with more intense yellow mean those activation values occur more frequently along the (y axis) for that batch (X axis). Ideally want the yellow spread accross the y axis which you will see demostrated across the sections. <br> <strong>Dead_chart :</strong> Shows how many dead neurons there are, 1 being all neurons are dead and 0 meaning no neurons are dead. Having more neurons contributing the the results is better. <br> <strong>Plot_stats :</strong> Means close to zero but standard deviations far off expected goal of 1, to far from 1 to train optimally. <br> <br> - and finally the conclusion of the results</p>
+</section>
+<section id="setup-environment-loading-the-dataset-transforming-the-data-for-training" class="level1">
+<h1>Setup environment, loading the dataset, transforming the data for training</h1>
+<p>This code sets up a pipeline to preprocess and load the Street View House Numbers (SVHN) dataset for machine learning with PyTorch. It installs required packages, imports libraries, configures settings, fetches the dataset, converts images to grayscale, applies data transformations, and creates data loaders for training.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:472825,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023340232,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="57f9d48a-b16e-426e-ff9f-2e9a6438567c" data-execution_count="3">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>….click to expand code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install required libraries</span></span>
@@ -401,6 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="example-of-poorly-initialized-model-no-input-or-weight-initialization" class="level1">
 <h1>Example of poorly initialized model (No input or weight initialization)</h1>
 <p>It will show training pipeline and corresponding metrics visualized through various charts. Annotations provide insights into the model’s performance during training.</p>
+<<<<<<< HEAD
 <p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as inactive neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements. <br> <br> <strong>Key technical information for this section :</strong> <br> <br> <strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> A Convolution neural network showing the number of filters in each layer and ending with 10 output units. <br> <strong>Activation is nn.ReLU :</strong> ReLU function introduces non-linearity to the model. <br> <strong>Data normalisation :</strong> None <br> <strong>weight normalization :</strong> None <br></p>
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023513680,&quot;user_tz&quot;:0,&quot;elapsed&quot;:121811,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="99933d23-14cf-4409-f93b-174b17e1e5ca">
 <details>
@@ -489,6 +529,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a>astats <span class="op">=</span> ActivationStats(fc.risinstance(nn.ReLU))</span>
 <span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>fit(model, xtra_cbs<span class="op">=</span>[astats])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+=======
+<p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as dead neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements. <br> <br> <strong>Key technical information for this section :</strong> <br> <br> <strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> A Convolution neural network showing the number of filters in each layer and ending with 10 output units. <br> <strong>Activation is nn.ReLU :</strong> ReLU function introduces non-linearity to the model. <br> <strong>Data normalisation :</strong> None <br> <strong>weight normalization :</strong> None <br></p>
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023513680,&quot;user_tz&quot;:0,&quot;elapsed&quot;:121811,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="99933d23-14cf-4409-f93b-174b17e1e5ca" data-execution_count="6">
+<details>
+<summary>The chart loss shows the training was learning over the 1st 50 batches and flatlined, the first 50 batches didnt see much improvement, further tools are needed to improve the learning process …. click to expand code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># improved function to include labelling for the stats</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ActivationStats(HooksCallback):</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, mod_filter<span class="op">=</span>fc.noop):</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(append_stats, mod_filter)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> color_dim(<span class="va">self</span>, figsize<span class="op">=</span>(<span class="dv">11</span>,<span class="dv">5</span>)):</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      fig, axes <span class="op">=</span> get_grid(<span class="bu">len</span>(<span class="va">self</span>), figsize<span class="op">=</span>figsize)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="cf">for</span> ax, h <span class="kw">in</span> <span class="bu">zip</span>(axes.flat, <span class="va">self</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          im <span class="op">=</span> ax.imshow(get_hist(h), origin<span class="op">=</span><span class="st">'lower'</span>)  <span class="co"># Using imshow directly</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="co"># Add labels, title, and colorbar for clarity</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>          ax.set_xlabel(<span class="st">"Batch Number"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>          ax.set_ylabel(<span class="st">"Activation Value"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>          ax.set_title(<span class="st">"Layer "</span> <span class="op">+</span> <span class="st">"str(self.index(h))"</span> <span class="op">+</span> <span class="st">" Activations"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>          cbar <span class="op">=</span> plt.colorbar(im, ax<span class="op">=</span>ax)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>          cbar.set_label(<span class="st">"Frequency"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>      plt.tight_layout()  <span class="co"># Prevent overlap</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> dead_chart(<span class="va">self</span>, figsize<span class="op">=</span>(<span class="dv">11</span>,<span class="dv">5</span>)):</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>        fig, axes <span class="op">=</span> get_grid(<span class="bu">len</span>(<span class="va">self</span>), figsize<span class="op">=</span>figsize)</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ax, h <span class="kw">in</span> <span class="bu">zip</span>(axes.flatten(), <span class="va">self</span>):</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>            ax.plot(get_min(h), linewidth<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            ax.set_ylim(<span class="dv">0</span>,<span class="dv">1</span>)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>            ax.set_xlabel(<span class="st">"Batch Number"</span>)</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="st">"Activation Value"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>            ax.set_title(<span class="st">"Layer "</span> <span class="op">+</span> <span class="st">"str(self.index(h))"</span> <span class="op">+</span> <span class="st">" Dead Activations"</span>)</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        plt.tight_layout()  <span class="co"># Prevent overlap</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> plot_stats(<span class="va">self</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">4</span>)):</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        fig, axs <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>, figsize<span class="op">=</span>figsize)</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> h <span class="kw">in</span> <span class="va">self</span>:</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> i <span class="kw">in</span> <span class="dv">0</span>,<span class="dv">1</span>:</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>                axs[i].plot(h.stats[i])</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">0</span>].set_title(<span class="st">'Means'</span>)</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">1</span>].set_title(<span class="st">'Stdevs'</span>)</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">0</span>].set_xlabel(<span class="st">"Batch Number"</span>)</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">1</span>].set_xlabel(<span class="st">"Batch Number"</span>)</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">0</span>].set_ylabel(<span class="st">"Mean Activation Value"</span>)</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>        axs[<span class="dv">1</span>].set_ylabel(<span class="st">"Standard Deviation of Activation Value"</span>)</span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>        plt.legend(fc.L.<span class="bu">range</span>(<span class="va">self</span>))</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>        <span class="co">#plt.tight_layout()  # Prevent overlap</span></span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a><span class="co"># transform dataset and loader</span></span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a><span class="at">@inplace</span></span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transformi(b): b[x] <span class="op">=</span> [TF.to_tensor(o) <span class="cf">for</span> o <span class="kw">in</span> b[x]]</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>tds <span class="op">=</span> dsd.with_transform(transformi)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> DataLoaders.from_dd(tds, bs, num_workers<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> dls.train</span>
+<span id="cb3-51"><a href="#cb3-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-52"><a href="#cb3-52" aria-hidden="true" tabindex="-1"></a><span class="co"># setup model for learning</span></span>
+<span id="cb3-53"><a href="#cb3-53" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> MetricsCB(accuracy<span class="op">=</span>MulticlassAccuracy())</span>
+<span id="cb3-54"><a href="#cb3-54" aria-hidden="true" tabindex="-1"></a>cbs <span class="op">=</span> [TrainCB(), DeviceCB(), metrics, ProgressCB(plot<span class="op">=</span><span class="va">True</span>)]</span>
+<span id="cb3-55"><a href="#cb3-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-56"><a href="#cb3-56" aria-hidden="true" tabindex="-1"></a><span class="co"># fits dataset</span></span>
+<span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> fit(model, epochs<span class="op">=</span><span class="dv">3</span>, xtra_cbs<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    learn <span class="op">=</span> Learner(model, dls, loss_func<span class="op">=</span>F.cross_entropy, lr<span class="op">=</span><span class="fl">0.2</span>, cbs<span class="op">=</span>cbs<span class="op">+</span>fc.L(xtra_cbs))</span>
+<span id="cb3-59"><a href="#cb3-59" aria-hidden="true" tabindex="-1"></a>    learn.fit(epochs)</span>
+<span id="cb3-60"><a href="#cb3-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> learn</span>
+<span id="cb3-61"><a href="#cb3-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-62"><a href="#cb3-62" aria-hidden="true" tabindex="-1"></a><span class="co"># conv function takes in kernal size, stride (how many elements are skipped) and padding (number of zeros added to the edge of the input data)</span></span>
+<span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a><span class="co"># along with ni (features) input channels and output channels (feature maps)</span></span>
+<span id="cb3-64"><a href="#cb3-64" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conv(ni, nf, ks<span class="op">=</span><span class="dv">3</span>, act<span class="op">=</span><span class="va">True</span>):</span>
+<span id="cb3-65"><a href="#cb3-65" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> nn.Conv2d(ni, nf, stride<span class="op">=</span><span class="dv">2</span>, kernel_size<span class="op">=</span>ks, padding<span class="op">=</span>ks<span class="op">//</span><span class="dv">2</span>)</span>
+<span id="cb3-66"><a href="#cb3-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> act: res <span class="op">=</span> nn.Sequential(res, nn.ReLU())</span>
+<span id="cb3-67"><a href="#cb3-67" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
+<span id="cb3-68"><a href="#cb3-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-69"><a href="#cb3-69" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb3-70"><a href="#cb3-70" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cnn_layers():</span>
+<span id="cb3-71"><a href="#cb3-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [</span>
+<span id="cb3-72"><a href="#cb3-72" aria-hidden="true" tabindex="-1"></a>        conv(<span class="dv">1</span> ,<span class="dv">8</span>, ks<span class="op">=</span><span class="dv">5</span>),        <span class="co">#14x14</span></span>
+<span id="cb3-73"><a href="#cb3-73" aria-hidden="true" tabindex="-1"></a>        conv(<span class="dv">8</span> ,<span class="dv">16</span>),             <span class="co">#7x7</span></span>
+<span id="cb3-74"><a href="#cb3-74" aria-hidden="true" tabindex="-1"></a>        conv(<span class="dv">16</span>,<span class="dv">32</span>),             <span class="co">#4x4</span></span>
+<span id="cb3-75"><a href="#cb3-75" aria-hidden="true" tabindex="-1"></a>        conv(<span class="dv">32</span>,<span class="dv">64</span>),             <span class="co">#2x2</span></span>
+<span id="cb3-76"><a href="#cb3-76" aria-hidden="true" tabindex="-1"></a>        conv(<span class="dv">64</span>,<span class="dv">10</span>, act<span class="op">=</span><span class="va">False</span>),  <span class="co">#1x1</span></span>
+<span id="cb3-77"><a href="#cb3-77" aria-hidden="true" tabindex="-1"></a>        nn.Flatten()]</span>
+<span id="cb3-78"><a href="#cb3-78" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> nn.Sequential(<span class="op">*</span>cnn_layers())</span>
+<span id="cb3-79"><a href="#cb3-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-80"><a href="#cb3-80" aria-hidden="true" tabindex="-1"></a><span class="co">#astats = ActivationStats(fc.risinstance(GeneralRelu))</span></span>
+<span id="cb3-81"><a href="#cb3-81" aria-hidden="true" tabindex="-1"></a>astats <span class="op">=</span> ActivationStats(fc.risinstance(nn.ReLU))</span>
+<span id="cb3-82"><a href="#cb3-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-83"><a href="#cb3-83" aria-hidden="true" tabindex="-1"></a>fit(model, xtra_cbs<span class="op">=</span>[astats])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </details>
 <div class="cell-output cell-output-display">
 
@@ -563,7 +692,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-8-output-3.png" class="img-fluid"></p>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023515074,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1401,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="cf9bdf33-b93c-4dfb-f0e0-df6918894ff5">
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023515074,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1401,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="cf9bdf33-b93c-4dfb-f0e0-df6918894ff5" data-execution_count="7">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>The color represents the frequency of activations in a specific range. Using the Viridis colormap, yellow indicates higher frequencies (many activations in that range), and purple indicates lower frequencies. So, areas with more intense yellow mean those activation values occur more frequently for that batch….. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>astats.color_dim()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -572,12 +705,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-9-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">Colour chart to show inactive neurons</figcaption>
+=======
+<figcaption class="figure-caption">Colour chart to show dead neurons</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:598,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023515667,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="e2e1577f-20c6-4eb3-ae5e-579b729983d8">
+=======
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:598,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023515667,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="e2e1577f-20c6-4eb3-ae5e-579b729983d8" data-execution_count="8">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>Plots of means and standard deviations for each layer activations. Means should be close to zero and Stdevs should be close to 1 for optimal training…. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>astats.plot_stats()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -591,21 +732,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023516495,&quot;user_tz&quot;:0,&quot;elapsed&quot;:838,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="a265280c-15d5-409b-ee9a-eb05c013064b">
 <details>
 <summary>plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result…. click to expand code</summary>
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023516495,&quot;user_tz&quot;:0,&quot;elapsed&quot;:838,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="a265280c-15d5-409b-ee9a-eb05c013064b" data-execution_count="9">
+<details>
+<summary>plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result…. click to expand code</summary>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>astats.dead_chart()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+=======
+<figcaption class="figure-caption">plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
 </div>
 </section>
+<<<<<<< HEAD
 <section id="improve-the-model-by-input-normalization" class="level1">
 <h1>Improve the model by input normalization</h1>
 <p>To give the optimize algorithm every chance converge quicker, normalization the inputs to a mean of zero and standard deviation of 1 will help. This can be done alone or with normalization the weights too. The following section discusses normalization the inputs alone.</p>
@@ -615,6 +767,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Key Technical Information for This Section:</strong></p>
 <p><strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> This denotes a Convolutional Neural Network with varying numbers of filters across different layers, culminating in 10 output units. <br> <strong>Activation is nn.ReLU :</strong> The model utilizes the ReLU (Rectified Linear Unit) activation function to introduce non-linearity, aiding in better approximations of complex functions. <br> <strong>Data normalisation :</strong> Custom <br> <strong>weight normalization :</strong> Normalisation <br> <strong>Learning Rate 0.2 :</strong> <br></p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:14772,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023531242,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="40c18584-3461-4b71-d65b-8ae0f6af5327">
+=======
+<section id="improve-the-model-by-standardizing-the-inputs" class="level1">
+<h1>Improve the model by standardizing the inputs</h1>
+<p>To give the optimize algorithm every chance converge quicker, standardizing the inputs to a mean of zero and standard deviation of 1 will help. This can be done alone or with standardizing the weights too. The following section discusses standardizing the inputs alone.</p>
+<p>The key to this is to ensure that each feature contributes equally to the learning process, which is especially important when the features have different units or different scales.</p>
+<p>It will show training pipeline and corresponding metrics visualized through various charts. Annotations provide insights into the model’s performance during training.</p>
+<p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as dead neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements.</p>
+<p><strong>Key Technical Information for This Section:</strong></p>
+<p><strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> This denotes a Convolutional Neural Network with varying numbers of filters across different layers, culminating in 10 output units. <br> <strong>Activation is nn.ReLU :</strong> The model utilizes the ReLU (Rectified Linear Unit) activation function to introduce non-linearity, aiding in better approximations of complex functions.</p>
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:14772,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023531242,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="40c18584-3461-4b71-d65b-8ae0f6af5327" data-execution_count="10">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>Setting up the data without input initialization, you can see the mean is not near 0 and the standard deviation is not near 1 so not a optimal setup….. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>xl,yl <span class="op">=</span> <span class="st">'image'</span>,<span class="st">'label'</span></span>
@@ -664,7 +827,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023546535,&quot;user_tz&quot;:0,&quot;elapsed&quot;:15300,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="f78e2509-130a-48d3-e369-63e5f9b0e718">
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023546535,&quot;user_tz&quot;:0,&quot;elapsed&quot;:15300,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="f78e2509-130a-48d3-e369-63e5f9b0e718" data-execution_count="11">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>This time with input initialization, you can see the mean is now near 0 and the standard deviation near 1 so it should help the model optimize quicker….. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="at">@inplace</span></span>
@@ -709,7 +876,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023674992,&quot;user_tz&quot;:0,&quot;elapsed&quot;:128479,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="03a6f18b-b4fe-40a8-cacd-f3d581526f78">
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023674992,&quot;user_tz&quot;:0,&quot;elapsed&quot;:128479,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="03a6f18b-b4fe-40a8-cacd-f3d581526f78" data-execution_count="12">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>The code sets up a deep learning pipeline for training a CNN model on a dataset. It defines transformations for the dataset, specifies data loaders, metrics, and callbacks, and then creates a CNN model with specific convolutional layers before fitting the model using a learner object with a ratee of lr=0.2, and includes activation statistics. it shows the model has flat lined at an accuracy of 0.19 and loss of 2.22, its likley that the model wont improve much with further training so other methods will be required to improve training further….. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># slightly better than last time but definatly not perfect&gt;</span></span>
@@ -789,7 +960,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-14-output-3.png" class="img-fluid"></p>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1954,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023676938,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="c39846c4-ef9a-46de-efb4-c8b62486d648">
+=======
+<div class="cell" data-executioninfo="{&quot;elapsed&quot;:1954,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023676938,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="c39846c4-ef9a-46de-efb4-c8b62486d648" data-execution_count="13">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>The color represents the frequency of activations in a specific range. Using the Viridis colormap, yellow indicates higher frequencies (many activations in that range), and purple indicates lower frequencies. So, areas with more intense yellow mean those activation values occur more frequently for that batch, this is still not looking good,as we have more yellow (more activations at the lower end of the scale) so we need to investigate other methods to help keep those neurons contributing to the end results…… click to expand code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>astats.color_dim()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -798,12 +973,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">Colour chart to show inactive neurons</figcaption>
+=======
+<figcaption class="figure-caption">Colour chart to show dead neurons</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023677990,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1055,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="ae9ef3a2-64ca-486f-93ff-a417b20f6ea4">
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023677990,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1055,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="ae9ef3a2-64ca-486f-93ff-a417b20f6ea4" data-execution_count="14">
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <details>
 <summary>Plots of means and standard deviations for each layer activations. Means should be close to zero and Stdevs should be close to 1 for optimal training, we’re far off that for the target standard deviations but they have improved very slighly, looks like the graph has raise by about 0.12. These figures would explain why the training did not improve with further epochs…. click to expand code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># stanard deviations still away from one but mean looks reasonable</span></span>
@@ -818,9 +1001,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<<<<<<< HEAD
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023678705,&quot;user_tz&quot;:0,&quot;elapsed&quot;:723,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="f3e93645-5b19-43f5-badb-5b6e20e5c6f0">
 <details>
 <summary>plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this has improve slightly on the 1st layer but still not great, lots of neurons not contributing to the end prediction…. click to expand code</summary>
+=======
+<div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1699023678705,&quot;user_tz&quot;:0,&quot;elapsed&quot;:723,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="f3e93645-5b19-43f5-badb-5b6e20e5c6f0" data-execution_count="15">
+<details>
+<summary>plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this has improve slightly on the 1st layer but still not great, lots of neurons not contributing to the end prediction…. click to expand code</summary>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># first layer quite bad and last layer is totally dead.</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>astats.dead_chart()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -828,7 +1017,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+=======
+<figcaption class="figure-caption">plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
@@ -839,9 +1032,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><br></p>
 <p>We are now changing 3 things. First is batch normalisation to control the inputs between each of layers, Leaky ReLU to keep more neurons alive so they contribute to the end result and finally weight initialization.</p>
 <p>It will show training pipeline and corresponding metrics visualized through various charts. Annotations provide insights into the model’s performance during training.</p>
+<<<<<<< HEAD
 <p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as inactive neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements.</p>
 <p><strong>Key Technical Information for This Section:</strong></p>
 <p><strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> Similar to the previous model, this convolutional architecture has filter sizes escalating from 1 to 64, ending with 10 output units. <br> <strong>Activation is Leaky ReLU :</strong> We will now use Leaky ReLU (instead of ReLu) as the activation function, which allows for a small, non-zero gradient when the unit is not active. i.e.&nbsp;it passes a positve number for each of the activations. <br> <strong>Data normalisation: is BatchNorm :</strong> This will help calculate the data after each activation layer??? <br> <strong>weight normalization :</strong> Kaiming normalization <br> <strong>Learning Rate 0.2 :</strong> Initial training was conducted with a learning rate of 0.2. <br> Best Training So Far: This version of the model has shown the best training results compared to previous iterations.</p>
+=======
+<p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as dead neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements.</p>
+<p><strong>Key Technical Information for This Section:</strong></p>
+<p><strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> Similar to the previous model, this convolutional architecture has filter sizes escalating from 1 to 64, ending with 10 output units. <br> <strong>Activation is Leaky ReLU :</strong> We will now use Leaky ReLU (instead of ReLu) as the activation function, which allows for a small, non-zero gradient when the unit is not active. i.e.&nbsp;it passes a positve number for each of the activations. <br> <strong>Data normalisation: is BatchNorm :</strong> This will help calculate the data after each activation layer??? <br> <strong>Learning Rate 0.2 :</strong> Initial training was conducted with a learning rate of 0.2. <br> Best Training So Far: This version of the model has shown the best training results compared to previous iterations.</p>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <p>What to Try Next : The section concludes with open questions and suggestions for future experiments to further enhance model performance. The use of batch normalization and Leaky ReLU has led to improved training dynamics. The next aim is to implement LSUV as call back</p>
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1698938362732,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1038,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="627aee1b-413c-4193-c817-f95be7eb6711">
 <details>
@@ -853,7 +1052,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>tds <span class="op">=</span> dsd.with_transform(transformi)</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> DataLoaders.from_dd(tds, bs, num_workers<span class="op">=</span><span class="dv">2</span>)</span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> dls.train</span>
+<<<<<<< HEAD
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| Avoiding inactive Neurons: Leaky ReLU helps to mitigate the problem of "inactive neurons" that can occur with ReLU units,</span></span>
+=======
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| Avoiding Dead Neurons: Leaky ReLU helps to mitigate the problem of "dead neurons" that can occur with ReLU units,</span></span>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># where neurons get stuck during training and always output a zero value. By allowing a small, non-zero output for negative inputs,</span></span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Leaky ReLU ensures that gradients can still flow through the neuron, which can help to keep learning progressing.</span></span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GeneralRelu(nn.Module):</span>
@@ -1023,14 +1226,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1698938500850,&quot;user_tz&quot;:0,&quot;elapsed&quot;:1661,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="bd3ec706-ea4e-421f-e620-ecd98daac47b">
 <details>
+<<<<<<< HEAD
 <summary>plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this this is much better, they are all quite low so roughly 80% are contributing to the result (prediction)…. click to expand code</summary>
+=======
+<summary>plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this this is much better, they are all quite low so roughly 80% are contributing to the result (prediction)…. click to expand code</summary>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>astats.dead_chart()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+=======
+<figcaption class="figure-caption">plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
@@ -1040,7 +1251,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>implement LSUV initialization as a class</h1>
 <p>This new model is more basic than the first model. Theres no data normalization but we’re keeping Leaky ReLU and changing the weight initialization to a custom LSUV callback.</p>
 <p>It will show training pipeline and corresponding metrics visualized through various charts. Annotations provide insights into the model’s performance during training.</p>
+<<<<<<< HEAD
 <p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as inactive neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements.</p>
+=======
+<p>By paying attention to these key metrics and visual cues, we can assess the shortcomings in the input initialization and training regimen, specifically issues such as dead neurons and poorly tuned input standardization (also know as input initializations). We can then compare them against previously un-initialized inputs and see any improvements.</p>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <p><strong>Key Technical Information for This Section:</strong></p>
 <p><strong>Conv 1,8,16,32,64 -&gt; 10 :</strong> Similar to the previous model, this convolutional architecture has filter sizes escalating from 1 to 64, ending with 10 output units. <br> <strong>Activation is Leaky ReLU :</strong> We will now use Leaky ReLU as the activation function, which allows for a small, non-zero gradient when the unit is not active. i.e.&nbsp;it passes a positve number for each of the activations. <br> <strong>Data normalisation :</strong> none <br> <strong>weight normalization :</strong> LSUV <br> <strong>Learning Rate 0.2 :</strong> Initial training was conducted with a learning rate of 0.2. <br> What to Try Next : Weight initilization without input (data) normalization gave good results. It would be a good experiment to add some input (data) normalization like batch normalization. However, the experiment has now finished and im happy with the results here.</p>
 <div class="cell" data-executioninfo="{&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1698942549460,&quot;user_tz&quot;:0,&quot;elapsed&quot;:143393,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;}}" data-outputid="82255664-21fc-4880-e5a8-99246e730165">
@@ -1261,14 +1476,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:1492,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1698939010809,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="79911e6a-c525-4230-8fae-5c9f28a39a4d">
 <details>
+<<<<<<< HEAD
 <summary>plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this acceptable they are all quite low so roughly 80% are contributing to the result (prediction) except from at initial batches…. click to expand code</summary>
+=======
+<summary>plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result, this acceptable they are all quite low so roughly 80% are contributing to the result (prediction) except from at initial batches…. click to expand code</summary>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>astats.dead_chart()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">plots of inactive neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+=======
+<figcaption class="figure-caption">plots of dead neurons (zero neurons) for each layer of the neural network, the lower the better so all neurons contribute to the result</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
@@ -1284,7 +1507,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="LSUV_for_the_blog_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+<<<<<<< HEAD
 <figcaption class="figure-caption">Colour chart to show inactive neurons</figcaption>
+=======
+<figcaption class="figure-caption">Colour chart to show dead neurons</figcaption>
+>>>>>>> 833e318e931762c772e6123d7adde032f77bf40b
 </figure>
 </div>
 </div>
