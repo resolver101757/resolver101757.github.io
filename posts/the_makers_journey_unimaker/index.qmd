@@ -1,0 +1,43 @@
+---
+title: "The Maker's Journey: Discovering Innovation and Collaboration in Makerspaces"
+author: "Alex Paul Kelly"
+date: "2020-09-08"
+categories: ["IoT", "LoRaWAN", "Makerspaces", "SELA", "data"]
+toc: true
+toc-depth: 4
+---
+
+# Introduction
+
+Here's a article based on a talk I gave on 8th September 2020 for the Sheffield University. The talk was about my journey as a maker and how I've been able to apply my skills and knowledge in the industrial environment at Tinsel Bridge. I've also included a video of the talk for those that prefer to watch rather than read.
+
+```{=html}
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ti6-nrjWNlI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+# The Maker's Journey: Discovering Innovation and Collaboration in Makerspaces
+
+As a data enthusiast and an avid maker, I find myself deeply immersed in the world of IoT and makerspaces. My role at Tinsel Bridge, a Sheffield manufacturer, revolves around pushing the boundaries of digital technologies, especially IoT. I'm here to share my journey and the insights I've gained from being a part of this vibrant and innovative community.
+
+## Why I'm a Maker at Heart
+
+My passion for making is rooted in the philosophy of makerspaces – the essence of learn-by-doing. This approach has always resonated with me, as it aligns with my personal experiences in various creative fields. From my days in comedy improvisation to my involvement in Toastmasters, I've always thrived in environments where learning and creativity happen spontaneously and collaboratively.
+
+## The Sheffield Makerspace Experience
+
+Over the past three years at the Sheffield Makerspace, I've discovered the true value of community learning. Here, knowledge and skills are shared organically, fostering an environment of mutual teaching and learning. Whether it's soldering, designing circuits, coding, laser cutting, or using a bandsaw, there's always an opportunity to learn something new or to share your expertise with others.
+
+## Turning Passion into Profession
+
+Makerspaces aren't just about hobbies; they're breeding grounds for innovation and entrepreneurship. I've seen firsthand how a simple project can evolve into a business venture. Pimoroni, for instance, started as a project in the hackspace and has now grown into a renowned electronics company. This transformation from maker to entrepreneur is a journey that truly inspires me.
+
+## The IoT and LoRaWAN Exploration
+
+My foray into IoT and specifically, LoRaWAN, has been a game changer, particularly in the challenging industrial environment at Tinsel Bridge. The ability of LoRaWAN to transmit data effectively, despite the electrical noise, has not only streamlined our processes but also opened up a world of possibilities in terms of industrial IoT applications.
+
+## Mentoring in the SELA Project
+
+Being involved in the SELA project as a mentor has been another enriching experience. Providing students with real industry problems and guiding them through the solution process has not only been fulfilling but also a learning experience for me. Witnessing their growth and their fresh, innovative approaches to problem-solving has been truly rewarding.
+
+## Conclusion
+
+My journey in the world of makerspaces and IoT has been more than just about learning new technologies or skills. It's about being part of a community that thrives on collaboration, creativity, and shared knowledge. From fostering friendships to enhancing communication and leadership skills, the experiences I've gathered have shaped me both professionally and personally. Whether it's through making, mentoring, or exploring new technologies, the journey continues to be an exciting and fulfilling one.

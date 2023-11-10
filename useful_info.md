@@ -16,7 +16,6 @@ to Create update the files (run before pushing to github)
 - example blog http://vishalbakshi.com/blog/posts/2023-10-09-nn-rf-embeddings/
 - example blog https://ilovetensor.tech/posts/neural-nets-from-scratch/
 
-
 # quarto reference page : 
 
 https://quarto.org/docs/reference/cells/cells-jupyter.html
@@ -28,7 +27,4 @@ https://quarto.org/docs/reference/cells/cells-jupyter.html
 - install the drive app in windows which will reveal the drive folder in the file explorer, i used streams so no files are stored locally.
 - Create a script to copy file to local installation and run "quarto render ." to create the html file. see file located C:\development\github projects\AlexPaulKelly\copy_lsuv_from_colab.bat
 - Edit the notebook in colab and run the script to render the html file, repeat until happy with the result and publish to github.
-
-
-
 

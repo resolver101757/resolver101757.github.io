@@ -1,0 +1,45 @@
+---
+title: "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations"
+author: "Alex Paul Kelly"
+date: "2022-07-19"
+categories: ["IoT", "Manufacturing", "LoRaWAN", "Industrial IoT", "Raspberry Pi", "InfluxDB", "Grafana","data"]
+toc: true
+toc-depth: 4
+---
+
+## Introduction
+
+As someone deeply involved in factory operations, I've witnessed firsthand the remarkable transformation brought about by the Internet of Things (IoT). Let me share with you the journey we've embarked on to automate and streamline our manufacturing processes, blending traditional methods with cutting-edge technology.
+
+
+```{=html}
+<iframe width="789" height="444" src="https://www.youtube.com/embed/gaS0FgPQuGU?list=PL5r_1-COWGUi6_qLBdyEKRkcjs3IcnXab" title="Alex Kelly from Tinsley Bridge Group: &quot;IOT in a Factory&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+## The Need for Automation
+
+My day typically started with a walkthrough of the factory, assessing everything from energy usage to production progress. This routine made it clear that automating some of these processes was essential. We needed to evolve from traditional ERP systems that required manual logging to a more integrated approach using IoT technologies.
+
+## Integrating Real-Time Monitoring
+
+In our control room, we combined advanced monitoring systems with traditional tools like whiteboards. The objective was to create a seamless blend of new and old, ensuring that the transition to high-tech did not overshadow the simplicity and effectiveness of conventional methods.
+
+## Practical Applications of IoT in Our Factory
+
+1. **Adopting Wireless Technology:** Despite initial skepticism due to our factory's challenging environment, technologies like LoRaWAN proved to be a game-changer, offering robust and reliable wireless communication.
+2. **Implementing Safety and Efficiency Sensors:** We strategically placed cost-effective IoT sensors throughout the factory to monitor crucial parameters like temperature, humidity, and sound levels, ensuring a safer and more efficient working environment.
+
+## Gaining a Competitive Edge
+
+The economic benefits of integrating IoT have been substantial. Reduced sensor costs and the ease of deploying edge devices have played a critical role in maintaining our competitive edge, especially in the international market. Open-source software has also been a boon, helping us cut operational costs significantly.
+
+## Overcoming Challenges
+
+Implementing IoT in a factory setting wasn't without its challenges. Wireless technologies initially struggled with the electromagnetic interference prevalent in our environment. However, adopting solutions like LoRaWAN helped us overcome these obstacles effectively.
+
+## Our IoT System Architecture
+
+Our system architecture is a blend of LoRaWAN devices, Industrial IoT devices, and legacy systems like Raspberry Pi. We store our data in an Influx database and use Grafana for real-time alerting and monitoring. This setup exemplifies our commitment to integrating modern technology while respecting the reliability of proven systems.
+
+## Conclusion
+
+As we continue to embrace IoT and its myriad applications, we're not just improving our factory operations. We are actively participating in the fourth industrial revolution, paving the way for a more connected, efficient, and innovative future in manufacturing.

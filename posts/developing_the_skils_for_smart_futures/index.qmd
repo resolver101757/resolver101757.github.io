@@ -1,0 +1,49 @@
+---
+title: "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020"
+author: "Alex Paul Kelly"
+date: "2020-10-16"
+categories: ["Leadership", "Education", "EEUK", "Event", "2020"]
+toc: true
+toc-depth: 4
+---
+
+# Introduction
+
+In an era where leadership skills are pivotal for success across various sectors, the EEUK Leadership Event 2020 provided a platform for vibrant discussions and shared learning. The event, conducted virtually, brought academics from Sheffield Hallam, Sheffield University, Liverpool John Moores university together with industry professionals, and students to explore the development of leadership skills in the context of emerging trends and challenges.
+
+<iframe src="https://us02web.zoom.us/rec/play/0OF3dorboQA8rIVq7-2ZYmHZVhw5_UXaf6IqfYaBScT0gPQDcda5KRjx7Vu93BJkkIMm3TULLiITwEji.kgYyu-JRmL3VOtgD?startTime=1602839233000&_x_zm_rtaid=1V7bZEcHSj-oaRSyXbRVzQ.1603990467673.7380da5997553428c2e64990dcfc538e&_x_zm_rhtaid=549" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+
+
+# Key Themes and Discussions
+
+## Innovative Teaching Methods
+
+The event highlighted innovative approaches to teaching leadership skills. Lisa McMullan and Matthias Feist praised the use of visual minutes in capturing key learnings, emphasizing the importance of reflective and engaging teaching methods.
+
+## Interdisciplinary Learning
+
+Gary Wood from Sheffield Hallam University and other panelists discussed the significance of interdisciplinary learning in leadership education. They stressed that integrating different disciplines could enhance students' understanding and application of leadership skills in diverse contexts.
+
+## Collaboration Between Academia and Industry
+
+The dialogue emphasized the importance of academia-industry collaboration. Lesley Lambert from LJMU LCR 4 START discussed accessing funding for projects integrating industry issues into the curriculum, highlighting the benefits of such collaborations for students, industry, and academics.
+
+## Experiential Learning Opportunities
+
+The role of extracurricular and experiential learning was a focal point. Gary Wood spoke about the Sheffield Engineering Leadership Academy (SELA), mentioning its non-credit bearing nature and the creative freedom it offers for exploring new teaching methods.
+
+## Enhancing Student Engagement
+
+Hayley Jones and Laura Foster raised concerns about effectively communicating opportunities to students. They discussed strategies like leveraging university PR channels and integrating success stories to increase student participation in leadership development programs.
+
+## Digital Transformation and Leadership
+
+Alex Kelly emphasized the growing importance of digital skills in leadership, citing the relevance of coding and AI understanding for future leaders. He also highlighted the potential of hackspaces in fostering creativity, communication skills, and leadership.
+
+## The Future of Leadership Education
+
+The event concluded with discussions on the future trajectory of leadership education, particularly in light of the pandemic's impact. Speakers like Daniel Habbershaw and Nick Cooper discussed adapting to current challenges and the importance of reflective and adaptive learning approaches.
+
+# Conclusion
+
+The EEUK Leadership Event 2020 provided valuable insights into the evolving landscape of leadership education. It underscored the need for innovative teaching methods, interdisciplinary learning, industry collaboration, and a focus on digital skills. As we navigate a rapidly changing world, these insights are crucial in shaping future leaders equipped to handle diverse challenges and opportunities.

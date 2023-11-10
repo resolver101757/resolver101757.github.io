@@ -7,6 +7,69 @@
     "text": "Commands to run quarto\nto create a project (run once at the beginning to create the project files) - quarto create project_name –template=blog\nto run a preview locally - quarto preview .\nto Create update the files (run before pushing to github) - quarto render .\n\n\nlinks :\n\nVideo of somone showing how to use quarto https://www.youtube.com/watch?v=nllKcuX7rEc\nilovetensoor coppied a good link here : https://discord.com/channels/689892369998676007/1096981866248147014/1167453441291984936\nexample blog http://vishalbakshi.com/blog/posts/2023-10-09-nn-rf-embeddings/\nexample blog https://ilovetensor.tech/posts/neural-nets-from-scratch/\n\n\n\nquarto reference page :\nhttps://quarto.org/docs/reference/cells/cells-jupyter.html\n\n\nsetup for using colab with quarto\n\nCreate a new notebook in colab and add markup in markup - no need for RAW as documentation says.\ninstall the drive app in windows which will reveal the drive folder in the file explorer, i used streams so no files are stored locally.\nCreate a script to copy file to local installation and run “quarto render .” to create the html file. see file located C:projects_lsuv_from_colab.bat\nEdit the notebook in colab and run the script to render the html file, repeat until happy with the result and publish to github."
   },
   {
+    "objectID": "posts/iot_in_a_factory/index.html",
+    "href": "posts/iot_in_a_factory/index.html",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "",
+    "text": "As someone deeply involved in factory operations, I’ve witnessed firsthand the remarkable transformation brought about by the Internet of Things (IoT). Let me share with you the journey we’ve embarked on to automate and streamline our manufacturing processes, blending traditional methods with cutting-edge technology."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#introduction",
+    "href": "posts/iot_in_a_factory/index.html#introduction",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "",
+    "text": "As someone deeply involved in factory operations, I’ve witnessed firsthand the remarkable transformation brought about by the Internet of Things (IoT). Let me share with you the journey we’ve embarked on to automate and streamline our manufacturing processes, blending traditional methods with cutting-edge technology."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#the-need-for-automation",
+    "href": "posts/iot_in_a_factory/index.html#the-need-for-automation",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "The Need for Automation",
+    "text": "The Need for Automation\nMy day typically started with a walkthrough of the factory, assessing everything from energy usage to production progress. This routine made it clear that automating some of these processes was essential. We needed to evolve from traditional ERP systems that required manual logging to a more integrated approach using IoT technologies."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#integrating-real-time-monitoring",
+    "href": "posts/iot_in_a_factory/index.html#integrating-real-time-monitoring",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Integrating Real-Time Monitoring",
+    "text": "Integrating Real-Time Monitoring\nIn our control room, we combined advanced monitoring systems with traditional tools like whiteboards. The objective was to create a seamless blend of new and old, ensuring that the transition to high-tech did not overshadow the simplicity and effectiveness of conventional methods."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#practical-applications-of-iot-in-our-factory",
+    "href": "posts/iot_in_a_factory/index.html#practical-applications-of-iot-in-our-factory",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Practical Applications of IoT in Our Factory",
+    "text": "Practical Applications of IoT in Our Factory\n\nAdopting Wireless Technology: Despite initial skepticism due to our factory’s challenging environment, technologies like LoRaWAN proved to be a game-changer, offering robust and reliable wireless communication.\nImplementing Safety and Efficiency Sensors: We strategically placed cost-effective IoT sensors throughout the factory to monitor crucial parameters like temperature, humidity, and sound levels, ensuring a safer and more efficient working environment."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#gaining-a-competitive-edge",
+    "href": "posts/iot_in_a_factory/index.html#gaining-a-competitive-edge",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Gaining a Competitive Edge",
+    "text": "Gaining a Competitive Edge\nThe economic benefits of integrating IoT have been substantial. Reduced sensor costs and the ease of deploying edge devices have played a critical role in maintaining our competitive edge, especially in the international market. Open-source software has also been a boon, helping us cut operational costs significantly."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#overcoming-challenges",
+    "href": "posts/iot_in_a_factory/index.html#overcoming-challenges",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Overcoming Challenges",
+    "text": "Overcoming Challenges\nImplementing IoT in a factory setting wasn’t without its challenges. Wireless technologies initially struggled with the electromagnetic interference prevalent in our environment. However, adopting solutions like LoRaWAN helped us overcome these obstacles effectively."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#our-iot-system-architecture",
+    "href": "posts/iot_in_a_factory/index.html#our-iot-system-architecture",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Our IoT System Architecture",
+    "text": "Our IoT System Architecture\nOur system architecture is a blend of LoRaWAN devices, Industrial IoT devices, and legacy systems like Raspberry Pi. We store our data in an Influx database and use Grafana for real-time alerting and monitoring. This setup exemplifies our commitment to integrating modern technology while respecting the reliability of proven systems."
+  },
+  {
+    "objectID": "posts/iot_in_a_factory/index.html#conclusion",
+    "href": "posts/iot_in_a_factory/index.html#conclusion",
+    "title": "Embracing IoT in Manufacturing: My Journey to Transforming Factory Operations",
+    "section": "Conclusion",
+    "text": "Conclusion\nAs we continue to embrace IoT and its myriad applications, we’re not just improving our factory operations. We are actively participating in the fourth industrial revolution, paving the way for a more connected, efficient, and innovative future in manufacturing."
+  },
+  {
     "objectID": "posts/Exploring_GTP4V_paper/index.html",
     "href": "posts/Exploring_GTP4V_paper/index.html",
     "title": "Exploring GPT4 vision, fastai study hacks and what it means for industry 4.0",
@@ -56,11 +119,11 @@
     "text": "Defect detection : have parts been assembled correctly, any missing parts, parts with defects, etc.\nSafety inspection : are all safety features in place, are all safety features working, are people wearing safety equipment (e.g. helmets, gloves, etc.)\nComponent identification : This will be useful to check if the operator has packed all components before shipping to customer, or if the operator has assembled all components before shipping to customer.\nSpot the difference : take a few one shot or 2 shot examples of our products and compare to a fresh product of the assembly line and see how they match."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "AI: The Catalyst of the 4th Industrial transformation",
+    "objectID": "posts/chatGPT_audio_conversation/index.html",
+    "href": "posts/chatGPT_audio_conversation/index.html",
+    "title": "Maximizing Your Commute: Learning on the Go with ChatGPT Voice",
     "section": "",
-    "text": "Stepping into the heart of the 4th industrial revolution, this blog series examines the future of manufacturing, with AI and data analytics positioned at the core of this momentous transformation.\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThe Importance of Proper Initialization.\n\n\n\n\n\n\n\n\n\n\n\n\nAlex Kelly\n\n\n\n\n\n\n  \n\n\n\n\nMaximizing Your Commute: Learning on the Go with ChatGPT Voice\n\n\n\n\n\n\n\nai\n\n\nfastai\n\n\nchatbot\n\n\ngpt\n\n\nnlp\n\n\naudio\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2023\n\n\nAlex Paul Kelly\n\n\n\n\n\n\n  \n\n\n\n\nExploring GPT4 vision, fastai study hacks and what it means for industry 4.0\n\n\n\n\n\n\n\nai\n\n\nmanufacturing\n\n\nfastai\n\n\ngpt4\n\n\nchatgpt\n\n\nrpa\n\n\nautomation\n\n\n\n\n\n\n\n\n\n\n\nOct 25, 2023\n\n\nAlex Paul Kelly\n\n\n\n\n\n\nNo matching items"
+    "text": "Overview\nI have 20 minute drive into work and back home everyday where I usually listen to a podcast, audio book or sometimes just stair at the road. I’m always thinking, how can I make better use of my time…. I saw a twitter post from Le Cunn, the legendary Data Scientist from Meta and that i fearously agree with ““books are a user interface to knowledge.”.\nThat’s what AI assistants are poised to become: “AI assistants will be a better user interface to knowledge.”\nThis is a short blog on how im using chatgpt to study and making use of spare time on journes to work.\n\n\n\nWhat is ChatGPT voice\nChatgpt voice is based on GPT 3.5 model and includes features giving that give it the ability to hear and speak.\nFor the voice feature, OpenAI uses Whisper, its speech recognition system, to transcribe a user’s spoken words into text and a new text-to-speech model that can generate human-like audio from text with just a few seconds of speech.\nI have a selection of 5 voices to choose from and have been using “sky” and it sounds really natural. You can still tell its a computer speech which I imagine is on purpose, it gets the pauses and tone, emotion right, im really impressed.\nIt available on the plus and enterprise edition, not the free edition of ChatGPT.\n\n\nWhats wrong with podcast and audiobooks\nI’ve been using ChatGPT voice conversations for over a month now (it’s still in beta) and for me its a game changer for studying and making the spare time useful on the journey to work and back.\nListening to podcasts or audiobooks can be enriching, yet they come with limitations. Sometimes they delve into topics that don’t interest you. At other times, they might present information in a convoluted manner. There’s also the issue of pacing: some podcasts assume advanced knowledge, leaving you lost, while others may cover familiar ground, leading to frustration\n\n\nwhy use ChatGPT voice\nChatGPT Voice offers a versatile learning experience by tapping into a wealth of internet knowledge. It can adapt its conversational style to mimic various tones, such as Shakespearean language or the distinctive styles of well-known educators like Richard Feynman and Jeremy Howard. While I haven’t personally tried these specific modes, they could resonate better with your learning preferences\n\n\nHow to use ChatGPT Voice\nDo you have a favourite educator? Ask GPT voice to give explanations like that educator, don’t understand something, ask it to explain it in a different way. Ask it to explain it to a 5 year old, a 10 year old, say what you understand and what you dont understand and for me, its filled in the gaps.\nAsk it to give you a topic and ask for a questions at the end to make sure you understand.\nWhat are the most important facts, dates, or formulas related to (topic)? Help me create a memorization technique to remember them easily.\nGive it a statement and ask chatgpt to give feedback, any corrections or improvements.\nAsk voice GPT to create models or analogies to help me understand and remember “optimization techinques in deep learning”.\nDo you have a difficult concept to understand, ask Chatgpt to Guide you through a visualization exercise to help me internalize the term optimization techinques and imagine yourself successfully applying it to a real-life situation. This has really helped me on difficult concepts, highly recommend you try it.\nMy favourite is to ask chatgpt voice “I want you to act as a Socrat and use the Socratic method to help me improve my critical thinking, logic, and reasoning skills. Your task is to ask open-ended questions to the statement ‘optimization techinques in deep learning’, give me constructive feedback to each response before you ask the next question.””\nAll conversations are saved in text format when your return to your computer and phone, you can review the conversation and save it to your notes or share it.\n\n\nOther Uses\nDo you have a important conversation coming up, talk it through with ChatGPT first to get your thoughts in order and ask for opionions on how other positions, react and respond and how to frame the conversation. You can have this conversation as many times as you want, it will never get bored, it will never get angry and its always available 24 hours a day 7 days a week, 365 days a year.\nPotential use cases:\n\nNegotiations\nInterviews\nSales\nPresentations\nConflict resolution\nDifficult conversations\nAsking for a raise\nAsking for a promotion\nAsking for a date\n\n\n\nThings that need improving\n\nSometimes Chatgpt voices cuts the converstation off half way throgh me saying something if i pause while im thinking about how to phrase something. I wish it would wait a bit longer before cutting off the conversation.\nSometimes I want to cut off what the chatgpt voice is saying because it/I haven’t fully explained the context. I wish it would stop speaking and go into listening mode or be able to do both.\nI wish it would give me a summary of the conversation at the end, it would be useful to have a summary of the conversation to help me remember what we talked about.\n\n\n\nConclusion\nI will be using this more and more, I think its a game changer for me, I can see myself using it. I’m really excited about the future of AI assistants and how they will help us learn and understand the world together. It will be interesting to know how bigger or better models will improve the experience. I’m sure there will be a lot of research in this area.\nTry ChatGPT, I think it will change the way you think about AI assistants and how you can use them to learn and understand together.\n\nReferences\n(“How to Use ChatGPT to Easily Learn Any Skill You Want” n.d.)\n\n\n\n\n\n\nReferences\n\n“How to Use ChatGPT to Easily Learn Any Skill You Want.” n.d. Accessed October 26, 2023. https://www.youtube.com/watch?v=MnDudvCyWpc&t=365s."
   },
   {
     "objectID": "about.html",
@@ -70,11 +133,67 @@
     "text": "I’m Alex Kelly Seasoned Technologist & Leader | Empowering Future Innovations in IT | Advocate of AI & IoT | Transforming Business Processes in Manufacturing Sector\nIn this space, I aim to unravel the intricacies of the 4th Industrial Revolution, shedding light on how AI, IoT, Robotics, and Deep Learning are converging to redefine the manufacturing landscape. Through a series of insightful blogs, I will share my explorations and findings on the synergies between these cutting-edge technologies and their transformative impact on industrial operations and processes. This journey delves into not just the technological advancements steering this revolution, but also the potential challenges and solutions that come along, offering a holistic view on the unfolding industrial epoch.\nJoin me as we navigate through the myriad facets of this transformative era, seeking to understand and harness the immense potential that lies at the intersection of AI, data analytics, and modern industrial practices."
   },
   {
-    "objectID": "posts/chatGPT_audio_conversation/index.html",
-    "href": "posts/chatGPT_audio_conversation/index.html",
-    "title": "Maximizing Your Commute: Learning on the Go with ChatGPT Voice",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AI: The Catalyst of the 4th Industrial transformation",
     "section": "",
-    "text": "Overview\nI have 20 minute drive into work and back home everyday where I usually listen to a podcast, audio book or sometimes just stair at the road. I’m always thinking, how can I make better use of my time…. I saw a twitter post from Le Cunn, the legendary Data Scientist from Meta and that i fearously agree with ““books are a user interface to knowledge.”.\nThat’s what AI assistants are poised to become: “AI assistants will be a better user interface to knowledge.”\nThis is a short blog on how im using chatgpt to study and making use of spare time on journes to work.\n\n\n\nWhat is ChatGPT voice\nChatgpt voice is based on GPT 3.5 model and includes features giving that give it the ability to hear and speak.\nFor the voice feature, OpenAI uses Whisper, its speech recognition system, to transcribe a user’s spoken words into text and a new text-to-speech model that can generate human-like audio from text with just a few seconds of speech.\nI have a selection of 5 voices to choose from and have been using “sky” and it sounds really natural. You can still tell its a computer speech which I imagine is on purpose, it gets the pauses and tone, emotion right, im really impressed.\nIt available on the plus and enterprise edition, not the free edition of ChatGPT.\n\n\nWhats wrong with podcast and audiobooks\nI’ve been using ChatGPT voice conversations for over a month now (it’s still in beta) and for me its a game changer for studying and making the spare time useful on the journey to work and back.\nListening to podcasts or audiobooks can be enriching, yet they come with limitations. Sometimes they delve into topics that don’t interest you. At other times, they might present information in a convoluted manner. There’s also the issue of pacing: some podcasts assume advanced knowledge, leaving you lost, while others may cover familiar ground, leading to frustration\n\n\nwhy use ChatGPT voice\nChatGPT Voice offers a versatile learning experience by tapping into a wealth of internet knowledge. It can adapt its conversational style to mimic various tones, such as Shakespearean language or the distinctive styles of well-known educators like Richard Feynman and Jeremy Howard. While I haven’t personally tried these specific modes, they could resonate better with your learning preferences\n\n\nHow to use ChatGPT Voice\nDo you have a favourite educator? Ask GPT voice to give explanations like that educator, don’t understand something, ask it to explain it in a different way. Ask it to explain it to a 5 year old, a 10 year old, say what you understand and what you dont understand and for me, its filled in the gaps.\nAsk it to give you a topic and ask for a questions at the end to make sure you understand.\nWhat are the most important facts, dates, or formulas related to (topic)? Help me create a memorization technique to remember them easily.\nGive it a statement and ask chatgpt to give feedback, any corrections or improvements.\nAsk voice GPT to create models or analogies to help me understand and remember “optimization techinques in deep learning”.\nDo you have a difficult concept to understand, ask Chatgpt to Guide you through a visualization exercise to help me internalize the term optimization techinques and imagine yourself successfully applying it to a real-life situation. This has really helped me on difficult concepts, highly recommend you try it.\nMy favourite is to ask chatgpt voice “I want you to act as a Socrat and use the Socratic method to help me improve my critical thinking, logic, and reasoning skills. Your task is to ask open-ended questions to the statement ‘optimization techinques in deep learning’, give me constructive feedback to each response before you ask the next question.””\nAll conversations are saved in text format when your return to your computer and phone, you can review the conversation and save it to your notes or share it.\n\n\nOther Uses\nDo you have a important conversation coming up, talk it through with ChatGPT first to get your thoughts in order and ask for opionions on how other positions, react and respond and how to frame the conversation. You can have this conversation as many times as you want, it will never get bored, it will never get angry and its always available 24 hours a day 7 days a week, 365 days a year.\nPotential use cases:\n\nNegotiations\nInterviews\nSales\nPresentations\nConflict resolution\nDifficult conversations\nAsking for a raise\nAsking for a promotion\nAsking for a date\n\n\n\nThings that need improving\n\nSometimes Chatgpt voices cuts the converstation off half way throgh me saying something if i pause while im thinking about how to phrase something. I wish it would wait a bit longer before cutting off the conversation.\nSometimes I want to cut off what the chatgpt voice is saying because it/I haven’t fully explained the context. I wish it would stop speaking and go into listening mode or be able to do both.\nI wish it would give me a summary of the conversation at the end, it would be useful to have a summary of the conversation to help me remember what we talked about.\n\n\n\nConclusion\nI will be using this more and more, I think its a game changer for me, I can see myself using it. I’m really excited about the future of AI assistants and how they will help us learn and understand the world together. It will be interesting to know how bigger or better models will improve the experience. I’m sure there will be a lot of research in this area.\nTry ChatGPT, I think it will change the way you think about AI assistants and how you can use them to learn and understand together.\n\nReferences\n(“How to Use ChatGPT to Easily Learn Any Skill You Want” n.d.)\n\n\n\n\n\n\nReferences\n\n“How to Use ChatGPT to Easily Learn Any Skill You Want.” n.d. Accessed October 26, 2023. https://www.youtube.com/watch?v=MnDudvCyWpc&t=365s."
+    "text": "Stepping into the heart of the 4th industrial revolution, this blog series examines the future of manufacturing, with AI and data analytics positioned at the core of this momentous transformation.\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nThe Importance of Proper Initialization.\n\n\n\n\n\n\n\n\n\n\n\n\nNov 10, 2023\n\n\nAlex Kelly\n\n\n\n\n\n\n  \n\n\n\n\nMaximizing Your Commute: Learning on the Go with ChatGPT Voice\n\n\n\n\n\n\n\nai\n\n\nfastai\n\n\nchatbot\n\n\ngpt\n\n\nnlp\n\n\naudio\n\n\n\n\n\n\n\n\n\n\n\nOct 26, 2023\n\n\nAlex Paul Kelly\n\n\n\n\n\n\n  \n\n\n\n\nExploring GPT4 vision, fastai study hacks and what it means for industry 4.0\n\n\n\n\n\n\n\nai\n\n\nmanufacturing\n\n\nfastai\n\n\ngpt4\n\n\nchatgpt\n\n\nrpa\n\n\nautomation\n\n\n\n\n\n\n\n\n\n\n\nOct 25, 2023\n\n\nAlex Paul Kelly\n\n\n\n\n\n\n  \n\n\n\n\nEmbracing IoT in Manufacturing: My Journey to Transforming Factory Operations\n\n\n\n\n\n\n\nIoT\n\n\nManufacturing\n\n\nLoRaWAN\n\n\nIndustrial IoT\n\n\nRaspberry Pi\n\n\nInfluxDB\n\n\nGrafana\n\n\ndata\n\n\n\n\n\n\n\n\n\n\n\nJul 19, 2022\n\n\nAlex Paul Kelly\n\n\n\n\n\n\n  \n\n\n\n\nNurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020\n\n\n\n\n\n\n\nLeadership\n\n\nEducation\n\n\nEEUK\n\n\nEvent\n\n\n2020\n\n\n\n\n\n\n\n\n\n\n\nOct 16, 2020\n\n\nAlex Paul Kelly\n\n\n\n\n\n\n  \n\n\n\n\nThe Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces\n\n\n\n\n\n\n\nIoT\n\n\nLoRaWAN\n\n\nMakerspaces\n\n\nSELA\n\n\ndata\n\n\n\n\n\n\n\n\n\n\n\nSep 8, 2020\n\n\nAlex Paul Kelly\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "",
+    "text": "In an era where leadership skills are pivotal for success across various sectors, the EEUK Leadership Event 2020 provided a platform for vibrant discussions and shared learning. The event, conducted virtually, brought academics from Sheffield Hallam, Sheffield University, Liverpool John Moores university together with industry professionals, and students to explore the development of leadership skills in the context of emerging trends and challenges."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#innovative-teaching-methods",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#innovative-teaching-methods",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Innovative Teaching Methods",
+    "text": "Innovative Teaching Methods\nThe event highlighted innovative approaches to teaching leadership skills. Lisa McMullan and Matthias Feist praised the use of visual minutes in capturing key learnings, emphasizing the importance of reflective and engaging teaching methods."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#interdisciplinary-learning",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#interdisciplinary-learning",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Interdisciplinary Learning",
+    "text": "Interdisciplinary Learning\nGary Wood from Sheffield Hallam University and other panelists discussed the significance of interdisciplinary learning in leadership education. They stressed that integrating different disciplines could enhance students’ understanding and application of leadership skills in diverse contexts."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#collaboration-between-academia-and-industry",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#collaboration-between-academia-and-industry",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Collaboration Between Academia and Industry",
+    "text": "Collaboration Between Academia and Industry\nThe dialogue emphasized the importance of academia-industry collaboration. Lesley Lambert from LJMU LCR 4 START discussed accessing funding for projects integrating industry issues into the curriculum, highlighting the benefits of such collaborations for students, industry, and academics."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#experiential-learning-opportunities",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#experiential-learning-opportunities",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Experiential Learning Opportunities",
+    "text": "Experiential Learning Opportunities\nThe role of extracurricular and experiential learning was a focal point. Gary Wood spoke about the Sheffield Engineering Leadership Academy (SELA), mentioning its non-credit bearing nature and the creative freedom it offers for exploring new teaching methods."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#enhancing-student-engagement",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#enhancing-student-engagement",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Enhancing Student Engagement",
+    "text": "Enhancing Student Engagement\nHayley Jones and Laura Foster raised concerns about effectively communicating opportunities to students. They discussed strategies like leveraging university PR channels and integrating success stories to increase student participation in leadership development programs."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#digital-transformation-and-leadership",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#digital-transformation-and-leadership",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "Digital Transformation and Leadership",
+    "text": "Digital Transformation and Leadership\nAlex Kelly emphasized the growing importance of digital skills in leadership, citing the relevance of coding and AI understanding for future leaders. He also highlighted the potential of hackspaces in fostering creativity, communication skills, and leadership."
+  },
+  {
+    "objectID": "posts/developing_the_skils_for_smart_futures/index.html#the-future-of-leadership-education",
+    "href": "posts/developing_the_skils_for_smart_futures/index.html#the-future-of-leadership-education",
+    "title": "Nurturing Leadership Skills for Smart Futures: Insights from the EEUK Leadership Event 2020",
+    "section": "The Future of Leadership Education",
+    "text": "The Future of Leadership Education\nThe event concluded with discussions on the future trajectory of leadership education, particularly in light of the pandemic’s impact. Speakers like Daniel Habbershaw and Nick Cooper discussed adapting to current challenges and the importance of reflective and adaptive learning approaches."
   },
   {
     "objectID": "posts/initialization_neural_networks/index.html",
@@ -117,5 +236,54 @@
     "title": "The Importance of Proper Initialization.",
     "section": "",
     "text": "This code sets up a pipeline to preprocess and load the Street View House Numbers (SVHN) dataset for machine learning with PyTorch. It installs required packages, imports libraries, configures settings, fetches the dataset, converts images to grayscale, applies data transformations, and creates data loaders for training.\n\n\n….click to expand code\n# install required libraries\n!pip install datasets\n!pip install torcheval\n\n# Python Standard Library imports\nimport math\nimport logging\nfrom collections.abc import Mapping\nfrom operator import attrgetter\nfrom functools import partial\nfrom copy import copy\nfrom contextlib import contextmanager\nimport random\n\n# Third-party library imports\nimport torch\nimport matplotlib.pyplot as plt\nimport matplotlib as mpl\nimport torchvision.transforms.functional as TF\nfrom datasets import load_dataset, load_dataset_builder\nimport fastcore.all as fc\nfrom fastprogress import progress_bar, master_bar\nfrom fastcore.test import test_close\nfrom torch.nn import init\nfrom torch import nn,tensor\nfrom torch import optim\nimport torch.nn.functional as F\nfrom torcheval.metrics import MulticlassAccuracy, Mean\nimport numpy as np\n\n# Custom module imports\nfrom conv import *\nfrom miniai.datasets import *\nfrom miniai.conv import *\nfrom miniai.learner import *\nfrom miniai.activations import *\n\n# Configuration settings\ntorch.set_printoptions(precision=2, linewidth=140, sci_mode=False)\ntorch.manual_seed(1)\nmpl.rcParams['image.cmap'] = 'viridis'\nlogging.disable(logging.WARNING)\n\n\n# get labels\nx,y = 'image','label'\n\n#  Street View House Numbers dataset name\nname = ('svhn')\n\n# fetch dataset from hugging face\ndsd = load_dataset(name, \"cropped_digits\",)\n\n# remove extra (not required for initial run through)\ndsd.pop(\"extra\")\n\n# convert images to greyscale\ndef convert_to_gray(batch):\n    image = batch['image']\n    if image.mode != 'L':  # Only convert if not already grayscale\n        gray_image = image.convert('L')\n        batch['image'] = gray_image\n    return batch\n\n# Apply to all datasets\nfor key in dsd.keys():\n    dsd[key] = dsd[key].map(convert_to_gray, batched=False)\n\n# transform data\n@inplace\ndef transformi(b): b[x] = [torch.flatten(TF.to_tensor(o)) for o in b[x]]\n\n# extract data set\nbs = 1024\ntds = dsd.with_transform(transformi)\ndls = DataLoaders.from_dd(dd=tds, batch_size=bs, num_workers=1)\n\n\ndt = dls.train\nxb,yb = next(iter(dt))\nxb.shape,yb[:10]"
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html",
+    "href": "posts/the_makers_journey_unimaker/index.html",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "",
+    "text": "Here’s a article based on a talk I gave on 8th September 2020 for the Sheffield University. The talk was about my journey as a maker and how I’ve been able to apply my skills and knowledge in the industrial environment at Tinsel Bridge. I’ve also included a video of the talk for those that prefer to watch rather than read."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#why-im-a-maker-at-heart",
+    "href": "posts/the_makers_journey_unimaker/index.html#why-im-a-maker-at-heart",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "Why I’m a Maker at Heart",
+    "text": "Why I’m a Maker at Heart\nMy passion for making is rooted in the philosophy of makerspaces – the essence of learn-by-doing. This approach has always resonated with me, as it aligns with my personal experiences in various creative fields. From my days in comedy improvisation to my involvement in Toastmasters, I’ve always thrived in environments where learning and creativity happen spontaneously and collaboratively."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#the-sheffield-makerspace-experience",
+    "href": "posts/the_makers_journey_unimaker/index.html#the-sheffield-makerspace-experience",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "The Sheffield Makerspace Experience",
+    "text": "The Sheffield Makerspace Experience\nOver the past three years at the Sheffield Makerspace, I’ve discovered the true value of community learning. Here, knowledge and skills are shared organically, fostering an environment of mutual teaching and learning. Whether it’s soldering, designing circuits, coding, laser cutting, or using a bandsaw, there’s always an opportunity to learn something new or to share your expertise with others."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#turning-passion-into-profession",
+    "href": "posts/the_makers_journey_unimaker/index.html#turning-passion-into-profession",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "Turning Passion into Profession",
+    "text": "Turning Passion into Profession\nMakerspaces aren’t just about hobbies; they’re breeding grounds for innovation and entrepreneurship. I’ve seen firsthand how a simple project can evolve into a business venture. Pimoroni, for instance, started as a project in the hackspace and has now grown into a renowned electronics company. This transformation from maker to entrepreneur is a journey that truly inspires me."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#the-iot-and-lorawan-exploration",
+    "href": "posts/the_makers_journey_unimaker/index.html#the-iot-and-lorawan-exploration",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "The IoT and LoRaWAN Exploration",
+    "text": "The IoT and LoRaWAN Exploration\nMy foray into IoT and specifically, LoRaWAN, has been a game changer, particularly in the challenging industrial environment at Tinsel Bridge. The ability of LoRaWAN to transmit data effectively, despite the electrical noise, has not only streamlined our processes but also opened up a world of possibilities in terms of industrial IoT applications."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#mentoring-in-the-sela-project",
+    "href": "posts/the_makers_journey_unimaker/index.html#mentoring-in-the-sela-project",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "Mentoring in the SELA Project",
+    "text": "Mentoring in the SELA Project\nBeing involved in the SELA project as a mentor has been another enriching experience. Providing students with real industry problems and guiding them through the solution process has not only been fulfilling but also a learning experience for me. Witnessing their growth and their fresh, innovative approaches to problem-solving has been truly rewarding."
+  },
+  {
+    "objectID": "posts/the_makers_journey_unimaker/index.html#conclusion",
+    "href": "posts/the_makers_journey_unimaker/index.html#conclusion",
+    "title": "The Maker’s Journey: Discovering Innovation and Collaboration in Makerspaces",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy journey in the world of makerspaces and IoT has been more than just about learning new technologies or skills. It’s about being part of a community that thrives on collaboration, creativity, and shared knowledge. From fostering friendships to enhancing communication and leadership skills, the experiences I’ve gathered have shaped me both professionally and personally. Whether it’s through making, mentoring, or exploring new technologies, the journey continues to be an exciting and fulfilling one."
   }
 ]
