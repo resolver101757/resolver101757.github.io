@@ -1,0 +1,44 @@
+---
+title: "the Power of Retrieval-Augmented Generation in AI Language Models"
+author: "Alex Paul Kelly"
+date: "2023-11-22"
+categories: ["deep learning", "nlp", "rag"]
+toc: true
+toc-depth: 4
+---
+
+I've recently joined a discord group where we discuss deep learning papers and this week its about RAG (Retrieval-Augmented Generation) model. It consisted listening to the author of the paper and questions and answers, some of questions on the paper were interesting and we got to shape the direction of the discussion.
+
+the paper can be found here https://arxiv.org/abs/2005.11401
+
+the discord group can be found here https://discord.com/channels/1072370418444402738/1072370419241328711
+
+# about the  paper discussed 
+
+In the ever-evolving landscape of Artificial Intelligence, some development has emerged from the labs of Facebook AI Research and University College London. We had Patrick Lewis and his team, brings to light an innovative approach to enhancing language models - the Retrieval-Augmented Generation (RAG) model. This breakthrough addresses a critical challenge in AI language processing: the efficient access and manipulation of knowledge for complex tasks.
+
+# Bridging the Knowledge Gap in Language Models
+Traditional language models, despite their size and sophistication, often stumble when dealing with knowledge-intensive tasks. They struggle to retrieve and accurately use specific information. This is where the RAG model steps in, blending the prowess of a pre-trained seq2seq model with a rich, non-parametric memory bank, primarily sourced from Wikipedia.
+
+# The Mechanics of RAG: A Symphony of Parametric and Non-Parametric Memory
+At the heart of RAG lies a seamless integration of two components: a powerful seq2seq model and a neural retriever accessing a dense vector index of Wikipedia. This dual approach allows the model to dynamically pull in relevant information during the generation process, leading to more precise and informed responses.  Pararmetric are deep learning models which are trained and non-parametric are stored values in a vector database and retrieved when appropriate.
+
+# RAG in Action: A Leap Forward in NLP Tasks
+The effectiveness of RAG models is evident across a spectrum of natural language processing (NLP) tasks. From open-domain question answering to abstractive summarization, Jeopardy-style question generation, and fact verification. The paper also highlights the potential of RAG models in the field of dialogue systems, where they can be used to generate more contextually relevant responses.
+
+# Beyond Performance: The Societal Impact of RAG Models
+While the technical achievements of RAG models are impressive, the paper also thoughtfully examines their broader impact. The potential societal benefits are significant, particularly in areas where accurate and diverse information generation is crucial. However, the team is also mindful of the downsides, including the ethical considerations and challenges that accompany advanced AI technologies.
+
+# The Road Ahead: A New Era in AI Language Processing
+The introduction of Retrieval-Augmented Generation models marks a significant milestone in the field of AI and NLP. By effectively addressing the knowledge limitations of previous models, RAG paves the way for more nuanced and contextually aware AI systems. As we stand on the brink of this new era, the possibilities seem as boundless as they are exciting.
+
+# Conclusion
+
+- Larger models are going to play a key role in more accurate and diverse information generation.
+- Use rag if you want the model to be more contextually aware - i guess more bias to what ever context you want. e.g. if you want know your address, eye color, customer specific information etc. rag is the way to go.
+- rag is not a silver bullet, it has its own limitations. e.g. it can't generate information which is not present in the knowledge base.
+- the future of rag is multimodel rag, where the knowledge base is not just text but also images, videos, audio etc.
+    - this is going to be interesting but i imagine it will be computationally expensive.
+    - hows it going to split the attention between the different modalities.
+    - hows it going to chunk the information from the different modalities.
+    - hows it going to generate the information from the different modalities.

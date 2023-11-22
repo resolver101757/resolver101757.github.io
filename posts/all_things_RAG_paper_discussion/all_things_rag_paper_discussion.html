@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alex Paul Kelly">
+<meta name="dcterms.date" content="2023-11-22">
 
-<title>Alex Paul Kelly – useful_info</title>
+<title>Alex Paul Kelly - the Power of Retrieval-Augmented Generation in AI Language Models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -61,17 +63,17 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Alex Paul Kelly</span>
     </a>
   </div>
@@ -82,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html" rel="" target="">
+    <a class="nav-link" href="../../about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -108,41 +110,103 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">the Power of Retrieval-Augmented Generation in AI Language Models</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">deep learning</div>
+                <div class="quarto-category">nlp</div>
+                <div class="quarto-category">rag</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alex Paul Kelly </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 22, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#about-the-paper-discussed" id="toc-about-the-paper-discussed" class="nav-link active" data-scroll-target="#about-the-paper-discussed">about the paper discussed</a></li>
+  <li><a href="#bridging-the-knowledge-gap-in-language-models" id="toc-bridging-the-knowledge-gap-in-language-models" class="nav-link" data-scroll-target="#bridging-the-knowledge-gap-in-language-models">Bridging the Knowledge Gap in Language Models</a></li>
+  <li><a href="#the-mechanics-of-rag-a-symphony-of-parametric-and-non-parametric-memory" id="toc-the-mechanics-of-rag-a-symphony-of-parametric-and-non-parametric-memory" class="nav-link" data-scroll-target="#the-mechanics-of-rag-a-symphony-of-parametric-and-non-parametric-memory">The Mechanics of RAG: A Symphony of Parametric and Non-Parametric Memory</a></li>
+  <li><a href="#rag-in-action-a-leap-forward-in-nlp-tasks" id="toc-rag-in-action-a-leap-forward-in-nlp-tasks" class="nav-link" data-scroll-target="#rag-in-action-a-leap-forward-in-nlp-tasks">RAG in Action: A Leap Forward in NLP Tasks</a></li>
+  <li><a href="#beyond-performance-the-societal-impact-of-rag-models" id="toc-beyond-performance-the-societal-impact-of-rag-models" class="nav-link" data-scroll-target="#beyond-performance-the-societal-impact-of-rag-models">Beyond Performance: The Societal Impact of RAG Models</a></li>
+  <li><a href="#the-road-ahead-a-new-era-in-ai-language-processing" id="toc-the-road-ahead-a-new-era-in-ai-language-processing" class="nav-link" data-scroll-target="#the-road-ahead-a-new-era-in-ai-language-processing">The Road Ahead: A New Era in AI Language Processing</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<section id="commands-to-run-quarto" class="level1">
-<h1>Commands to run quarto</h1>
-<p>to create a project (run once at the beginning to create the project files) - quarto create project_name –template=blog</p>
-<p>to run a preview locally - quarto preview .</p>
-<p>to Create update the files (run before pushing to github) - quarto render .</p>
+
+<p>I’ve recently joined a discord group where we discuss deep learning papers and this week its about RAG (Retrieval-Augmented Generation) model. It consisted listening to the author of the paper and questions and answers, some of questions on the paper were interesting and we got to shape the direction of the discussion.</p>
+<p>the paper can be found here https://arxiv.org/abs/2005.11401</p>
+<p>the discord group can be found here https://discord.com/channels/1072370418444402738/1072370419241328711</p>
+<section id="about-the-paper-discussed" class="level1">
+<h1>about the paper discussed</h1>
+<p>In the ever-evolving landscape of Artificial Intelligence, some development has emerged from the labs of Facebook AI Research and University College London. We had Patrick Lewis and his team, brings to light an innovative approach to enhancing language models - the Retrieval-Augmented Generation (RAG) model. This breakthrough addresses a critical challenge in AI language processing: the efficient access and manipulation of knowledge for complex tasks.</p>
 </section>
-<section id="links" class="level1">
-<h1>links :</h1>
+<section id="bridging-the-knowledge-gap-in-language-models" class="level1">
+<h1>Bridging the Knowledge Gap in Language Models</h1>
+<p>Traditional language models, despite their size and sophistication, often stumble when dealing with knowledge-intensive tasks. They struggle to retrieve and accurately use specific information. This is where the RAG model steps in, blending the prowess of a pre-trained seq2seq model with a rich, non-parametric memory bank, primarily sourced from Wikipedia.</p>
+</section>
+<section id="the-mechanics-of-rag-a-symphony-of-parametric-and-non-parametric-memory" class="level1">
+<h1>The Mechanics of RAG: A Symphony of Parametric and Non-Parametric Memory</h1>
+<p>At the heart of RAG lies a seamless integration of two components: a powerful seq2seq model and a neural retriever accessing a dense vector index of Wikipedia. This dual approach allows the model to dynamically pull in relevant information during the generation process, leading to more precise and informed responses. Pararmetric are deep learning models which are trained and non-parametric are stored values in a vector database and retrieved when appropriate.</p>
+</section>
+<section id="rag-in-action-a-leap-forward-in-nlp-tasks" class="level1">
+<h1>RAG in Action: A Leap Forward in NLP Tasks</h1>
+<p>The effectiveness of RAG models is evident across a spectrum of natural language processing (NLP) tasks. From open-domain question answering to abstractive summarization, Jeopardy-style question generation, and fact verification. The paper also highlights the potential of RAG models in the field of dialogue systems, where they can be used to generate more contextually relevant responses.</p>
+</section>
+<section id="beyond-performance-the-societal-impact-of-rag-models" class="level1">
+<h1>Beyond Performance: The Societal Impact of RAG Models</h1>
+<p>While the technical achievements of RAG models are impressive, the paper also thoughtfully examines their broader impact. The potential societal benefits are significant, particularly in areas where accurate and diverse information generation is crucial. However, the team is also mindful of the downsides, including the ethical considerations and challenges that accompany advanced AI technologies.</p>
+</section>
+<section id="the-road-ahead-a-new-era-in-ai-language-processing" class="level1">
+<h1>The Road Ahead: A New Era in AI Language Processing</h1>
+<p>The introduction of Retrieval-Augmented Generation models marks a significant milestone in the field of AI and NLP. By effectively addressing the knowledge limitations of previous models, RAG paves the way for more nuanced and contextually aware AI systems. As we stand on the brink of this new era, the possibilities seem as boundless as they are exciting.</p>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
 <ul>
-<li>Video of somone showing how to use quarto https://www.youtube.com/watch?v=nllKcuX7rEc</li>
-<li>ilovetensoor coppied a good link here : https://discord.com/channels/689892369998676007/1096981866248147014/1167453441291984936</li>
-<li>example blog http://vishalbakshi.com/blog/posts/2023-10-09-nn-rf-embeddings/</li>
-<li>example blog https://ilovetensor.tech/posts/neural-nets-from-scratch/</li>
-</ul>
-</section>
-<section id="quarto-reference-page" class="level1">
-<h1>quarto reference page :</h1>
-<p>https://quarto.org/docs/reference/cells/cells-jupyter.html</p>
-</section>
-<section id="setup-for-using-colab-with-quarto" class="level1">
-<h1>setup for using colab with quarto</h1>
+<li>Larger models are going to play a key role in more accurate and diverse information generation.</li>
+<li>Use rag if you want the model to be more contextually aware - i guess more bias to what ever context you want. e.g.&nbsp;if you want know your address, eye color, customer specific information etc. rag is the way to go.</li>
+<li>rag is not a silver bullet, it has its own limitations. e.g.&nbsp;it can’t generate information which is not present in the knowledge base.</li>
+<li>the future of rag is multimodel rag, where the knowledge base is not just text but also images, videos, audio etc.
 <ul>
-<li>Create a new notebook in colab and add markup in markup - no need for RAW as documentation says.</li>
-<li>install the drive app in windows which will reveal the drive folder in the file explorer, i used streams so no files are stored locally.</li>
-<li>Create a script to copy file to local installation and run “quarto render .” to create the html file. see file located C:projects_lsuv_from_colab.bat</li>
-<li>Edit the notebook in colab and run the script to render the html file, repeat until happy with the result and publish to github.</li>
+<li>this is going to be interesting but i imagine it will be computationally expensive.</li>
+<li>hows it going to split the attention between the different modalities.</li>
+<li>hows it going to chunk the information from the different modalities.</li>
+<li>hows it going to generate the information from the different modalities.</li>
+</ul></li>
 </ul>
 
 
