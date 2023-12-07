@@ -1,0 +1,26 @@
+---
+title: "The future of AI jobs in manufacturing and the impact on the workforce"
+author: "Alex Paul Kelly"
+date: "2024-12-07"
+categories: [AI, manufacturing, ]
+toc: true
+toc-depth: 4
+draft: true
+---
+
+# Overview  
+
+economics of AI in manufacturing, looking at the hardware powering this sales 
+
+See this article : 
+https://www.latent.space/p/semianalysis
+
+
+
+
+# What roles will there be in the future 
+
+# What will those roles look like 
+
+https://www.latent.space/p/aies-podrocket
+
