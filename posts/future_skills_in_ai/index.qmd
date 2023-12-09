@@ -2,19 +2,41 @@
 title: "The future of AI jobs in manufacturing and the impact on the workforce"
 author: "Alex Paul Kelly"
 date: "2024-12-07"
-categories: [AI, manufacturing, ]
+categories: [AI, manufacturing, jobs]
 toc: true
 toc-depth: 4
 draft: true
 ---
 
-# Overview  
+# Overview
 
-economics of AI in manufacturing, looking at the hardware powering this sales 
 
-See this article : 
-https://www.latent.space/p/semianalysis
+Manufacturing is a key sector for the UK economy, accounting for 10% of GDP and 44% of exports. Manufacturing didnt use to be about computing technology. It was about the matertials and the processes.  Computing and data is now key to the future of manufacturing.  This article will explore the impact of AI on manufacturing jobs, and how this will affect the workforce. It will also look at what roles will be created in the future, and how these roles will will help the uk manufacturing sector.
 
+## Ecomonics of AI 
+
+There is currently a GPU demand is outstripping supply.  Companies are racing to build new models and new models require GPUs.  Here's some stats from the article :
+
+- NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
+- AMD is forecasting $2B of sales for their new MI300X datacenter GPU. They are also indirectly getting a boost from the work that companies like Modular and tiny are doing in making it easier to actually use these chips (will ROCm ever catch up?)
+- Google’s TPUv5 supply is going to increase rapidly going into 2024
+- Microsoft just announced Maia 100, a new AI accelerator built “with feedback” from OpenAI.
+
+# past, present and future of software 
+
+Software is changing, the pace of change is accelerating.  The future of software is going to be very different to the past.  The future of software is going to be about using large pre-trained foundation models without needing to collect/label training data.  This is the future of software.  This is the future of manufacturing.
+
+## Software 1.0: Hand-coded software with conditional logic, loops, etc.
+
+Software use to be about the hand written code that was written by a developer.
+
+## Software 2.0: Machine learning models like neural nets trained on data
+
+In software 2.0 its about training models on data from scratch.  
+
+## Software 3.0: Using large pre-trained foundation models without needing to collect/label training data
+
+Software 3.0 is using those trained foundation models and fine tuning them to your specific use case.  This is the future of software.  This is the future of manufacturing.
 
 
 
@@ -22,5 +44,10 @@ https://www.latent.space/p/semianalysis
 
 # What will those roles look like 
 
-https://www.latent.space/p/aies-podrocket
+
+how do i add a link to a section in a different article?
+
+[Rise of the AI engineer](https://www.latent.space/p/aies-podrocket)
+
+[GPU economics](https://www.latent.space/p/semianalysis)
 
