@@ -1070,137 +1070,136 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>dt <span class="op">=</span> dls.train</span>
 <span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>xb,yb <span class="op">=</span> <span class="bu">next</span>(<span class="bu">iter</span>(dt))</span>
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>xb.shape,yb[:<span class="dv">10</span>]</span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># This class implements Layer-Sequential Unit-Variance Initialization (LSUV), a technique used to</span></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize the weights and biases of neural networks. LSUV aims to set these parameters such that</span></span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># during the forward pass, the variance of the activations remains close to 1. This avoids issues</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># commonly associated with poor initialization, such as vanishing or exploding gradients.</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># To achieve this, the class modifies the initial weights and biases in the context of a sample of input</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># data, targeting a specified range for hardware/software-specific floating-point representation. This approach</span></span>
-<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># minimizes the risk of exceeding the numerical range, which can lead to unstable training dynamics, or</span></span>
-<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># put anotherway reduces the number of neurons contributing (deactivate) and the weight into the final result.</span></span>
-<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Key methods within this class handle the adjustment of weights and biases, based on the calculated</span></span>
-<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co">#  variances and means of the activations. This is typically invoked at the beginning of the training</span></span>
-<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="co"># process, prior to the main training loop.</span></span>
-<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Initial tests have shown effective results, although chart visualizations may</span></span>
-<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a><span class="co"># require further refinement.</span></span>
-<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LSUVStatsHook(Callback):</span>
-<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># initialize and store all relevent details to object</span></span>
-<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, modules_for_hooks, modules_for_weights, verbose<span class="op">=</span><span class="va">False</span>, debug<span class="op">=</span><span class="va">False</span>):</span>
-<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.mean <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.std <span class="op">=</span> <span class="va">None</span></span>
-<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log <span class="op">=</span> fc.noop <span class="cf">if</span> <span class="kw">not</span> verbose <span class="cf">else</span> <span class="bu">print</span></span>
-<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.debug <span class="op">=</span> debug</span>
-<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fc.store_attr()</span></span>
-<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
-<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.modules_for_hooks <span class="op">=</span> modules_for_hooks</span>
-<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.modules_for_weights <span class="op">=</span> modules_for_weights</span>
-<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># update hooks</span></span>
-<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> hook(<span class="va">self</span>, module, <span class="bu">input</span>, output):</span>
-<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    <span class="co">#import pdb;pdb.set_trace()</span></span>
-<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    acts <span class="op">=</span> output.detach().cpu()</span>
-<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.mean <span class="op">=</span> acts.mean()</span>
-<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.std <span class="op">=</span> acts.std()</span>
-<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># apply hooks to relus, update weights and bias to convs</span></span>
-<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> calc_apply_LSUV_weights_bias(<span class="va">self</span>, learn, batch_of_data):</span>
-<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all of the modules that will be used for calculating the  lsuv</span></span>
-<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"self.modules_for_hooks is type"</span>, <span class="va">self</span>.modules_for_hooks)</span>
-<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"GeneralRelu is type "</span> , GeneralRelu)</span>
-<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    modules_to_apply_hooks <span class="op">=</span> [o <span class="cf">for</span> o <span class="kw">in</span> learn.model.modules() <span class="cf">if</span> <span class="bu">isinstance</span>(o, <span class="va">self</span>.modules_for_hooks)]</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"modules to apply hooks to: "</span>, modules_to_apply_hooks)</span>
-<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a>    module_to_update_weights <span class="op">=</span> [o <span class="cf">for</span> o <span class="kw">in</span> learn.model.modules() <span class="cf">if</span> <span class="bu">isinstance</span>(o, <span class="va">self</span>.modules_for_weights)]</span>
-<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update the weights and bias's util desired range is achieved</span></span>
-<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
-<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>    no_of_layers <span class="op">=</span> <span class="bu">len</span>(modules_to_apply_hooks)</span>
-<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> <span class="bu">range</span>(no_of_layers):</span>
-<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.log(<span class="st">"entering layer : "</span>, item)</span>
-<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>      handle <span class="op">=</span> modules_to_apply_hooks[item].register_forward_hook(hook_LUSV.hook)</span>
-<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>      <span class="cf">with</span> torch.no_grad():</span>
-<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> learn.model(batch_of_data) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> (<span class="bu">abs</span>(hook_LUSV.std<span class="op">-</span><span class="dv">1</span>)<span class="op">&gt;</span><span class="fl">1e-3</span> <span class="kw">or</span> <span class="bu">abs</span>(hook_LUSV.mean)<span class="op">&gt;</span><span class="fl">1e-3</span>):</span>
-<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"update weights to modules: "</span>,  module_to_update_weights[item])</span>
-<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>          module_to_update_weights[item].bias <span class="op">-=</span> hook_LUSV.mean</span>
-<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>          module_to_update_weights[item].weight.data <span class="op">/=</span> hook_LUSV.std</span>
-<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"standard deviation is :"</span>, hook_LUSV.std)</span>
-<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"mean is :              "</span>, hook_LUSV.mean)</span>
-<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>    <span class="co"># deregister the hook</span></span>
-<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a>    handle.remove()</span>
-<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calls calc_apply_LSUV_weights_bias to update weights and bias's</span></span>
-<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> before_fit(<span class="va">self</span>, learn):</span>
-<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
-<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a>    LSUVStatsHook.calc_apply_LSUV_weights_bias(<span class="va">self</span>, learn, batch_of_data<span class="op">=</span>xb)</span>
-<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom callback with some debugging code commented out</span></span>
-<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MetricsCB(Callback):</span>
-<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>ms, <span class="op">**</span>metrics):</span>
-<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
-<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> o <span class="kw">in</span> ms: metrics[<span class="bu">type</span>(o).<span class="va">__name__</span>] <span class="op">=</span> o</span>
-<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metrics <span class="op">=</span> metrics</span>
-<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.all_metrics <span class="op">=</span> copy(metrics)</span>
-<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.all_metrics[<span class="st">'loss'</span>] <span class="op">=</span> <span class="va">self</span>.loss <span class="op">=</span> Mean()</span>
-<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _log(<span class="va">self</span>, d): <span class="bu">print</span>(d)</span>
-<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> before_fit(<span class="va">self</span>, learn): learn.metrics <span class="op">=</span> <span class="va">self</span></span>
-<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> before_epoch(<span class="va">self</span>, learn): [o.reset() <span class="cf">for</span> o <span class="kw">in</span> <span class="va">self</span>.all_metrics.values()]</span>
-<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> after_epoch(<span class="va">self</span>, learn):</span>
-<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
-<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>        log <span class="op">=</span> {k:<span class="ss">f'</span><span class="sc">{</span>v<span class="sc">.</span>compute()<span class="sc">:.3f}</span><span class="ss">'</span> <span class="cf">for</span> k,v <span class="kw">in</span> <span class="va">self</span>.all_metrics.items()}</span>
-<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'epoch'</span>] <span class="op">=</span> learn.epoch</span>
-<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'train'</span>] <span class="op">=</span> <span class="st">'train'</span> <span class="cf">if</span> learn.model.training <span class="cf">else</span> <span class="st">'eval'</span></span>
-<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._log(log)</span>
-<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> after_batch(<span class="va">self</span>, learn):</span>
-<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
-<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>        x,y,<span class="op">*</span>_ <span class="op">=</span> to_cpu(learn.batch)</span>
-<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> m <span class="kw">in</span> <span class="va">self</span>.metrics.values(): m.update(to_cpu(learn.preds), y)</span>
-<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.loss.update(to_cpu(learn.loss), weight<span class="op">=</span><span class="bu">len</span>(x))</span>
-<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"loss : {learn.loss}, weight : {len(x)}")</span></span>
-<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the metrics</span></span>
-<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> MetricsCB(accuracy<span class="op">=</span>MulticlassAccuracy())</span>
-<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="co"># module for a custom Relu</span></span>
-<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GeneralRelu(nn.Module):</span>
-<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, leak<span class="op">=</span><span class="va">None</span>, sub<span class="op">=</span><span class="va">None</span>, maxv<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
-<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.leak,<span class="va">self</span>.sub,<span class="va">self</span>.maxv <span class="op">=</span> leak,sub,maxv</span>
-<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
-<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> F.leaky_relu(x,<span class="va">self</span>.leak) <span class="cf">if</span> <span class="va">self</span>.leak <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> F.relu(x)</span>
-<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.sub <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>: x <span class="op">-=</span> <span class="va">self</span>.sub</span>
-<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.maxv <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>: x.clamp_max_(<span class="va">self</span>.maxv)</span>
-<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
-<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the LSUV hook to pass to the model</span></span>
-<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a>hook_LUSV <span class="op">=</span> LSUVStatsHook(modules_for_hooks <span class="op">=</span> GeneralRelu, modules_for_weights <span class="op">=</span> nn.Conv2d,verbose<span class="op">=</span><span class="va">False</span>,debug<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the activation statics and module</span></span>
-<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>act_gr <span class="op">=</span> partial(GeneralRelu, leak<span class="op">=</span><span class="fl">0.1</span>, sub<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a>astats <span class="op">=</span> ActivationStats(fc.risinstance((GeneralRelu, nn.ReLU)))</span>
-<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the model and call fit</span></span>
-<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conv(ni, nf, ks<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, act<span class="op">=</span>nn.ReLU):</span>
-<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> nn.Conv2d(ni, nf, stride<span class="op">=</span>stride, kernel_size<span class="op">=</span>ks, padding<span class="op">=</span>ks<span class="op">//</span><span class="dv">2</span>)</span>
-<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> act: res <span class="op">=</span> nn.Sequential(res, act())</span>
-<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
-<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_model(act<span class="op">=</span>nn.ReLU, nfs<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nfs <span class="kw">is</span> <span class="va">None</span>: nfs <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">32</span>,<span class="dv">64</span>]</span>
-<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a>    layers <span class="op">=</span> [conv(nfs[i], nfs[i<span class="op">+</span><span class="dv">1</span>], act<span class="op">=</span>act) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nfs)<span class="op">-</span><span class="dv">1</span>)]</span>
-<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nn.Sequential(<span class="op">*</span>layers, conv(nfs[<span class="op">-</span><span class="dv">1</span>],<span class="dv">10</span>, act<span class="op">=</span><span class="va">None</span>), nn.Flatten()).to(def_device)</span>
-<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> get_model(act_gr)</span>
-<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a>cbs <span class="op">=</span> [DeviceCB(), metrics, ProgressCB(plot<span class="op">=</span><span class="va">True</span>), astats, hook_LUSV]</span>
-<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> MomentumLearner(model, dls, F.cross_entropy, lr<span class="op">=</span><span class="fl">0.2</span>, cbs<span class="op">=</span>cbs)</span>
-<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-139"><a href="#cb18-139" aria-hidden="true" tabindex="-1"></a>learn.fit(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This class implements Layer-Sequential Unit-Variance Initialization (LSUV), a technique used to</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># initialize the weights and biases of neural networks. LSUV aims to set these parameters such that</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># during the forward pass, the variance of the activations remains close to 1. This avoids issues</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="co"># commonly associated with poor initialization, such as vanishing or exploding gradients.</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="co"># To achieve this, the class modifies the initial weights and biases in the context of a sample of input</span></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># data, targeting a specified range for hardware/software-specific floating-point representation. This approach</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co"># minimizes the risk of exceeding the numerical range, which can lead to unstable training dynamics, or</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="co"># put anotherway reduces the number of neurons contributing (deactivate) and the weight into the final result.</span></span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Key methods within this class handle the adjustment of weights and biases, based on the calculated</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  variances and means of the activations. This is typically invoked at the beginning of the training</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a><span class="co"># process, prior to the main training loop.</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: Initial tests have shown effective results, although chart visualizations may</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="co"># require further refinement.</span></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LSUVStatsHook(Callback):</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># initialize and store all relevent details to object</span></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, modules_for_hooks, modules_for_weights, verbose<span class="op">=</span><span class="va">False</span>, debug<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.mean <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-28"><a href="#cb18-28" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.std <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb18-29"><a href="#cb18-29" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log <span class="op">=</span> fc.noop <span class="cf">if</span> <span class="kw">not</span> verbose <span class="cf">else</span> <span class="bu">print</span></span>
+<span id="cb18-30"><a href="#cb18-30" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.debug <span class="op">=</span> debug</span>
+<span id="cb18-31"><a href="#cb18-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">#fc.store_attr()</span></span>
+<span id="cb18-32"><a href="#cb18-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
+<span id="cb18-33"><a href="#cb18-33" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.modules_for_hooks <span class="op">=</span> modules_for_hooks</span>
+<span id="cb18-34"><a href="#cb18-34" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.modules_for_weights <span class="op">=</span> modules_for_weights</span>
+<span id="cb18-35"><a href="#cb18-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-36"><a href="#cb18-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># update hooks</span></span>
+<span id="cb18-37"><a href="#cb18-37" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> hook(<span class="va">self</span>, module, <span class="bu">input</span>, output):</span>
+<span id="cb18-38"><a href="#cb18-38" aria-hidden="true" tabindex="-1"></a>    <span class="co">#import pdb;pdb.set_trace()</span></span>
+<span id="cb18-39"><a href="#cb18-39" aria-hidden="true" tabindex="-1"></a>    acts <span class="op">=</span> output.detach().cpu()</span>
+<span id="cb18-40"><a href="#cb18-40" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.mean <span class="op">=</span> acts.mean()</span>
+<span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.std <span class="op">=</span> acts.std()</span>
+<span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># apply hooks to relus, update weights and bias to convs</span></span>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> calc_apply_LSUV_weights_bias(<span class="va">self</span>, learn, batch_of_data):</span>
+<span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Get all of the modules that will be used for calculating the  lsuv</span></span>
+<span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
+<span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"self.modules_for_hooks is type"</span>, <span class="va">self</span>.modules_for_hooks)</span>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"GeneralRelu is type "</span> , GeneralRelu)</span>
+<span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a>    modules_to_apply_hooks <span class="op">=</span> [o <span class="cf">for</span> o <span class="kw">in</span> learn.model.modules() <span class="cf">if</span> <span class="bu">isinstance</span>(o, <span class="va">self</span>.modules_for_hooks)]</span>
+<span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a>    <span class="va">self</span>.log(<span class="st">"modules to apply hooks to: "</span>, modules_to_apply_hooks)</span>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>    module_to_update_weights <span class="op">=</span> [o <span class="cf">for</span> o <span class="kw">in</span> learn.model.modules() <span class="cf">if</span> <span class="bu">isinstance</span>(o, <span class="va">self</span>.modules_for_weights)]</span>
+<span id="cb18-52"><a href="#cb18-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-53"><a href="#cb18-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Update the weights and bias's util desired range is achieved</span></span>
+<span id="cb18-54"><a href="#cb18-54" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
+<span id="cb18-55"><a href="#cb18-55" aria-hidden="true" tabindex="-1"></a>    no_of_layers <span class="op">=</span> <span class="bu">len</span>(modules_to_apply_hooks)</span>
+<span id="cb18-56"><a href="#cb18-56" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> <span class="bu">range</span>(no_of_layers):</span>
+<span id="cb18-57"><a href="#cb18-57" aria-hidden="true" tabindex="-1"></a>      <span class="va">self</span>.log(<span class="st">"entering layer : "</span>, item)</span>
+<span id="cb18-58"><a href="#cb18-58" aria-hidden="true" tabindex="-1"></a>      handle <span class="op">=</span> modules_to_apply_hooks[item].register_forward_hook(hook_LUSV.hook)</span>
+<span id="cb18-59"><a href="#cb18-59" aria-hidden="true" tabindex="-1"></a>      <span class="cf">with</span> torch.no_grad():</span>
+<span id="cb18-60"><a href="#cb18-60" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> learn.model(batch_of_data) <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="kw">and</span> (<span class="bu">abs</span>(hook_LUSV.std<span class="op">-</span><span class="dv">1</span>)<span class="op">&gt;</span><span class="fl">1e-3</span> <span class="kw">or</span> <span class="bu">abs</span>(hook_LUSV.mean)<span class="op">&gt;</span><span class="fl">1e-3</span>):</span>
+<span id="cb18-61"><a href="#cb18-61" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"update weights to modules: "</span>,  module_to_update_weights[item])</span>
+<span id="cb18-62"><a href="#cb18-62" aria-hidden="true" tabindex="-1"></a>          module_to_update_weights[item].bias <span class="op">-=</span> hook_LUSV.mean</span>
+<span id="cb18-63"><a href="#cb18-63" aria-hidden="true" tabindex="-1"></a>          module_to_update_weights[item].weight.data <span class="op">/=</span> hook_LUSV.std</span>
+<span id="cb18-64"><a href="#cb18-64" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"standard deviation is :"</span>, hook_LUSV.std)</span>
+<span id="cb18-65"><a href="#cb18-65" aria-hidden="true" tabindex="-1"></a>          <span class="va">self</span>.log(<span class="st">"mean is :              "</span>, hook_LUSV.mean)</span>
+<span id="cb18-66"><a href="#cb18-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># deregister the hook</span></span>
+<span id="cb18-67"><a href="#cb18-67" aria-hidden="true" tabindex="-1"></a>    handle.remove()</span>
+<span id="cb18-68"><a href="#cb18-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-69"><a href="#cb18-69" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calls calc_apply_LSUV_weights_bias to update weights and bias's</span></span>
+<span id="cb18-70"><a href="#cb18-70" aria-hidden="true" tabindex="-1"></a>  <span class="kw">def</span> before_fit(<span class="va">self</span>, learn):</span>
+<span id="cb18-71"><a href="#cb18-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="va">self</span>.debug : <span class="im">import</span> pdb<span class="op">;</span> pdb.set_trace()</span>
+<span id="cb18-72"><a href="#cb18-72" aria-hidden="true" tabindex="-1"></a>    LSUVStatsHook.calc_apply_LSUV_weights_bias(<span class="va">self</span>, learn, batch_of_data<span class="op">=</span>xb)</span>
+<span id="cb18-73"><a href="#cb18-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-74"><a href="#cb18-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom callback with some debugging code commented out</span></span>
+<span id="cb18-75"><a href="#cb18-75" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> MetricsCB(Callback):</span>
+<span id="cb18-76"><a href="#cb18-76" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, <span class="op">*</span>ms, <span class="op">**</span>metrics):</span>
+<span id="cb18-77"><a href="#cb18-77" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
+<span id="cb18-78"><a href="#cb18-78" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> o <span class="kw">in</span> ms: metrics[<span class="bu">type</span>(o).<span class="va">__name__</span>] <span class="op">=</span> o</span>
+<span id="cb18-79"><a href="#cb18-79" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.metrics <span class="op">=</span> metrics</span>
+<span id="cb18-80"><a href="#cb18-80" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.all_metrics <span class="op">=</span> copy(metrics)</span>
+<span id="cb18-81"><a href="#cb18-81" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.all_metrics[<span class="st">'loss'</span>] <span class="op">=</span> <span class="va">self</span>.loss <span class="op">=</span> Mean()</span>
+<span id="cb18-82"><a href="#cb18-82" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-83"><a href="#cb18-83" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> _log(<span class="va">self</span>, d): <span class="bu">print</span>(d)</span>
+<span id="cb18-84"><a href="#cb18-84" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> before_fit(<span class="va">self</span>, learn): learn.metrics <span class="op">=</span> <span class="va">self</span></span>
+<span id="cb18-85"><a href="#cb18-85" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> before_epoch(<span class="va">self</span>, learn): [o.reset() <span class="cf">for</span> o <span class="kw">in</span> <span class="va">self</span>.all_metrics.values()]</span>
+<span id="cb18-86"><a href="#cb18-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-87"><a href="#cb18-87" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> after_epoch(<span class="va">self</span>, learn):</span>
+<span id="cb18-88"><a href="#cb18-88" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
+<span id="cb18-89"><a href="#cb18-89" aria-hidden="true" tabindex="-1"></a>        log <span class="op">=</span> {k:<span class="ss">f'</span><span class="sc">{</span>v<span class="sc">.</span>compute()<span class="sc">:.3f}</span><span class="ss">'</span> <span class="cf">for</span> k,v <span class="kw">in</span> <span class="va">self</span>.all_metrics.items()}</span>
+<span id="cb18-90"><a href="#cb18-90" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'epoch'</span>] <span class="op">=</span> learn.epoch</span>
+<span id="cb18-91"><a href="#cb18-91" aria-hidden="true" tabindex="-1"></a>        log[<span class="st">'train'</span>] <span class="op">=</span> <span class="st">'train'</span> <span class="cf">if</span> learn.model.training <span class="cf">else</span> <span class="st">'eval'</span></span>
+<span id="cb18-92"><a href="#cb18-92" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>._log(log)</span>
+<span id="cb18-93"><a href="#cb18-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-94"><a href="#cb18-94" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> after_batch(<span class="va">self</span>, learn):</span>
+<span id="cb18-95"><a href="#cb18-95" aria-hidden="true" tabindex="-1"></a>        <span class="co">#import pdb; pdb.set_trace()</span></span>
+<span id="cb18-96"><a href="#cb18-96" aria-hidden="true" tabindex="-1"></a>        x,y,<span class="op">*</span>_ <span class="op">=</span> to_cpu(learn.batch)</span>
+<span id="cb18-97"><a href="#cb18-97" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> m <span class="kw">in</span> <span class="va">self</span>.metrics.values(): m.update(to_cpu(learn.preds), y)</span>
+<span id="cb18-98"><a href="#cb18-98" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.loss.update(to_cpu(learn.loss), weight<span class="op">=</span><span class="bu">len</span>(x))</span>
+<span id="cb18-99"><a href="#cb18-99" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"loss : {learn.loss}, weight : {len(x)}")</span></span>
+<span id="cb18-100"><a href="#cb18-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-101"><a href="#cb18-101" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the metrics</span></span>
+<span id="cb18-102"><a href="#cb18-102" aria-hidden="true" tabindex="-1"></a>metrics <span class="op">=</span> MetricsCB(accuracy<span class="op">=</span>MulticlassAccuracy())</span>
+<span id="cb18-103"><a href="#cb18-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-104"><a href="#cb18-104" aria-hidden="true" tabindex="-1"></a><span class="co"># module for a custom Relu</span></span>
+<span id="cb18-105"><a href="#cb18-105" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> GeneralRelu(nn.Module):</span>
+<span id="cb18-106"><a href="#cb18-106" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, leak<span class="op">=</span><span class="va">None</span>, sub<span class="op">=</span><span class="va">None</span>, maxv<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb18-107"><a href="#cb18-107" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb18-108"><a href="#cb18-108" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.leak,<span class="va">self</span>.sub,<span class="va">self</span>.maxv <span class="op">=</span> leak,sub,maxv</span>
+<span id="cb18-109"><a href="#cb18-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-110"><a href="#cb18-110" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb18-111"><a href="#cb18-111" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> F.leaky_relu(x,<span class="va">self</span>.leak) <span class="cf">if</span> <span class="va">self</span>.leak <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span> <span class="cf">else</span> F.relu(x)</span>
+<span id="cb18-112"><a href="#cb18-112" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.sub <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>: x <span class="op">-=</span> <span class="va">self</span>.sub</span>
+<span id="cb18-113"><a href="#cb18-113" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="va">self</span>.maxv <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>: x.clamp_max_(<span class="va">self</span>.maxv)</span>
+<span id="cb18-114"><a href="#cb18-114" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> x</span>
+<span id="cb18-115"><a href="#cb18-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-116"><a href="#cb18-116" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the LSUV hook to pass to the model</span></span>
+<span id="cb18-117"><a href="#cb18-117" aria-hidden="true" tabindex="-1"></a>hook_LUSV <span class="op">=</span> LSUVStatsHook(modules_for_hooks <span class="op">=</span> GeneralRelu, modules_for_weights <span class="op">=</span> nn.Conv2d,verbose<span class="op">=</span><span class="va">False</span>,debug<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-118"><a href="#cb18-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-119"><a href="#cb18-119" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the activation statics and module</span></span>
+<span id="cb18-120"><a href="#cb18-120" aria-hidden="true" tabindex="-1"></a>act_gr <span class="op">=</span> partial(GeneralRelu, leak<span class="op">=</span><span class="fl">0.1</span>, sub<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb18-121"><a href="#cb18-121" aria-hidden="true" tabindex="-1"></a>astats <span class="op">=</span> ActivationStats(fc.risinstance((GeneralRelu, nn.ReLU)))</span>
+<span id="cb18-122"><a href="#cb18-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-123"><a href="#cb18-123" aria-hidden="true" tabindex="-1"></a><span class="co"># setup the model and call fit</span></span>
+<span id="cb18-124"><a href="#cb18-124" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> conv(ni, nf, ks<span class="op">=</span><span class="dv">3</span>, stride<span class="op">=</span><span class="dv">2</span>, act<span class="op">=</span>nn.ReLU):</span>
+<span id="cb18-125"><a href="#cb18-125" aria-hidden="true" tabindex="-1"></a>    res <span class="op">=</span> nn.Conv2d(ni, nf, stride<span class="op">=</span>stride, kernel_size<span class="op">=</span>ks, padding<span class="op">=</span>ks<span class="op">//</span><span class="dv">2</span>)</span>
+<span id="cb18-126"><a href="#cb18-126" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> act: res <span class="op">=</span> nn.Sequential(res, act())</span>
+<span id="cb18-127"><a href="#cb18-127" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> res</span>
+<span id="cb18-128"><a href="#cb18-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-129"><a href="#cb18-129" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_model(act<span class="op">=</span>nn.ReLU, nfs<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb18-130"><a href="#cb18-130" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> nfs <span class="kw">is</span> <span class="va">None</span>: nfs <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">8</span>,<span class="dv">16</span>,<span class="dv">32</span>,<span class="dv">64</span>]</span>
+<span id="cb18-131"><a href="#cb18-131" aria-hidden="true" tabindex="-1"></a>    layers <span class="op">=</span> [conv(nfs[i], nfs[i<span class="op">+</span><span class="dv">1</span>], act<span class="op">=</span>act) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(nfs)<span class="op">-</span><span class="dv">1</span>)]</span>
+<span id="cb18-132"><a href="#cb18-132" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> nn.Sequential(<span class="op">*</span>layers, conv(nfs[<span class="op">-</span><span class="dv">1</span>],<span class="dv">10</span>, act<span class="op">=</span><span class="va">None</span>), nn.Flatten()).to(def_device)</span>
+<span id="cb18-133"><a href="#cb18-133" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-134"><a href="#cb18-134" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> get_model(act_gr)</span>
+<span id="cb18-135"><a href="#cb18-135" aria-hidden="true" tabindex="-1"></a>cbs <span class="op">=</span> [DeviceCB(), metrics, ProgressCB(plot<span class="op">=</span><span class="va">True</span>), astats, hook_LUSV]</span>
+<span id="cb18-136"><a href="#cb18-136" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> MomentumLearner(model, dls, F.cross_entropy, lr<span class="op">=</span><span class="fl">0.2</span>, cbs<span class="op">=</span>cbs)</span>
+<span id="cb18-137"><a href="#cb18-137" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-138"><a href="#cb18-138" aria-hidden="true" tabindex="-1"></a>learn.fit(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
 
