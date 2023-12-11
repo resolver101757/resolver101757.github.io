@@ -10,17 +10,45 @@ draft: true
 
 # Overview
 
+Manufacturing is a key sector for the UK economy, accounting for 10% of GDP and 44% of exports. Manufacturing didnt use to be about computing technology. It was about the materials and the processes.  Computing and data is now at the centre and key to the future of manufacturing.  This article will explore the impact of AI on manufacturing jobs, and how this will affect the workforce. It will also look at what roles will be created in the future, and how these roles will will help the uk manufacturing sector.  This will indicate how manufacturing will look in the future.
 
-Manufacturing is a key sector for the UK economy, accounting for 10% of GDP and 44% of exports. Manufacturing didnt use to be about computing technology. It was about the matertials and the processes.  Computing and data is now key to the future of manufacturing.  This article will explore the impact of AI on manufacturing jobs, and how this will affect the workforce. It will also look at what roles will be created in the future, and how these roles will will help the uk manufacturing sector.
+
+![Industry 5.0](./Industry5.jpg)
+
+
+You can see from the image above,computers started to appear in:
+
+The **3rd industrial revolution** but there were lots of companies that didnt have IT systems and when they did, they were not joined up.  The IT systems were maybe stock control, accounting, or an ERP system and PLC's to automate machines that were previously manual. 
+
+The **4th industrial revolution** the IT systems are more joined up and the machines and parts and factories make use of IOT (internet of things) systems.  All this allows for real-time data exchange and monitoring. This connectivity facilitates more efficient operations, predictive maintenance, and improved decision-making based on comprehensive data analysis.
+
+The **5th industrial revolution** While still largely conceptual and not universally recognized as a distinct phase, the idea of a fifth industrial revolution often revolves around the integration of advanced technologies like AI and robotics into the manufacturing process. This could lead to even greater automation, with AI making complex decisions and managing processes. The focus is not just on efficiency and productivity but also on personalization and sustainability. The impact on economies and workforces would be significant, as it would necessitate a shift in skills and roles.
+
+## How AI change my work flow
+
+As a IT worker in manufacturing, my work flow has change due to the advancements in AI. I'm a ahead of the rest of the business in terms of using AI to improve my workflow and results it gives to the business.  
+
+I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra help in find/building a solution too.
+
+The process has now changed, I still need to speak to people in the business but I use AI and data science skills and present the information from the various information systems and also unstructured systems and present that to the business and use that to squeeze out the information to make decisions or gain further requirements.  
+
+When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building your own AI models is the future of manufacturing.  This is the future of the UK economy.  This is the future of the UK workforce. 
+
+Other people in the business will improve their work flow by using generalized AI models and systems to help them make decisions and automate processes their own processes. They will also get the benefit of the work I'm doing (IT department), as I am be able to build solutions to improve their processes.
+
+This will free up their time to do more value added work.  This will increase their worth to the business.  This will increase the UK economy.  This will increase the UK productivity.
+
 
 ## Ecomonics of AI 
 
-There is currently a GPU demand is outstripping supply.  Companies are racing to build new models and new models require GPUs.  Here's some stats from the article :
+Graphics cards (tensor procceses) and the hardware that compute AI models.  The sale of these cards gives a great insight into the future of AI, its one of the limiting factors in producing more AI.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, updating existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
+ on the growth of GPU's:
 
 - NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
-- AMD is forecasting $2B of sales for their new MI300X datacenter GPU. They are also indirectly getting a boost from the work that companies like Modular and tiny are doing in making it easier to actually use these chips (will ROCm ever catch up?)
-- Google’s TPUv5 supply is going to increase rapidly going into 2024
+- AMD is forecasting $2B of sales for their new MI300X datacenter GPU. They are also indirectly getting a boost from the work that companies like Modular and tiny are doing in making it easier to actually use these chips (will ROCm ever catch up?).
+- Google’s TPUv5 supply is going to increase rapidly going into 2024.
 - Microsoft just announced Maia 100, a new AI accelerator built “with feedback” from OpenAI.
+and much more.  
 
 # past, present and future of software 
 
@@ -38,16 +66,24 @@ In software 2.0 its about training models on data from scratch.
 
 Software 3.0 is using those trained foundation models and fine tuning them to your specific use case.  This is the future of software.  This is the future of manufacturing.
 
-
-
-# What roles will there be in the future 
-
 # What will those roles look like 
 
+## Over view 
+
+It use to be that you needed expert maths skills and computer science skills, be a data scientist  to be able to need to build and train models.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models, how to use models.  This is no longer the case.
+
+AI accessability has improved, there are products like chatgpt where you ask questions (prompt) and it will give you an answer.  There are other models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding the market space and what products available and how to ask these models to get the best results.
+
+For more advance users/developers there are more specific tools where you can use models specifically for developing software like copilot, there are over 15,000 off the shelf models from huggingface, that you can use as is or customize to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
+
+
+
+## AI engineer
+
+The AI engineer will be the person who will be able to use the AI models t
 
 how do i add a link to a section in a different article?
 
 [Rise of the AI engineer](https://www.latent.space/p/aies-podrocket)
 
-[GPU economics](https://www.latent.space/p/semianalysis)
 
