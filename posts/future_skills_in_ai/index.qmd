@@ -30,9 +30,9 @@ As a IT worker in manufacturing, my work flow has change due to the advancements
 
 I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra help in find/building a solution too.
 
-The process has now changed, I still need to speak to people in the business but I use AI and data science skills and present the information from the various information systems and also unstructured systems and present that to the business and use that to squeeze out the information to make decisions or gain further requirements.  
+The process has now changed, I still need to speak to people in the business but I use AI and data science skills and present the information from the various information systems and unstructured systems and present that to the business and use that to squeeze out the information to make decisions or gain further requirements.
 
-When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building your own AI models is the future of manufacturing.  This is the future of the UK economy.  This is the future of the UK workforce. 
+When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building on existing foundation AI models is the future of manufacturing.
 
 Other people in the business will improve their work flow by using generalized AI models and systems to help them make decisions and automate processes their own processes. They will also get the benefit of the work I'm doing (IT department), as I am be able to build solutions to improve their processes.
 
@@ -41,7 +41,7 @@ This will free up their time to do more value added work.  This will increase th
 
 ## Ecomonics of AI 
 
-Graphics cards (tensor procceses) and the hardware that compute AI models.  The sale of these cards gives a great insight into the future of AI, its one of the limiting factors in producing more AI.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, updating existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
+Graphics cards (tensor procceses) are the hardware that compute AI models.  The sale of these cards gives a great insight into the future of AI, its one of the limiting factors in producing more AI.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, updating existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
  on the growth of GPU's:
 
 - NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
@@ -54,17 +54,25 @@ and much more.
 
 Software is changing, the pace of change is accelerating.  The future of software is going to be very different to the past.  The future of software is going to be about using large pre-trained foundation models without needing to collect/label training data.  This is the future of software.  This is the future of manufacturing.
 
-## Software 1.0: Hand-coded software with conditional logic, loops, etc.
+- Software 1.0: Hand-coded software with conditional logic, loops, etc.
 
-Software use to be about the hand written code that was written by a developer.
+The deterministic nature of Software 1.0 made it highly reliable and predictable, which was crucial for manufacturing processes where precision and consistency were non-negotiable. However, this method had its limitations. It was labor-intensive and less adaptable, requiring substantial human effort for updates and modifications.
 
-## Software 2.0: Machine learning models like neural nets trained on data
+- Software 2.0: Machine learning models like neural nets trained on data
 
-In software 2.0 its about training models on data from scratch.  
+Software 2.0 signifies a paradigm shift towards machine learning models, particularly neural networks. Instead of manually programming every possible outcome, this era focused on training models on large datasets. These models could then learn patterns, make decisions, and adapt to new data, making them more flexible than their predecessors.
 
-## Software 3.0: Using large pre-trained foundation models without needing to collect/label training data
+- Software 3.0: Using large pre-trained foundation models without needing to collect/label training data
 
-Software 3.0 is using those trained foundation models and fine tuning them to your specific use case.  This is the future of software.  This is the future of manufacturing.
+Software 3.0 is where the future begins to unfold, characterized by the use of large, pre-trained foundation models. These AI models, having been trained on extensive, diverse datasets, can be fine-tuned for specific tasks, drastically reducing the need for new data collection and labeling.
+
+**Implications for Manufacturing**
+
+In the manufacturing sector, Software 3.0 opens up new horizons. It allows for greater customization, efficiency in processes, and enhanced predictive capabilities for maintenance and supply chain management. The integration of AI with IoT and robotics leads to smarter, more connected factories.
+
+**Democratizing AI**
+
+This new wave democratizes access to advanced machine learning technologies, making it feasible for more organizations to leverage AI for their specific needs. It signifies a move towards more intelligent, automated, and efficient manufacturing processes.
 
 # What will those roles look like 
 
@@ -72,17 +80,50 @@ Software 3.0 is using those trained foundation models and fine tuning them to yo
 
 It use to be that you needed expert maths skills and computer science skills, be a data scientist  to be able to need to build and train models.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models, how to use models.  This is no longer the case.
 
-AI accessability has improved, there are products like chatgpt where you ask questions (prompt) and it will give you an answer.  There are other models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding the market space and what products available and how to ask these models to get the best results.
+AI accessability has improved, there are products like chatgpt where you ask questions (prompt) and it will give you an answer.  There are other models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding the what models are available, what they do for you and how to get the best outputs for your inputs, i.e. to get the best results.
 
-For more advance users/developers there are more specific tools where you can use models specifically for developing software like copilot, there are over 15,000 off the shelf models from huggingface, that you can use as is or customize to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
+For more advance users/developers there are more specific tools where you can use models specifically for developing software like copilot, there are over 15,000 off the shelf models from huggingface, that you can use as is or customize (fine Tune) to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
 
 
 
-## AI engineer
+## Enter the AI engieer,
 
-The AI engineer will be the person who will be able to use the AI models t
 
-how do i add a link to a section in a different article?
+In the rapidly evolving landscapes of Industry 4.0 and 5.0, the role of the AI engineer emerges as a pivotal element. This role is defined by a deep understanding of the problem domain, comprehensive knowledge of AI models and ecosystems, and the ability to apply this expertise to deliver tangible business outcomes. These outcomes can range from gaining new insights and automating tasks, to enhancing the quality of products. The AI engineer leverages the principles of what can be described as "software 3.0". Some specific applications of AI in manufacturing include:
+
+- Predictive Maintenance: AI can analyze data from machinery to predict failures before they occur, reducing downtime and maintenance costs.
+- Supply Chain Optimization: By analyzing trends and patterns, AI can optimize inventory levels, predict supply chain disruptions, and improve logistics.
+- Personalized Manufacturing: AI allows for more customized production processes, enabling the creation of personalized products at scale.
+- Energy Efficiency: AI can optimize energy use in manufacturing processes, leading to more sustainable practices and reduced costs.
+- Quality Control: Beyond just improving product quality, AI can consistently monitor and adapt processes in real-time to ensure high standards.
+- Worker Safety and Ergonomics: AI can monitor work environments to enhance safety protocols and ergonomics, reducing the risk of workplace accidents.
+- Process Optimization: AI can streamline manufacturing processes, reducing waste and increasing throughput.
+- Market Analysis and Consumer Insights: AI can analyze market trends and consumer behavior, aiding in strategic decision-making and product development.
+- Collaborative Robotics (Cobots): AI enables the development of robots that can safely work alongside humans, enhancing productivity and reducing labor-intensive tasks.
+- Customized AI Solutions: AI engineers can develop tailored AI solutions that cater to specific industry needs or challenges.
+- Training and Simulation: AI can be used to create simulation models to train staff or test new processes and products virtually.
+- Environmental Monitoring and Compliance: AI can help in monitoring environmental impacts and ensuring compliance with regulations.
+- Enhancing Customer Experiences: In the service aspect, AI can be used to improve customer service and engagement, leading to better customer satisfaction and loyalty.
+- Integrating IoT with AI: AI engineers can harness data from IoT devices to provide more comprehensive and actionable insights.
+- Cross-Industry Collaboration: AI can facilitate collaboration between different industries, creating new opportunities for innovation and growth.
+
+Foundation models like GPT-3/4, Claude, and Whisper, signify a shift in the AI paradigm. These models are accessible off-the-shelf via APIs, offering a streamlined path to implementation. Understanding the architecture of these models - their layers and structure - is crucial. The ability to employ a pre-trained model bypasses the need for extensive data collection and training, accelerating the deployment process.
+
+Putting these foundation models into production varies in complexity. It can be as simple as calling an API or as intricate as running models locally or serving high-volume predictions. This demands a keen understanding of GPU utilization, batching, and infrastructure expertise.
+
+The emergence of AI engineers is reshaping the landscape of development. AI is becoming increasingly accessible to traditional software engineers, blurring the lines between machine learning engineers and AI engineers. The latter focuses on consuming foundation model APIs rather than building models from scratch.
+
+This shift has economic implications. The demand for AI far exceeds the supply of machine learning experts. Consequently, AI engineers are evolving from software engineers who acquire these specialized skills.
+
+The AI engineering stack is defined by systems of reasoning and retrieval-augmented generation stacks. These connect models to diverse data sources, broadening the scope of application.
+
+AI UX is expanding beyond chatbots, introducing new modalities and interfaces. Building products with these foundation models requires a focus on delivering unique value, solving customer problems, and building trust.
+
+However, there's a balance to be struck. While some skepticism towards AI is healthy, there's also a tendency to unfairly blame AI for shortcomings. The hype generated by media and industry creators sets high expectations. It's essential for AI engineers to remain grounded in real customer needs.
+
+The impact of AI applications is already being felt in various sectors, demonstrating the positive influence of these technologies. For AI engineers, this era represents an unprecedented opportunity to innovate, explore, and shape the future of industries 4.0 and 5.0. Their role is not just about technical proficiency, but also about envisioning and realizing the potential of AI to transform industries and improve lives.
+
+
 
 [Rise of the AI engineer](https://www.latent.space/p/aies-podrocket)
 
