@@ -17,7 +17,6 @@ draft: true
 
 ![picture of industrial revolutions](./Industry5.jpg)
 
-
 You can see from the image above,computers started to appear in:
 
 The **3rd industrial revolution** but there were lots of companies that didnt have IT systems and when they did, they were not joined up.  The IT systems were maybe stock control, accounting, or an ERP system and PLC's to automate machines that were previously manual. 
@@ -80,18 +79,44 @@ The will be a transition between software 2 and 3. We're in a weird space where 
 In the manufacturing sector, Software 3.0 opens up new horizons. It allows for greater customization, efficiency in processes, and enhanced predictive capabilities for maintenance and supply chain management. The integration of AI with IoT and robotics leads to smarter, more connected factories.  
 
 ## Democratization of Advanced Machine Learning Technologies in Manufacturing
+## How AI change my work flow
+
+A quick dive into how AI has changed my role as a IT worker in manufacturing.  This will give a insight on what changes have already happened and what the future will look like.  My work flow and the tools i used have changed significantly, I'm ahead of the rest of the business in terms of using AI to improve my workflow and the results it gives to the business.
+
+I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra help in find/building a solution too.
+
+The process has now changed, I still need to speak to people in the business but I'm using AI and data science skills a lot more understand problem, querying information systems and unstructured systems to present that to the business.  This helps squeeze out the the problem to help make better decisions or refine the problem so we know we are spending time on the right problems.  Its not that we couldnt do this before, the task to do this were much more time consuming and required more people to do this.  Now I can do this myself, I can do this in a fraction of the time and I can do this with more accuracy.
+
+When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivily increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data, I'm leveraging these tools to build unique products and solutions that are benefit business.  
+
+Other humans in the business will also improve their work flow by using generalized AI models and systems to help them make decisions and automate their own processes. They will also get the benefit of the work I'm doing (IT department), as I am be able to build solutions to improve their processes.
+
+This will free up their time to do more value added work.  This will increase their worth to the business.  Thinking bigger, this will increase the UK productivity and drive down cost for our customers and increase our competitiveness in the global market.
+
+## Ecomonics of AI 
+
+Graphics cards (tensor procceses) are the hardware that compute AI models.  The sale of these cards gives a great insight into the future of AI, its one of the limiting factors in producing more AI inference (results) from AI models.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, fine tuning existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
+ on the growth of GPU's:
+
+- NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
+- AMD is forecasting $2B of sales for their new MI300X datacenter GPU. They are also indirectly getting a boost from the work that companies like Modular and tiny are doing in making it easier to actually use these chips (will ROCm ever catch up?).
+- Google’s TPUv5 supply is going to increase rapidly going into 2024.
+- Microsoft just announced Maia 100, a new AI accelerator built “with feedback” from OpenAI.
+and much more.
+
+**Democratizing AI**
 
 This new wave democratizes access to advanced machine learning technologies, making it feasible for more organizations to leverage AI for their specific needs. It signifies a move towards more intelligent, automated, and efficient manufacturing processes.
 
-# What will those roles look like 
+# What will new AI roles look like 
 
 ## Over view 
 
 It use to be that you needed expert maths skills and computer science skills to be able to build and train models.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models how to use models. you would need indeptch knowledge of them all or more likely, be in a team where say, you would have data data prepartion expert, an expert in models for the type of data, and architecture to be able to comunicate between them all and many more. 
 
-AI accessability has improved, there are products like chatgpt where you ask questions (prompt) and it will give you an answer.  There are other models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modeles.  Anyone who can use a computer can use these models. All it takes is understanding the what models are available, what they do for you and how to get the best outputs for your inputs, i.e. to get the best results.
+The most talked about foundation model is chatgpt. Its a chatbot inferface where you ask questions (prompt) and it will give you an answer.  There are other less known models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding what models are available, what they do for you and how to get the best outputs for your inputs.
 
-For more advance users/developers there are more specific tools where you can use models specifically for developing software like copilot, there are over 15,000 off the shelf models from huggingface, that you can use as is or customize (fine Tune) to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
+For more advance users/developers there are more specific models for say producing code from prompts written in english like copilot.  There are over 15,000 off the shelf models from huggingface raning from nlp, multimodel, computer vision, speech processing and many more.  All these models have there weights release which means that they can be use as is or customize (fine tuned) to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
 
 ## Enter the AI engieer,
 
@@ -129,7 +154,7 @@ However, there's a balance to be struck. While some skepticism towards AI is hea
 
 The impact of AI applications is already being felt in various sectors, demonstrating the positive influence of these technologies. For AI engineers, this era represents an unprecedented opportunity to innovate, explore, and shape the future of industries 4.0 and 5.0. Their role is not just about technical proficiency, but also about envisioning and realizing the potential of AI to transform industries and improve lives.
 
-
+[Rise of the AI engineer](https://www.latent.space/p/aies-podrocket)
 
 
 [AI in manufacturing projections]: https://www.businesswire.com/news/home/20221103005709/en/16.3-Billion-Worldwide-Artificial-Intelligence-in-Manufacturing-Industry-to-2027---Featuring-Bright-Machines-Cisco-Systems-Flutura-and-General-Vision-Among-Others---ResearchAndMarkets.com
