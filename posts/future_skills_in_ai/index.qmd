@@ -28,15 +28,15 @@ The **5th industrial revolution** While still largely conceptual and not univers
 
 # The Current State of AI in Manufacturing
 
-AI is already being used in manufacturing, but it's still in its infancy. The majority of AI applications in manufacturing are focused on improving efficiency and productivity. This includes predictive maintenance, supply chain optimization, and process automation. However, there are also applications in areas like quality control, worker safety, and customer service. The impact of AI on manufacturing is expected to grow significantly in the coming years, with the global market for [AI in manufacturing projected to reach $16.7 billion by 2026][AI in manufacturing projections].
+AI is already being used in manufacturing, but it's still in its infancy. The majority of AI applications in manufacturing are focused on improving efficiency and productivity. This includes predictive maintenance, supply chain optimization, and process automation. There are a lot of classification models for quality but more growth will be on the generative models.  The impact of AI on manufacturing is expected to grow significantly in the coming years, with the global market for [AI in manufacturing projected to reach $16.7 billion by 2026][AI in manufacturing projections].
 
 ## Personal Experience: AI's Impact on My Workflow
 
-As a IT worker in manufacturing, my work flow has change due to the advancements in AI. I'm a ahead of the rest of the business in terms of using AI to improve my workflow and results it gives to the business.  
+As a IT worker in manufacturing, my work flow has change due to the advancements in AI. I'm a ahead of the rest of the business in terms of using AI to improve my workflow and results it gives to the business.
 
 I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra resources to finish the solution in a quicker time.
 
-The process has now changed, I still need to speak to people in the business but I use AI and data science skills and present the information from the various information systems and unstructured systems and present that to the business and use that to squeeze out the information to make decisions or gain further requirements.
+The approach I use has evolved. While I still communicate with colleagues, I now employ AI and data science techniques to extract and organize information from various structured and unstructured systems. This allows me to present data to the business in a more efficient and effective manner. Prior to recent technological advancements, managing this process alone wouldn't have been cost-effective. Currently, I leverage these tools to distill information, which aids in making decisions or uncovering additional insights and requirements.
 
 When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building on existing foundation AI models is the future of manufacturing.
 
@@ -56,6 +56,8 @@ Graphics cards (tensor procceses) are the hardware that compute AI models.  The 
 - Microsoft just announced Maia 100, a new AI accelerator built “with feedback” from OpenAI.
 and much more.
 
+Having more compute will increase competition and drive down prices.  This will allow more companies to use AI and more people to use AI.  This will increase the demand for AI and the demand for AI workers.
+
 # Software Evolution: From 1.0 to 3.0 in Manufacturing
 
 Software is changing, the pace of change is accelerating due to AI.  The future of software is going to be very different to the past. Software is at the heart of manufacturing, it's used to control the machines, it's used to control the processes, it's used to control the supply chain, it's used to understand the business and help control the business.  Manufactures leadership and employees need to be aware of these changes and secondly, they are going to need to adapt to this change.  They need to realise that this change is key to the 4th and 5th industrial revolutions mentioned above and their future success. The manufactures that adapt the quickest will be the ones that profit and grow. The manufactures that don't adapt will be left behind.  Now a little about the software evolution.
@@ -72,77 +74,51 @@ Software 2.0 signifies a paradigm shift towards machine learning models, particu
 
 Software 3.0 is where the future begins to unfold, characterized by the use of large, pre-trained foundation models. These AI models, having been trained on extensive, diverse datasets, can be fine-tuned for specific tasks, drastically reducing the need for new data collection and labeling.
 
-The will be a transition between software 2 and 3. We're in a weird space where alot of people/companies are still in software 1.0 and trying out features from software 2.0. I can see some people/companies skipping directly to software 3.
+There will be a transition between software 2 and 3. We're in a weird space where alot of people/companies are still in software 1.0 and trying out features from software 2.0 but also using 3.0 on occation. i think all 3 will exist for a long time but will be seeing more growth in software 2.0 and espeicllay 3.0.
+
 
 ## The Future of Manufacturing Software
 
 In the manufacturing sector, Software 3.0 opens up new horizons. It allows for greater customization, efficiency in processes, and enhanced predictive capabilities for maintenance and supply chain management. The integration of AI with IoT and robotics leads to smarter, more connected factories.  
 
 ## Democratization of Advanced Machine Learning Technologies in Manufacturing
-## How AI change my work flow
 
-A quick dive into how AI has changed my role as a IT worker in manufacturing.  This will give a insight on what changes have already happened and what the future will look like.  My work flow and the tools i used have changed significantly, I'm ahead of the rest of the business in terms of using AI to improve my workflow and the results it gives to the business.
-
-I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra help in find/building a solution too.
-
-The process has now changed, I still need to speak to people in the business but I'm using AI and data science skills a lot more understand problem, querying information systems and unstructured systems to present that to the business.  This helps squeeze out the the problem to help make better decisions or refine the problem so we know we are spending time on the right problems.  Its not that we couldnt do this before, the task to do this were much more time consuming and required more people to do this.  Now I can do this myself, I can do this in a fraction of the time and I can do this with more accuracy.
-
-When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivily increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data, I'm leveraging these tools to build unique products and solutions that are benefit business.  
-
-Other humans in the business will also improve their work flow by using generalized AI models and systems to help them make decisions and automate their own processes. They will also get the benefit of the work I'm doing (IT department), as I am be able to build solutions to improve their processes.
-
-This will free up their time to do more value added work.  This will increase their worth to the business.  Thinking bigger, this will increase the UK productivity and drive down cost for our customers and increase our competitiveness in the global market.
-
-## Ecomonics of AI 
-
-Graphics cards (tensor procceses) are the hardware that compute AI models.  The sale of these cards gives a great insight into the future of AI, its one of the limiting factors in producing more AI inference (results) from AI models.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, fine tuning existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
- on the growth of GPU's:
-
-- NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
-- AMD is forecasting $2B of sales for their new MI300X datacenter GPU. They are also indirectly getting a boost from the work that companies like Modular and tiny are doing in making it easier to actually use these chips (will ROCm ever catch up?).
-- Google’s TPUv5 supply is going to increase rapidly going into 2024.
-- Microsoft just announced Maia 100, a new AI accelerator built “with feedback” from OpenAI.
-and much more.
-
-**Democratizing AI**
-
-This new wave democratizes access to advanced machine learning technologies, making it feasible for more organizations to leverage AI for their specific needs. It signifies a move towards more intelligent, automated, and efficient manufacturing processes.
+The democratization of AI is a key driver of this evolution. The availability of foundation models and the ease of use of AI platforms are lowering the barrier to entry. This is enabling more people to leverage AI in their work, including those without extensive data science expertise. The result is a shift in the role of software engineers, from building models to consuming them. This is the rise of the AI engineer.
 
 # What will new AI roles look like 
 
 ## Over view 
 
-It use to be that you needed expert maths skills and computer science skills to be able to build and train models.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models how to use models. you would need indeptch knowledge of them all or more likely, be in a team where say, you would have data data prepartion expert, an expert in models for the type of data, and architecture to be able to comunicate between them all and many more. 
+It use to be that you needed expert maths skills , data science and coding skills to be able to build and train models and then a lot of experience in all of the roles.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models, how to use models. You would need indepth knowledge of them all or more likely, be in a team where have, a data prepartion expert, an expert in models for the different types of data, and architecture to be able to comunicate between these roles and many more roles.   A lot of the tooling improvements have enabled this to be done by one person or a very small team depending on how big the project is.
 
-The most talked about foundation model is chatgpt. Its a chatbot inferface where you ask questions (prompt) and it will give you an answer.  There are other less known models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding what models are available, what they do for you and how to get the best outputs for your inputs.
+The most talked about model is chatgpt. Its a chatbot inferface where you ask questions (prompt) and it will give you an answer.  There are other less known models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding what models are available, what they do for you and how to get the best outputs for your inputs.  This will be a key skills to have.
 
-For more advance users/developers there are more specific models for say producing code from prompts written in english like copilot.  There are over 15,000 off the shelf models from huggingface raning from nlp, multimodel, computer vision, speech processing and many more.  All these models have there weights release which means that they can be use as is or customize (fine tuned) to your own organizational needs.  There are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
+For more advance users/developers there are more specific solutions for producing code within a development enviroment like microsoft copilot offers.  There are over 15,000 off the shelf models from huggingface raning from nlp, multimodel, computer vision, speech processing and many more.  All these models have there weights release which means that they can be use as is or customize (fine tuned) to your own organizational needs, no need to start from scratch.  On hugging face, there are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
 
 ## Enter the AI engieer,
 
-In the rapidly evolving landscapes of Industry 4.0 and 5.0, the role of the AI engineer emerges as a pivotal element. This role is defined by a deep understanding of the problem domain, comprehensive knowledge of AI models and ecosystems, and the ability to apply this expertise to deliver tangible business outcomes. These outcomes can range from gaining new insights and automating tasks, to enhancing the quality of products. The AI engineer leverages the principles of what can be described as "software 3.0". Some specific applications of AI in manufacturing include:
+In the rapidly evolving landscapes of Industry 4.0 and 5.0, the role of the AI engineer emerges as a pivotal element. This role is defined by a deep understanding of the problem domain, comprehensive knowledge of AI models and ecosystems, and the ability to apply this expertise to deliver tangible business outcomes. These outcomes can range from gaining new insights and automating tasks, to enhancing the quality of products. The AI engineer leverages the principles of what can be described as "software 3.0" but can include software 1.0 and 2.0.  Some specific applications of AI in manufacturing include:
 
-- Predictive Maintenance: AI can analyze data from machinery to predict failures before they occur, reducing downtime and maintenance costs.
-- Supply Chain Optimization: By analyzing trends and patterns, AI can optimize inventory levels, predict supply chain disruptions, and improve logistics.
-- Personalized Manufacturing: AI allows for more customized production processes, enabling the creation of personalized products at scale.
-- Energy Efficiency: AI can optimize energy use in manufacturing processes, leading to more sustainable practices and reduced costs.
-- Quality Control: Beyond just improving product quality, AI can consistently monitor and adapt processes in real-time to ensure high standards.
-- Worker Safety and Ergonomics: AI can monitor work environments to enhance safety protocols and ergonomics, reducing the risk of workplace accidents.
-- Process Optimization: AI can streamline manufacturing processes, reducing waste and increasing throughput.
-- Market Analysis and Consumer Insights: AI can analyze market trends and consumer behavior, aiding in strategic decision-making and product development.
-- Collaborative Robotics (Cobots): AI enables the development of robots that can safely work alongside humans, enhancing productivity and reducing labor-intensive tasks.
-- Customized AI Solutions: AI engineers can develop tailored AI solutions that cater to specific industry needs or challenges.
-- Training and Simulation: AI can be used to create simulation models to train staff or test new processes and products virtually.
-- Environmental Monitoring and Compliance: AI can help in monitoring environmental impacts and ensuring compliance with regulations.
-- Enhancing Customer Experiences: In the service aspect, AI can be used to improve customer service and engagement, leading to better customer satisfaction and loyalty.
-- Integrating IoT with AI: AI engineers can harness data from IoT devices to provide more comprehensive and actionable insights.
-- Cross-Industry Collaboration: AI can facilitate collaboration between different industries, creating new opportunities for innovation and growth.
+- Predictive Maintenance: A car manufacturing company uses AI algorithms to analyze data from assembly line robots. The AI predicts when a robot's components are likely to fail, allowing for maintenance before a breakdown occurs, thereby reducing production downtime.
+- Supply Chain Optimization: A consumer electronics manufacturer employs AI to forecast demand for its products, adjusting production schedules and inventory levels accordingly. This AI-driven approach helps the company avoid overproduction and stock shortages.
+- Personalized Manufacturing: A furniture company uses AI to offer customers the ability to customize products online. The AI assists in translating these customizations into manufacturing instructions, enabling mass customization at scale.
+- Energy Efficiency: A steel plant uses AI to optimize its furnaces' energy consumption. The AI system constantly analyzes production data and adjusts furnace operations to maximize energy efficiency while maintaining quality.
+- Quality Control: A pharmaceutical company implements AI for real-time quality control. The AI system continuously analyzes images of drug capsules to identify and sort out defects, ensuring high-quality products.
+- Worker Safety and Ergonomics: An AI system in a chemical plant monitors the workplace environment using sensors and cameras. It identifies potential safety hazards and suggests ergonomic improvements to reduce the risk of worker injuries.
+- Process Optimization: In a textile factory, AI algorithms analyze the entire production process, identifying bottlenecks and suggesting improvements to enhance throughput and reduce waste.
+- Market Analysis and Consumer Insights: An AI system helps a toy manufacturer analyze social media trends and consumer feedback to predict which toy designs are likely to be popular, guiding product development and marketing strategies.
+- Collaborative Robotics (Cobots): In a packaging facility, cobots equipped with AI work alongside human employees, taking over repetitive tasks and reducing the physical strain on workers.
+- Customized AI Solutions: A bespoke AI solution is developed for a food processing company to monitor and optimize the ripening process of fruits, enhancing product quality.
+- Training and Simulation: AI-driven virtual reality simulations are used in an aerospace company to train assembly workers, reducing the learning curve and improving precision in complex tasks on high value products.  This helps to reduce the cost of training and the cost of mistakes.
+- Environmental Monitoring and Compliance: An AI system in a cement factory monitors emissions in real-time, ensuring compliance with environmental regulations and identifying areas for improvement.
+- Enhancing Customer Experiences: An AI chatbot in a manufacturing company's customer service department provides quick and accurate responses to customer inquiries, improving satisfaction.
+- Integrating IoT with AI: In a smart factory, AI algorithms analyze data from IoT sensors
 
 Foundation models like GPT-3/4, Claude, and Whisper, signify a shift in the AI paradigm. These models are accessible off-the-shelf via APIs, offering a streamlined path to implementation. Understanding the architecture of these models - their layers and structure - is crucial. The ability to employ a pre-trained model bypasses the need for extensive data collection and training, accelerating the deployment process.
 
 Putting these foundation models into production varies in complexity. It can be as simple as calling an API where no knowledge of infrastrucure is required.  Or as intricate as running the models locally, serving high-volume predictions. Running locally and managing demands requires a keen understanding of GPU utilization, batching, and infrastructure expertise.
 
-The emergence of AI engineers is reshaping the landscape of development. AI is becoming increasingly accessible to traditional software engineers, blurring the lines between machine learning engineers and AI engineers. The latter focuses on consuming foundation model APIs rather than building models from scratch.
+The emergence of AI engineers is reshaping the landscape of development. AI is becoming increasingly accessible to traditional software engineers, blurring the lines between machine learning engineers and AI engineers. The latter focuses more on consuming foundation model APIs and the former more on building models from scratch.
 
 This shift has economic implications. The demand for AI far exceeds the supply of machine learning experts. Consequently, AI engineers are evolving from software engineers who acquire these specialized skills.
 
