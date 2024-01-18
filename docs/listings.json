@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/adam_optimizer/index.html",
+      "/posts/future_skills_in_ai/index.html",
       "/posts/all_things_RAG_paper_discussion/all_things_rag_paper_discussion.html",
       "/posts/initialization_neural_networks/index.html",
       "/posts/chatGPT_audio_conversation/index.html",
