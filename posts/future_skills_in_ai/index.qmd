@@ -5,23 +5,23 @@ date: "2024-12-07"
 categories: [AI, manufacturing, jobs]
 toc: true
 toc-depth: 4
-draft: true
+draft: False
 ---
 
 # Overview
 
-[Manufacturing is a key sector for the UK economy, accounting for 10% of GDP and 44% of exports, the UK is the 8th largest exporter in the world][uk manufacturing facts 2023]. Manufacturing didnt use to be about computing technology. It was about the materials and the processes.  Computing and data is now at the centre and key to the future of manufacturing.  This article will explore the impact of AI on manufacturing jobs, and how this will affect the workforce. It will also look at what roles will be created in the future, and how these roles will will help the uk manufacturing sector.  This will indicate how manufacturing will look in the future.
+[Manufacturing is a key sector for the UK economy, accounting for 10% of GDP and 44% of exports, the UK is the 8th largest exporter in the world][uk manufacturing facts 2023]. Manufacturing didnt use to be about computing technology. It was about the materials and the processes.  Computing and data is now at the centre and key to the future of manufacturing.  This article will explore the impact of AI on manufacturing jobs, and how this will affect the workforce. It will also look at what roles will be created in the future, and how these roles will  help the UK manufacturing sector.  This will indicate how manufacturing will look in the future.
 
 # Evolution of manufacturing : 3rd, 4th, 5th industrial revolutions
 
 
 ![picture of industrial revolutions](./Industry5.jpg)
 
-You can see from the image above,computers started to appear in:
+You can see from the image above, computers started to appear in:
 
 The **3rd industrial revolution** but there were lots of companies that didnt have IT systems and when they did, they were not joined up.  The IT systems were maybe stock control, accounting, or an ERP system and PLC's to automate machines that were previously manual. 
 
-The **4th industrial revolution** the IT systems are more joined up and the machines and parts and factories make use of IOT (internet of things) systems.  All this allows for real-time data exchange and monitoring. This connectivity facilitates more efficient operations, predictive maintenance, and improved decision-making based on comprehensive data analysis.  This is where most manufacturing companies are now but some are remecent to change and are still in the 3rd industrial revolution.
+The **4th industrial revolution** the IT systems are more joined up and the machines and parts and factories make use of IOT (internet of things) systems.  All this allows for real-time data exchange and monitoring. This connectivity facilitates more efficient operations, predictive maintenance, and improved decision-making based on comprehensive data analysis.  This is where most manufacturing companies are now but some are resistant to change and are still in the 3rd industrial revolution.
 
 The **5th industrial revolution** While still largely conceptual and not universally recognized as a distinct phase, the idea of a fifth industrial revolution often revolves around the integration of advanced technologies like AI and robotics into the manufacturing process. This could lead to even greater automation, with AI making complex decisions and managing processes. The focus is not just on efficiency and productivity but also on personalization and sustainability. The impact on economies and workforces would be significant, as it would necessitate a shift in skills and roles.
 
@@ -34,11 +34,11 @@ AI is already being used in manufacturing, but it's still in its infancy. The ma
 
 As a IT worker in manufacturing, my work flow has change due to the advancements in AI. I'm a ahead of the rest of the business in terms of using AI to improve my workflow and results it gives to the business.
 
-I use to speak to the the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra resources to finish the solution in a quicker time.
+I use to speak to the people in business (my customers), understanding their/the businesses requirements, and then building a solution and iterate between the two and maybe use a 3rd party for extra resources to finish the solution in a quicker time.
 
-The approach I use has evolved. While I still communicate with colleagues, I now employ AI and data science techniques to extract and organize information from various structured and unstructured systems. This allows me to present data to the business in a more efficient and effective manner. Prior to recent technological advancements, managing this process alone wouldn't have been cost-effective. Currently, I leverage these tools to distill information, which aids in making decisions or uncovering additional insights and requirements.
+The approach I use has evolved. While I still communicate with colleagues, I now employ AI and data science techniques to extract and organize information from various structured and unstructured systems. This allows me to present data to the business in a more efficient and effective manner. Prior to recent technological advancements, managing this process alone wouldn't have been cost-effective. Currently, I leverage these tools to distil information, which aids in making decisions or uncovering additional insights and requirements.
 
-When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, affectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building on existing foundation AI models is the future of manufacturing.
+When a solution is required, I'm now using AI to help me build the solution in record time and with better quality, giving the business a better return on their investment in me, effectivly increasing my worth.  The AI models I'm using are general purpose models that have been trained on lots of data but im using them to build unique products and solutions that are a fit for our business.  Building solutions using AI and building on existing foundation AI models is the future of manufacturing.
 
 Other people in the business will improve their work flow by using generalized AI models and systems to help them make decisions and automate processes their own processes. They will also get the benefit of the work I'm doing (IT department), as I am be able to build solutions to improve their processes.
 
@@ -47,7 +47,7 @@ This will free up their time to do more value added work.  This will increase th
 
 ## The Economics of AI in Manufacturing
 
-Graphics cards (tensor procceses) are the hardware that compute AI models.  The sale of these cards gives a great insight into the future demand of AI, it's one of the limiting factors in more models and end users using those models.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, updating existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
+Graphics cards (tensor proceses) are the hardware that compute AI models.  The sale of these cards gives a great insight into the future demand of AI, it's one of the limiting factors in more models and end users using those models.  GPU demand is outstripping supply and is likley to do for a long time.  Companies are racing to train the latest models, updating existing models and providing compute for inference (querying models for results).  All of this requires more GPU's.  Here's some stats from [GPU economics] (https://www.latent.space/p/semianalysis)
  on the growth of GPU's:
 
 - NVIDIA is forecasted to sell over 3 million GPUs next year, about 3x their 2023 sales of about 1 million H100s.
@@ -74,7 +74,7 @@ Software 2.0 signifies a paradigm shift towards machine learning models, particu
 
 Software 3.0 is where the future begins to unfold, characterized by the use of large, pre-trained foundation models. These AI models, having been trained on extensive, diverse datasets, can be fine-tuned for specific tasks, drastically reducing the need for new data collection and labeling.
 
-There will be a transition between software 2 and 3. We're in a weird space where alot of people/companies are still in software 1.0 and trying out features from software 2.0 but also using 3.0 on occation. i think all 3 will exist for a long time but will be seeing more growth in software 2.0 and espeicllay 3.0.
+There will be a transition between software 2 and 3. We're in a weird space where alot of people/companies are still in software 1.0 and trying out features from software 2.0 but also using 3.0 on occasional. i think all 3 will exist for a long time but will be seeing more growth in software 2.0 and especially 3.0.
 
 
 ## The Future of Manufacturing Software
@@ -89,15 +89,15 @@ The democratization of AI is a key driver of this evolution. The availability of
 
 ## Over view 
 
-It use to be that you needed expert maths skills , data science and coding skills to be able to build and train models and then a lot of experience in all of the roles.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models, how to use models. You would need indepth knowledge of them all or more likely, be in a team where have, a data prepartion expert, an expert in models for the different types of data, and architecture to be able to comunicate between these roles and many more roles.   A lot of the tooling improvements have enabled this to be done by one person or a very small team depending on how big the project is.
+It used to be that you needed expert maths skills, data science and coding skills to be able to build and train models and then a lot of experience in all of the roles.  You would need to know how to prepare data, how to train models, how to evaluate models, how to deploy models, how to monitor models, how to retrain models, how to update models, how to use models. You would need in depth knowledge of them all or more likely, be in a team where have, a data preparation expert, an expert in models for the different types of data, and architecture to be able to communicate between these roles and many more roles.   A lot of the tooling improvements have enabled this to be done by one person or a very small team depending on how big the project is.
 
-The most talked about model is chatgpt. Its a chatbot inferface where you ask questions (prompt) and it will give you an answer.  There are other less known models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d modles.  Anyone who can use a computer can use these models. All it takes is understanding what models are available, what they do for you and how to get the best outputs for your inputs.  This will be a key skills to have.
+The most talked about model is ChatGPT. It’s a chatbot interface where you ask questions (prompt) and it will give you an answer.  There are other less known models where you just ask what you want in text and it return in other forms such as images, text, video, audio, 3d models.  Anyone who can use a computer can use these models. All it takes is understanding what models are available, what they do for you and how to get the best outputs for your inputs.  This will be a key skill to have.
 
-For more advance users/developers there are more specific solutions for producing code within a development enviroment like microsoft copilot offers.  There are over 15,000 off the shelf models from huggingface raning from nlp, multimodel, computer vision, speech processing and many more.  All these models have there weights release which means that they can be use as is or customize (fine tuned) to your own organizational needs, no need to start from scratch.  On hugging face, there are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
+For more advance users/developers there are more specific solutions for producing code within a development environment like Microsoft copilot offers.  There are over 15,000 off the shelf models from hugging face ranging from nlp, multimodal, computer vision, speech processing and many more.  All these models have their weights release which means that they can be use as is or customize (fine-tuned) to your own organizational needs, no need to start from scratch.  On hugging face, there are datasets ready to be used to train Neural network and spaces to allow you to use the models.   This is where things start to get interesting.
 
 ## Enter the AI engieer,
 
-In the rapidly evolving landscapes of Industry 4.0 and 5.0, the role of the AI engineer emerges as a pivotal element. This role is defined by a deep understanding of the problem domain, comprehensive knowledge of AI models and ecosystems, and the ability to apply this expertise to deliver tangible business outcomes. These outcomes can range from gaining new insights and automating tasks, to enhancing the quality of products. The AI engineer leverages the principles of what can be described as "software 3.0" but can include software 1.0 and 2.0.  Some specific applications of AI in manufacturing include:
+In the rapidly evolving landscapes of Industry 4.0 and 5.0, the role of the AI engineer emerges as a pivotal element. This role is defined by a deep understanding of the problem domain, comprehensive knowledge of AI models and ecosystems, and the ability to apply this expertise to deliver tangible business outcomes. These outcomes can range from gaining new insights and automating tasks, to enhancing the quality of products. The AI engineer leverages the principles of what can be described as "software 3.0" along with software 1.0 and 2.0.  Some specific applications of AI in manufacturing include:
 
 - Predictive Maintenance: A car manufacturing company uses AI algorithms to analyze data from assembly line robots. The AI predicts when a robot's components are likely to fail, allowing for maintenance before a breakdown occurs, thereby reducing production downtime.
 - Supply Chain Optimization: A consumer electronics manufacturer employs AI to forecast demand for its products, adjusting production schedules and inventory levels accordingly. This AI-driven approach helps the company avoid overproduction and stock shortages.
@@ -126,7 +126,7 @@ The AI engineering stack is defined by systems of reasoning and retrieval-augmen
 
 AI UX is expanding beyond chatbots, introducing new modalities and interfaces. Building products with these foundation models requires a focus on delivering unique value, solving customer problems, and building trust.
 
-However, there's a balance to be struck. While some skepticism towards AI is healthy, there's also a tendency to unfairly blame AI for shortcomings. The hype generated by media and industry creators sets high expectations. It's essential for AI engineers to remain grounded in real customer needs.
+However, there's a balance to be struck. While some scepticism towards AI is healthy, there's also a tendency to unfairly blame AI for shortcomings. The hype generated by media and industry creators sets high expectations. It's essential for AI engineers to remain grounded in real customer needs.
 
 The impact of AI applications is already being felt in various sectors, demonstrating the positive influence of these technologies. For AI engineers, this era represents an unprecedented opportunity to innovate, explore, and shape the future of industries 4.0 and 5.0. Their role is not just about technical proficiency, but also about envisioning and realizing the potential of AI to transform industries and improve lives.
 
