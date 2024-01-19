@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/AI_ethics/index.html",
       "/posts/adam_optimizer/index.html",
       "/posts/future_skills_in_ai/index.html",
       "/posts/all_things_RAG_paper_discussion/all_things_rag_paper_discussion.html",
