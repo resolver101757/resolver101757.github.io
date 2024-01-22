@@ -9,6 +9,9 @@ toc-depth: 4
 
 The world of Artificial Intelligence (AI) is witnessing a significant transformation, not just technologically, but also in terms of ethics, regulations, and legal frameworks. A recent comprehensive discussion delved into these changes, offering valuable insights into the future of AI governance. Here’s a breakdown of the key points discussed, which are crucial for anyone involved in AI, whether as a developer, user, or regulator.
 
+![Ethics](ethics.png)
+
+
 1. From Guidelines to Enforceable Laws
 The discourse is shifting from mere guidelines and standards to the creation of enforceable laws, particularly around data privacy. This transition is seeing countries like the U.S. and Europe setting legal precedents, expected to be followed globally. The emphasis is on aligning these laws to create a cohesive international legal framework for AI.
 

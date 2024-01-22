@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/eye_tracking/eye_tracking.html",
       "/posts/AI_ethics/index.html",
       "/posts/adam_optimizer/index.html",
       "/posts/future_skills_in_ai/index.html",

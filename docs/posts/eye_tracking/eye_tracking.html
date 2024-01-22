@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alex Paul Kelly">
-<meta name="dcterms.date" content="2024-01-19">
+<meta name="dcterms.date" content="2024-01-22">
 
-<title>Alex Paul Kelly - Navigating the Evolving Landscape of AI Ethics and Regulation: Key Insights from a Recent Discussion with AI Tech North</title>
+<title>Alex Paul Kelly - Eye-Tracking Project: A Technical Deep Dive</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,11 +113,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Navigating the Evolving Landscape of AI Ethics and Regulation: Key Insights from a Recent Discussion with AI Tech North</h1>
+      <h1 class="title">Eye-Tracking Project: A Technical Deep Dive</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">AI</div>
-                <div class="quarto-category">ethics</div>
-                <div class="quarto-category">regulation</div>
+                <div class="quarto-category">computer vision</div>
+                <div class="quarto-category">eye-tracking</div>
               </div>
                   </div>
   </div>
@@ -135,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 19, 2024</p>
+        <p class="date">January 22, 2024</p>
       </div>
     </div>
     
@@ -147,7 +147,23 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-motivation" id="toc-the-motivation" class="nav-link active" data-scroll-target="#the-motivation">The Motivation</a></li>
+  <li><a href="#the-core-objective" id="toc-the-core-objective" class="nav-link" data-scroll-target="#the-core-objective">The Core Objective</a></li>
+  <li><a href="#the-software" id="toc-the-software" class="nav-link" data-scroll-target="#the-software">The software</a></li>
+  <li><a href="#how-the-data-was-collected" id="toc-how-the-data-was-collected" class="nav-link" data-scroll-target="#how-the-data-was-collected">How the data was collected</a></li>
+  <li><a href="#future-directions-and-technical-challenges" id="toc-future-directions-and-technical-challenges" class="nav-link" data-scroll-target="#future-directions-and-technical-challenges">Future Directions and Technical Challenges</a>
+  <ul>
+  <li><a href="#improving-accuracy-with-advanced-features" id="toc-improving-accuracy-with-advanced-features" class="nav-link" data-scroll-target="#improving-accuracy-with-advanced-features">Improving Accuracy with Advanced Features</a></li>
+  <li><a href="#exploring-cutting-edge-technologies" id="toc-exploring-cutting-edge-technologies" class="nav-link" data-scroll-target="#exploring-cutting-edge-technologies">Exploring Cutting-Edge Technologies</a></li>
+  <li><a href="#experimenting-with-different-models" id="toc-experimenting-with-different-models" class="nav-link" data-scroll-target="#experimenting-with-different-models">Experimenting with Different Models</a></li>
+  </ul></li>
+  <li><a href="#collaborative-development" id="toc-collaborative-development" class="nav-link" data-scroll-target="#collaborative-development">Collaborative Development</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
@@ -155,30 +171,56 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>The world of Artificial Intelligence (AI) is witnessing a significant transformation, not just technologically, but also in terms of ethics, regulations, and legal frameworks. A recent comprehensive discussion delved into these changes, offering valuable insights into the future of AI governance. Here’s a breakdown of the key points discussed, which are crucial for anyone involved in AI, whether as a developer, user, or regulator.</p>
+<section id="the-motivation" class="level1">
+<h1>The Motivation</h1>
+<p>In the realm of human-computer interaction, the mouse has been a stalwart companion. However, with advancements in AI and computer vision and modern hardware, high-definition cameras, efficient GPU and large high-definition screens, we stand on the cusp of a revolution: eye-tracking technology. This project isn’t just about replacing a mouse; it’s about leveraging the capabilities of modern computing to create a more natural, intuitive, and efficient way to interact with digital environments. Keyboards and mice are the tools of the past and contribute to bad posture. The future is in our eyes.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="ethics.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Ethics</figcaption>
+<p><img src=".\eye_tracking.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">eye tracking</figcaption>
 </figure>
 </div>
-<ol type="1">
-<li><p>From Guidelines to Enforceable Laws The discourse is shifting from mere guidelines and standards to the creation of enforceable laws, particularly around data privacy. This transition is seeing countries like the U.S. and Europe setting legal precedents, expected to be followed globally. The emphasis is on aligning these laws to create a cohesive international legal framework for AI.</p></li>
-<li><p>The Primacy of Data Privacy Data privacy emerges as a central theme. For AI applications like ChatGPT, the primary concern is the management and protection of personal data. The consensus is that as long as AI tools do not breach privacy norms, their use is considered ethically safe, especially when used in content creation, as this involves minimal personal data transfer.</p></li>
-<li><p>Law and Ethics in New Territories An interesting analogy with hypothetical laws on Mars highlighted how new environments (like the digital space for AI) might require rethinking legal and ethical norms. The discussion distinguished between product manufacturing responsibilities and user behavior, relating it back to AI’s realm.</p></li>
-<li><p>Global Law Synchronization There’s an acknowledgment of the need for global law synchronization. This approach suggests that products made in one country but sold in another (like the U.S. or EU) must comply with the destination country’s laws. A set of universal moral codes and best practices for AI is seen as an emerging necessity.</p></li>
-<li><p>Combatting Bias in Health AI The discussion also touched upon the critical issue of bias in AI, particularly in healthcare. The EU AI Act was cited, emphasizing the need for AI systems to have unbiased datasets and the mandatory requirement for developers to proactively seek and eliminate any biases.</p></li>
-<li><p>Respecting Intellectual Privacy and Authority Intellectual property, especially in professional fields like teaching, law, and medicine, was highlighted. The discussion suggested AI tools should be designed to respect and protect the intellectual contributions of professionals in these fields.</p></li>
-<li><p>Comprehensive AI Impact Assessment Assessing the societal, job-related, systemic, and environmental impacts of AI is crucial. The talk stressed the importance of proactive, ethical AI design and deployment, considering the far-reaching consequences AI can have.</p></li>
-<li><p>Ethics Management in AI A tool named “Smart Ethics” was introduced, aimed at helping assess the ethical alignment of AI. It follows a continuous governance process, aligning with international standards and helping developers ensure their AI systems are ethically sound.</p></li>
-<li><p>The Challenge of AI Pollution and the Importance of Trust The discussion warned against “AI pollution,” or the unchecked proliferation of AI tools. Building AI with trust and transparency was emphasized as critical for distinguishing meaningful AI development in a crowded market.</p></li>
-<li><p>Regulatory Challenges for Small AI Innovators A concern was raised that stringent regulations might inadvertently favor large corporations and stifle innovation among smaller players. This point highlighted the need for a balanced approach to AI regulation that supports innovation while ensuring ethical compliance.</p></li>
-</ol>
-<p>Conclusion The session concluded with an emphasis on feedback and continuous improvement in the AI ethics field. Attendees were encouraged to provide input and participate in certification programs to stay abreast of these important developments.</p>
-<p>As AI continues to evolve, discussions like these are vital for guiding its development in a responsible, ethical, and beneficial direction for society. Whether you are deeply embedded in the AI industry or just a casual observer, understanding these dynamics is crucial for navigating the future of AI.</p>
-<p><a href="https://www.ai-tech.uk/aitechnorth">Read more about AI Tech North’s events, news, and courses here</a></p>
+</section>
+<section id="the-core-objective" class="level1">
+<h1>The Core Objective</h1>
+<p>At the heart of our project is the development neural network eye-tracking model. This model aims to accurately translate the complex dynamics of eye movements into precise screen coordinates. The challenge lies not just in tracking the eye, but in doing so under a wide array of conditions such as variable lighting, different user distances, and diverse head and eye positions.</p>
+</section>
+<section id="the-software" class="level1">
+<h1>The software</h1>
+<p>The project is built on Python and the project page can be found <a href="https://github.com/resolver101757/Eye-tracker">here</a>. The read mme explains how to use the software. As long as you have a webcam and a computer you can use the software. The programs use the following libraries:</p>
+<ul>
+<li>opencv-python</li>
+<li>pytorch</li>
+<li>tkinter</li>
+<li>fastai</li>
+<li>pillow</li>
+</ul>
+</section>
+<section id="how-the-data-was-collected" class="level1">
+<h1>How the data was collected</h1>
+<p>The data was collected by writing a program that placed “x” on the screen at random coordinates. The program then recorded the coordinates of the “x” and a picture of the user’s face. The program then saved the image and named the file as the coordinates of the “x”. The process was repeated until the model was able to predict the coordinates of the “x” with a high degree of accuracy.</p>
+</section>
+<section id="future-directions-and-technical-challenges" class="level1">
+<h1>Future Directions and Technical Challenges</h1>
+<section id="improving-accuracy-with-advanced-features" class="level2">
+<h2 class="anchored" data-anchor-id="improving-accuracy-with-advanced-features">Improving Accuracy with Advanced Features</h2>
+<p>To enhance accuracy, we’re considering the integration of additional parameters such as face-to-screen distance, head and eye rotation, and environmental factors. This involves not only refining the model but also exploring new algorithms and neural network architectures capable of processing complex, multi-dimensional data.</p>
+</section>
+<section id="exploring-cutting-edge-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-cutting-edge-technologies">Exploring Cutting-Edge Technologies</h2>
+<p>Depth cameras and infrared sensors are on our radar as potential tools to improve tracking accuracy, especially in less-than-ideal lighting conditions. These technologies could provide richer data for our model, but they bring their own set of technical hurdles.</p>
+</section>
+<section id="experimenting-with-different-models" class="level2">
+<h2 class="anchored" data-anchor-id="experimenting-with-different-models">Experimenting with Different Models</h2>
+<p>We’re open to experimenting with various machine-learning models to find the optimal balance between accuracy and efficiency. This includes testing transformer models, which might offer advantages in processing sequential data like eye movements and experimenting with deeper CNN architectures.</p>
+</section>
+</section>
+<section id="collaborative-development" class="level1">
+<h1>Collaborative Development</h1>
+<p>This project is open to anyone who is passionate and keen to help and test out. We encourage contributions from those interested in exploring the technical depths of eye-tracking technology. Whether it’s through innovative ideas, experimentation, or sharing expertise, your input is invaluable in shaping the future of this technology. Join us in this exciting venture to redefine the way we interact with the digital world.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

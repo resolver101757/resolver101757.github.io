@@ -1,0 +1,53 @@
+---
+title: "Eye-Tracking Project: A Technical Deep Dive"
+author: "Alex Paul Kelly"
+date: "2024-01-22"
+categories: [AI, computer vision, eye-tracking]
+toc: true
+toc-depth: 4
+draft: False
+---
+
+# The Motivation
+
+In the realm of human-computer interaction, the mouse has been a stalwart companion. However, with advancements in AI and computer vision and modern hardware, high-definition cameras, efficient GPU and large high-definition screens, we stand on the cusp of a revolution: eye-tracking technology. This project isn't just about replacing a mouse; it's about leveraging the capabilities of modern computing to create a more natural, intuitive, and efficient way to interact with digital environments.  Keyboards and mice are the tools of the past and contribute to bad posture. The future is in our eyes.
+
+![eye tracking](.\eye_tracking.png)
+
+
+# The Core Objective
+
+At the heart of our project is the development neural network eye-tracking model. This model aims to accurately translate the complex dynamics of eye movements into precise screen coordinates. The challenge lies not just in tracking the eye, but in doing so under a wide array of conditions such as variable lighting, different user distances, and diverse head and eye positions.
+
+# The software 
+
+The project is built on Python and the project page can be found [here](https://github.com/resolver101757/Eye-tracker).  The read mme explains how to use the software.  As long as you have a webcam and a computer you can use the software.  The programs use the following libraries:
+
+- opencv-python
+- pytorch
+- tkinter 
+- fastai 
+- pillow
+
+# How the data was collected 
+
+The data was collected by writing a program that placed "x" on the screen at random coordinates. The program then recorded the coordinates of the "x" and a picture of the user's face. The program then saved the image and named the file as the coordinates of the "x". The process was repeated until the model was able to predict the coordinates of the "x" with a high degree of accuracy.
+
+# Future Directions and Technical Challenges
+
+## Improving Accuracy with Advanced Features
+
+To enhance accuracy, we're considering the integration of additional parameters such as face-to-screen distance, head and eye rotation, and environmental factors. This involves not only refining the model but also exploring new algorithms and neural network architectures capable of processing complex, multi-dimensional data.
+
+## Exploring Cutting-Edge Technologies
+
+Depth cameras and infrared sensors are on our radar as potential tools to improve tracking accuracy, especially in less-than-ideal lighting conditions. These technologies could provide richer data for our model, but they bring their own set of technical hurdles.
+
+## Experimenting with Different Models
+
+We're open to experimenting with various machine-learning models to find the optimal balance between accuracy and efficiency. This includes testing transformer models, which might offer advantages in processing sequential data like eye movements and experimenting with deeper CNN architectures.
+
+# Collaborative Development
+
+This project is open to anyone who is passionate and keen to help and test out. We encourage contributions from those interested in exploring the technical depths of eye-tracking technology. Whether it's through innovative ideas, experimentation, or sharing expertise, your input is invaluable in shaping the future of this technology. Join us in this exciting venture to redefine the way we interact with the digital world.
+
