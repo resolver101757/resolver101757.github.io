@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Alex Paul Kelly - AI: The Catalyst of the 4th Industrial transformation</title>
+<title>Alex Paul Kelly - Who is hugging face and why use their learn the the dataset loader</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">AI: The Catalyst of the 4th Industrial transformation</h1>
+      <h1 class="title">Who is hugging face and why use their learn the the dataset loader</h1>
                       </div>
   </div>
     
@@ -169,9 +169,53 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="stepping-into-the-heart-of-the-4th-industrial-revolution-this-blog-series-examines-the-future-of-manufacturing-with-ai-and-data-analytics-positioned-at-the-core-of-this-momentous-transformation." class="level3">
-<h3 class="anchored" data-anchor-id="stepping-into-the-heart-of-the-4th-industrial-revolution-this-blog-series-examines-the-future-of-manufacturing-with-ai-and-data-analytics-positioned-at-the-core-of-this-momentous-transformation.">Stepping into the heart of the 4th industrial revolution, this blog series examines the future of manufacturing, with AI and data analytics positioned at the core of this momentous transformation.</h3>
-<p><br></p>
+<section id="what-is-hugging-face" class="level1">
+<h1>What is hugging face</h1>
+<p>It’s hard to pin down what hugging face is but if i had to say in a single line it would be a open source AI hub, however its much more than that. It is a digital space to share models, datasets and training scripts all of which is free to download and upload. It also has space for people to post projects where they host models in a gradio user interface whcih is a software library they have created.</p>
+<p>Blogs and tutorials are also hosted on the site that talk about all their offering services and how to use them but also whats new in the world of machine learning.</p>
+<p>They’re aim is to make it easy for people to do anything machine learning. To acheive these goals they provide a various software libraries, heres a few picks:</p>
+</section>
+<section id="huggingface-libraries" class="level1">
+<h1>Huggingface Libraries</h1>
+<section id="hugging-python-client-library" class="level2">
+<h2 class="anchored" data-anchor-id="hugging-python-client-library">Hugging Python client library</h2>
+<p>Hugging Python client library allows you to manage all things hugging face hub and is aim at individuals and teams collaborating on shared machine learning projects. You can create new reposities, download files from the hub, upload to hub and search for models and run inference (run queries against models) and deploy models. See the quick start guide here for more information https://huggingface.co/docs/huggingface_hub/quick-start</p>
+</section>
+<section id="hugging-face-transformers" class="level2">
+<h2 class="anchored" data-anchor-id="hugging-face-transformers">Hugging face Transformers</h2>
+<p>The library here is a wide ranging library, originally was intended for nlp task but has since expanded to computer vision, audio and multimodal. Its a high level API that allows you to use pretrained models and fine tune among other featues. The list of supported models and framworks can be found <a href="https://huggingface.co/docs/transformers/index">here</a>. The library compatable of jax, Pytorch and TensorFlow.</p>
+<p>Some of the key features include:</p>
+<ul>
+<li><a href="https://huggingface.co/docs/transformers/main_classes/pipelines">pipeliens is a high-level, easy-to-use, API for doing inference over a variety of downstream-tasks</a></li>
+<li><a href="https://huggingface.co/docs/transformers/main_classes/trainer">Trainer is a high-level API for PyTorch that makes training a much simpler task</a></li>
+<li><a href="https://huggingface.co/docs/transformers/main_classes/quantization">Quantization for reducing memory requirements and inference speed</a></li>
+<li>and many more</li>
+</ul>
+</section>
+<section id="gradio" class="level2">
+<h2 class="anchored" data-anchor-id="gradio">Gradio</h2>
+<p>Gradio is a python library that allows you to quickly create UIs for your machine learning models. It allows you to create a UI for your model in 3 lines of code. It also allows you to share your model with others. Its both be local and you can host on hugging face for free. gradio is one of the most popular and has its own domain name. It has a number of features including:</p>
+<ul>
+<li><a href="https://gradio.app/getting_started">Create a UI for your model in 3 lines of code</a></li>
+<li><a href="https://www.gradio.app/docs/chatinterface">one of the new features is the chat interface to help with the growth of all the language models</a></li>
+<li><a href="https://gradio.app/getting_started">share your model with others</a></li>
+</ul>
+</section>
+<section id="diffuers" class="level2">
+<h2 class="anchored" data-anchor-id="diffuers">Diffuers</h2>
+<p>This model is hte go-to library for pretrained diffusion for generating for images, audio and 3d structures of modecules. It has high level pipeline api for creating inference with just a few lines of code. It has interchangable noise schedulers for balancing speed and quality and pretrained models that can be used as a starting point for your own models. <a href="https://huggingface.co/docs/diffusers/index">“find more informatiohn here”</a>.</p>
+<p>and finally the last library we will talk about in more detail is the datasets library.</p>
+</section>
+</section>
+<section id="datasets" class="level1">
+<h1>Datasets</h1>
+<p>The purpose of this library is to make it easy to access and share datasets. The library is the backbone to the hugging face hub and is used to organise, transfer all the datasets. Nearly every deep learning workflow starts with a dataset so undstanding the hugging face datasets library is important for training and fine tuning models. It’s built ontop of Apache Arrow making it fast and efficient for data loading and supports caching making it even more efficent. Arrow allows fast processing and is column oriented, memory mapping and gives incredable performance gains. It includes features for processing and preparing data, like filtering, splitting, and shuffling. In simple terms, it gives you everything you need to access and create datasets and get started into hugging faces machine learning. <a href="https://huggingface.co/docs/datasets/index">find more information here</a>.</p>
+<p>There are many different types of data, theres audio, vision and NLP. Today we will focus on images (vision)</p>
+<p>random</p>
+<p>useful info and key infor for hugging face 350k models, 75k datasets, and 150k demo apps (Spaces)</p>
+<p>create a dataset image folder .<br>
+https://huggingface.co/docs/datasets/image_dataset#imagefolder</p>
+<p>this gives a example on how to dataset using a script and this link is a exmaple https://github.com/huggingface/datasets/blob/main/templates/new_dataset_script.py</p>
 
 
 

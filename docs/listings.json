@@ -2,6 +2,24 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/hugging_face _and_dataset_loader/hugging_face.html",
+      "/posts/eye_tracking/eye_tracking.html",
+      "/posts/AI_ethics/index.html",
+      "/posts/adam_optimizer/index.html",
+      "/posts/future_skills_in_ai/index.html",
+      "/posts/all_things_RAG_paper_discussion/all_things_rag_paper_discussion.html",
+      "/posts/initialization_neural_networks/index.html",
+      "/posts/chatGPT_audio_conversation/index.html",
+      "/posts/Exploring_GTP4V_paper/index.html",
+      "/posts/iot_in_a_factory/index.html",
+      "/posts/developing_the_skils_for_smart_futures/index.html",
+      "/posts/the_makers_journey_unimaker/index.html"
+    ]
+  },
+  {
+    "listing": "/hugging face temp.html",
+    "items": [
+      "/posts/hugging_face _and_dataset_loader/hugging_face.html",
       "/posts/eye_tracking/eye_tracking.html",
       "/posts/AI_ethics/index.html",
       "/posts/adam_optimizer/index.html",
