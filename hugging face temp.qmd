@@ -1,0 +1,43 @@
+
+key infor for hugging face 350k models, 75k datasets, and 150k demo apps (Spaces)
+
+
+The libararies 
+
+## Hugging Python client library
+
+Hugging Python client library allows you to manage all things hugging face hub and is aim at individuals and teams collaborating on shared machine learning projects. You can create new reposities, download files from the hub, upload to hub and search for models and run inference (run queries against models) and  deploy models.  See the quick start guide here for more information https://huggingface.co/docs/huggingface_hub/quick-start
+
+
+## Hugging face Transformers 
+
+The library here is a wide ranging library, originally was intended for nlp task but has since expanded to computer vision, audio and multimodal.  Its a high level API that allows you to use pretrained models and fine tune among other featues.  The list of supported models and framworks can be found ["here"](https://huggingface.co/docs/transformers/index).  The library compatable of jax, Pytorch and TensorFlow.  
+
+Some of the key features include:
+ - ["pipeliens is a high-level, easy-to-use, API for doing inference over a variety of downstream-tasks"](https://huggingface.co/docs/transformers/main_classes/pipelines)
+ - ["Trainer is a high-level API for PyTorch that makes training a much simpler task."](https://huggingface.co/docs/transformers/main_classes/trainer)
+ - ["Quantization for reducing memory requirements and inference speed"](https://huggingface.co/docs/transformers/main_classes/quantization)
+ 
+ - and many more
+
+ ## Gradio 
+
+Gradio is a python library that allows you to quickly create UIs for your machine learning models.  It allows you to create a UI for your model in 3 lines of code.  It also allows you to share your model with others. Its both be local and you can host on hugging face for free.   gradio is one of the most popular and has its own domain name.  It has a number of features including:
+
+- ["Create a UI for your model in 3 lines of code"](https://gradio.app/getting_started)
+- ["one of the new features is the chat interface to help with the growth of all the language models"](https://www.gradio.app/docs/chatinterface)
+- ["share your model with others"](https://gradio.app/getting_started)
+
+## Diffuers 
+
+This model is hte go-to library for pretrained diffusion for generating for images, audio and 3d structures of modecules.  It has high level pipeline api for creating inference with just a few lines of code.  It has interchangable noise schedulers for balancing speed and quality and pretrained models that can be used as a starting point for your own models.  ["find more informatiohn here"](https://huggingface.co/docs/diffusers/index).
+
+and finally the last library we will talk about in more detail is the datasets library.
+
+# Datasets
+
+The purpose of this library is to make it easy to access and share datasets. The library is the backbone to the hugging face hub and is used to organise, transfer all the datasets.  Nearly every deep learning workflow starts with a dataset so undstanding the hugging face datasets library is important for training and fine tuning models.   It's built ontop of Apache Arrow making it fast and efficient for data loading and supports caching making it even more efficent.  Arrow allows fast processing and is column oriented, memory mapping and gives incredable performance gains. It includes features for processing and preparing data, like filtering, splitting, and shuffling.  In simple terms, it gives you everything you need to access and create datasets and get started into hugging faces machine learning. ["find more information here"](https://huggingface.co/docs/datasets/index).  
+
+There are many different types of data, theres audio, vision and NLP.  Today we will focus on images (vision) 
+
+
