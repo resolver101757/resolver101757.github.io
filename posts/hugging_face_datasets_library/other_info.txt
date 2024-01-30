@@ -1,0 +1,10 @@
+
+useful info and 
+key infor for hugging face 350k models, 75k datasets, and 150k demo apps (Spaces)
+
+create a dataset image folder .  
+https://huggingface.co/docs/datasets/image_dataset#imagefolder
+
+this gives a example on how to dataset using a script and this link is a exmaple https://github.com/huggingface/datasets/blob/main/templates/new_dataset_script.py
+
+
