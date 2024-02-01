@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/hugging_face _and_dataset_loader/hugging_face.html",
       "/posts/eye_tracking/eye_tracking.html",
       "/posts/AI_ethics/index.html",
       "/posts/adam_optimizer/index.html",
@@ -32,5 +31,9 @@
       "/posts/developing_the_skils_for_smart_futures/index.html",
       "/posts/the_makers_journey_unimaker/index.html"
     ]
+  },
+  {
+    "listing": "/posts/hugging_face_datasets_library/hugging face temp2.html",
+    "items": []
   }
 ]
