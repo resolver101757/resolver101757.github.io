@@ -1,5 +1,5 @@
 ---
-title: "Eye-Tracking Project: A Technical Deep Dive"
+title: "Eye-Tracking: quick overview of the project"
 author: "Alex Paul Kelly"
 date: "2024-01-22"
 categories: [AI, computer vision, eye-tracking]

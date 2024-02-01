@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Alex Paul Kelly">
+<meta name="dcterms.date" content="2024-01-22">
 
-<title>Alex Paul Kelly – hugging_face</title>
+<title>Alex Paul Kelly - Eye-Tracking: quick overview of the project</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -108,24 +110,114 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Eye-Tracking: quick overview of the project</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">AI</div>
+                <div class="quarto-category">computer vision</div>
+                <div class="quarto-category">eye-tracking</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Alex Paul Kelly </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 22, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-motivation" id="toc-the-motivation" class="nav-link active" data-scroll-target="#the-motivation">The Motivation</a></li>
+  <li><a href="#the-core-objective" id="toc-the-core-objective" class="nav-link" data-scroll-target="#the-core-objective">The Core Objective</a></li>
+  <li><a href="#the-software" id="toc-the-software" class="nav-link" data-scroll-target="#the-software">The software</a></li>
+  <li><a href="#how-the-data-was-collected" id="toc-how-the-data-was-collected" class="nav-link" data-scroll-target="#how-the-data-was-collected">How the data was collected</a></li>
+  <li><a href="#future-directions-and-technical-challenges" id="toc-future-directions-and-technical-challenges" class="nav-link" data-scroll-target="#future-directions-and-technical-challenges">Future Directions and Technical Challenges</a>
+  <ul>
+  <li><a href="#improving-accuracy-with-advanced-features" id="toc-improving-accuracy-with-advanced-features" class="nav-link" data-scroll-target="#improving-accuracy-with-advanced-features">Improving Accuracy with Advanced Features</a></li>
+  <li><a href="#exploring-cutting-edge-technologies" id="toc-exploring-cutting-edge-technologies" class="nav-link" data-scroll-target="#exploring-cutting-edge-technologies">Exploring Cutting-Edge Technologies</a></li>
+  <li><a href="#experimenting-with-different-models" id="toc-experimenting-with-different-models" class="nav-link" data-scroll-target="#experimenting-with-different-models">Experimenting with Different Models</a></li>
+  </ul></li>
+  <li><a href="#collaborative-development" id="toc-collaborative-development" class="nav-link" data-scroll-target="#collaborative-development">Collaborative Development</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<section id="title-who-is-hugging-face-and-why-use-their-learn-the-the-dataset-loader" class="level1">
-<h1>title : Who is hugging face and why use their learn the the dataset loader</h1>
+
+<section id="the-motivation" class="level1">
+<h1>The Motivation</h1>
+<p>In the realm of human-computer interaction, the mouse has been a stalwart companion. However, with advancements in AI and computer vision and modern hardware, high-definition cameras, efficient GPU and large high-definition screens, we stand on the cusp of a revolution: eye-tracking technology. This project isn’t just about replacing a mouse; it’s about leveraging the capabilities of modern computing to create a more natural, intuitive, and efficient way to interact with digital environments. Keyboards and mice are the tools of the past and contribute to bad posture. The future is in our eyes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\eye_tracking.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">eye tracking</figcaption>
+</figure>
+</div>
 </section>
-<section id="what-is-hugging-face" class="level1">
-<h1>What is hugging face</h1>
-<p>Huggingface fits into a gap that existed in the market, its a mixure of connected things. It’s a space to share models, datasets, and training scripts. It also provides a space where people can showcase models using libraries that are providing</p>
+<section id="the-core-objective" class="level1">
+<h1>The Core Objective</h1>
+<p>At the heart of our project is the development neural network eye-tracking model. This model aims to accurately translate the complex dynamics of eye movements into precise screen coordinates. The challenge lies not just in tracking the eye, but in doing so under a wide array of conditions such as variable lighting, different user distances, and diverse head and eye positions.</p>
 </section>
-<section id="dataset-loader" class="level1">
-<h1>Dataset loader</h1>
+<section id="the-software" class="level1">
+<h1>The software</h1>
+<p>The project is built on Python and the project page can be found <a href="https://github.com/resolver101757/Eye-tracker">here</a>. The read mme explains how to use the software. As long as you have a webcam and a computer you can use the software. The programs use the following libraries:</p>
+<ul>
+<li>opencv-python</li>
+<li>pytorch</li>
+<li>tkinter</li>
+<li>fastai</li>
+<li>pillow</li>
+</ul>
+</section>
+<section id="how-the-data-was-collected" class="level1">
+<h1>How the data was collected</h1>
+<p>The data was collected by writing a program that placed “x” on the screen at random coordinates. The program then recorded the coordinates of the “x” and a picture of the user’s face. The program then saved the image and named the file as the coordinates of the “x”. The process was repeated until the model was able to predict the coordinates of the “x” with a high degree of accuracy.</p>
+</section>
+<section id="future-directions-and-technical-challenges" class="level1">
+<h1>Future Directions and Technical Challenges</h1>
+<section id="improving-accuracy-with-advanced-features" class="level2">
+<h2 class="anchored" data-anchor-id="improving-accuracy-with-advanced-features">Improving Accuracy with Advanced Features</h2>
+<p>To enhance accuracy, we’re considering the integration of additional parameters such as face-to-screen distance, head and eye rotation, and environmental factors. This involves not only refining the model but also exploring new algorithms and neural network architectures capable of processing complex, multi-dimensional data.</p>
+</section>
+<section id="exploring-cutting-edge-technologies" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-cutting-edge-technologies">Exploring Cutting-Edge Technologies</h2>
+<p>Depth cameras and infrared sensors are on our radar as potential tools to improve tracking accuracy, especially in less-than-ideal lighting conditions. These technologies could provide richer data for our model, but they bring their own set of technical hurdles.</p>
+</section>
+<section id="experimenting-with-different-models" class="level2">
+<h2 class="anchored" data-anchor-id="experimenting-with-different-models">Experimenting with Different Models</h2>
+<p>We’re open to experimenting with various machine-learning models to find the optimal balance between accuracy and efficiency. This includes testing transformer models, which might offer advantages in processing sequential data like eye movements and experimenting with deeper CNN architectures.</p>
+</section>
+</section>
+<section id="collaborative-development" class="level1">
+<h1>Collaborative Development</h1>
+<p>This project is open to anyone who is passionate and keen to help and test out. We encourage contributions from those interested in exploring the technical depths of eye-tracking technology. Whether it’s through innovative ideas, experimentation, or sharing expertise, your input is invaluable in shaping the future of this technology. Join us in this exciting venture to redefine the way we interact with the digital world.</p>
 
 
 </section>
