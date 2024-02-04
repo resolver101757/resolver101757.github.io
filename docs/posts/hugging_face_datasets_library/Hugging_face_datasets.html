@@ -196,15 +196,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#technical-details" id="toc-technical-details" class="nav-link" data-scroll-target="#technical-details">Technical details</a></li>
-  <li><a href="#why-use-hugging-face-datasets-library" id="toc-why-use-hugging-face-datasets-library" class="nav-link" data-scroll-target="#why-use-hugging-face-datasets-library">Why use hugging face datasets library</a></li>
+  <li><a href="#why-use-hugging-face-datasets-library" id="toc-why-use-hugging-face-datasets-library" class="nav-link" data-scroll-target="#why-use-hugging-face-datasets-library">Why use Hugging Face datasets library</a></li>
   <li><a href="#the-competition" id="toc-the-competition" class="nav-link" data-scroll-target="#the-competition">The competition</a></li>
   </ul></li>
   <li><a href="#how-to-transform-the-dataset-into-a-format-that-can-be-used-by-the-model" id="toc-how-to-transform-the-dataset-into-a-format-that-can-be-used-by-the-model" class="nav-link" data-scroll-target="#how-to-transform-the-dataset-into-a-format-that-can-be-used-by-the-model">How to transform the dataset into a format that can be used by the model</a></li>
-  <li><a href="#creating-a-dataset-from-data-ive-collected" id="toc-creating-a-dataset-from-data-ive-collected" class="nav-link" data-scroll-target="#creating-a-dataset-from-data-ive-collected">Creating a dataset from data ive collected</a>
+  <li><a href="#creating-a-hugging-face-dataset-from-scratch" id="toc-creating-a-hugging-face-dataset-from-scratch" class="nav-link" data-scroll-target="#creating-a-hugging-face-dataset-from-scratch">Creating a hugging face dataset from scratch</a>
   <ul>
   <li><a href="#create-the-dataset" id="toc-create-the-dataset" class="nav-link" data-scroll-target="#create-the-dataset">create the dataset</a></li>
   <li><a href="#transforming-the-dataset-into-tensors-ready-for-pytorch" id="toc-transforming-the-dataset-into-tensors-ready-for-pytorch" class="nav-link" data-scroll-target="#transforming-the-dataset-into-tensors-ready-for-pytorch">Transforming the dataset into tensors ready for pytorch</a></li>
+  <li><a href="#example-using-pytorches-with_tranform-and-pytorch-vision-library-to-transform-the-data" id="toc-example-using-pytorches-with_tranform-and-pytorch-vision-library-to-transform-the-data" class="nav-link" data-scroll-target="#example-using-pytorches-with_tranform-and-pytorch-vision-library-to-transform-the-data">Example Using pytorches with_tranform and pytorch vision library to transform the data</a></li>
+  <li><a href="#using-hugginfaces-set_format-and-its-own-torch-function-to-transform-the-data" id="toc-using-hugginfaces-set_format-and-its-own-torch-function-to-transform-the-data" class="nav-link" data-scroll-target="#using-hugginfaces-set_format-and-its-own-torch-function-to-transform-the-data">using hugginfaces set_format and its own torch function to transform the data</a></li>
   </ul></li>
+  <li><a href="#the-dataloader" id="toc-the-dataloader" class="nav-link" data-scroll-target="#the-dataloader">The dataloader</a></li>
   </ul>
 </nav>
     </div>
@@ -250,16 +253,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Datasets</h1>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The purpose of this library is to make it easy to access and share and shape datasets. The library is the backbone to the hugging face hub and is used to organise, transfer the datasets so they can be used within a machine learninng pipeline. Nearly every deep learning workflow starts with a dataset so understanding the hugging face datasets library is important for training and fine tuning models. Once you have a dataset, the next step is to pass this to a dataset loader, this could be in pytorch or tensorflow or just use with one of the one of higher level apis that hugging face provide.</p>
+<p>The purpose of this library is to make it easy to access and share and shape datasets. The library is the backbone to the hugging face hub and is used to organise, transfer the datasets so they can be used within a machine learninng pipeline. Nearly every deep learning workflow starts with a dataset so understanding the hugging face datasets library is important to aquire data training and fine tuning models. Once you have a dataset, the next step is to pass this to a dataset loader, this could be in pytorch or tensorflow or just use with one of the one of higher level apis that hugging face provide and you dont need to worry about the underlying architecture.</p>
 </section>
 <section id="technical-details" class="level2">
 <h2 class="anchored" data-anchor-id="technical-details">Technical details</h2>
 <p>Hugging faces dataset library is built ontop of Apache Arrow making it fast and efficient for data loading and supports caching making it even more efficent. Arrow allows fast processing and is column oriented, memory mapping and gives incredable performance gains. It includes features for processing and preparing data, like filtering, splitting, and shuffling.</p>
 </section>
 <section id="why-use-hugging-face-datasets-library" class="level2">
-<h2 class="anchored" data-anchor-id="why-use-hugging-face-datasets-library">Why use hugging face datasets library</h2>
-<p>In simple terms, hugging face dataset library that gives you everything you need to use a existing dataset or create datasets and get streight into machine learning pipline. <a href="https://huggingface.co/docs/datasets/index">find more information here</a>. Its platform agnostic and can be used with any framework. If you want to train with pytorch or tensorflow, it makes it easy to get started. It has a large number of datasets that are ready to use and can be used with the transformers library. Its well documented and has a large community that can help you with any questions you have. Get started with just 3 lines of code, load a dataset and start exploring in your notebook or script. The script below will show the beans dataset, you can also view the dataset the hugging face hub <a href="https://huggingface.co/datasets/beans">here</a>.</p>
-<div class="cell" data-execution_count="74">
+<h2 class="anchored" data-anchor-id="why-use-hugging-face-datasets-library">Why use Hugging Face datasets library</h2>
+<p>In simple terms, hugging face dataset library that gives you everything you need to use a existing dataset or create datasets and get streight into machine learning pipline. <a href="https://huggingface.co/docs/datasets/index">find more information here</a>. Its platform agnostic and can be used with any framework. If you want to train with pytorch or tensorflow, it makes it easy to get started. It has a large number of datasets that are ready to use and can be used with the transformers library. Its well documented and has a large community that can help you with any questions you have. Get started with just 3 lines of code, load a dataset and start exploring in your notebook or script. The code below will show the beans dataset, you can also view the fdataset the hugging face hub <a href="https://huggingface.co/datasets/beans">here</a>.</p>
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install and import the necessary libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install datasets[vision] </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset, Image </span>
@@ -300,1209 +303,371 @@ Requirement already satisfied: pytz&gt;=2020.1 in c:\programdata\anaconda3\envs\
 Requirement already satisfied: tzdata&gt;=2022.1 in c:\programdata\anaconda3\envs\eye_tracking\lib\site-packages (from pandas-&gt;datasets[vision]) (2023.4)
 Requirement already satisfied: six&gt;=1.5 in c:\programdata\anaconda3\envs\eye_tracking\lib\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas-&gt;datasets[vision]) (1.16.0)</code></pre>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>c:\ProgramData\Anaconda3\envs\eye_tracking\lib\site-packages\tqdm\auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm</code></pre>
+</div>
 </div>
 </section>
 <section id="the-competition" class="level2">
 <h2 class="anchored" data-anchor-id="the-competition">The competition</h2>
-<p>The hugging face dataset library does have some competition in kaggle which also machine learning platform which Hosts Datasets, Notebooks and competion and more orianted to competions and using notebooks on their platform. The hugging face dataset library is more orianted to datasets and has a large number of datasets that are ready to use and seams more complete if using your own hardware other another platform. The kaggle python api can be found here<br>
+<p>The hugging face dataset library does have some competition in kaggle which also machine learning platform which Hosts Datasets, Notebooks and competion and are more orianted to competions and using notebooks on their platform. The hugging face dataset library is more orianted to datasets and has a large number of datasets that are ready to use and prebuilt piplines that you can use own hardware or other another platform. The kaggle python api can be found here<br>
 https://github.com/Kaggle/kaggle-api</p>
-<p>The dataset library also has some competition in the form other dataset including from pytorch and tensorflow. The pytorch dataset library can be found here https://pytorch.org/docs/stable/data.html and the tensorflow dataset library can be found here https://www.tensorflow.org/datasets/catalog/overview but are more geared at using their frameworks. f</p>
+<p>The dataset library also has some competition in pytorch and tensorflow. The pytorch dataset library can be found here https://pytorch.org/docs/stable/data.html and the tensorflow dataset library can be found here https://www.tensorflow.org/datasets/catalog/overview but are more geared at using their frameworks.</p>
 </section>
 </section>
 <section id="how-to-transform-the-dataset-into-a-format-that-can-be-used-by-the-model" class="level1">
 <h1>How to transform the dataset into a format that can be used by the model</h1>
+<p>Personally i found the transform part of the dataset library the most confusing part of the library. There are lots of ways to transform the data and it can be done once loaded and on the fly. Understanding the different ways to transform the data is important to get the data into a format that can be used by the model and prevent confusion and going round in circles. Heres some of ways you can use the library to transform data :</p>
+<ul>
+<li><a href="https://huggingface.co/docs/datasets/process">Reordering Rows and Splitting the Dataset</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/process">Renaming and Removing Columns</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/process">Applying Processing Functions to Each Example</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/process">Concatenating Datasets</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/quickstart">Applying a Custom Formatting Transform</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/use_dataset">Applying Transforms to Images</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/use_dataset">Data Augmentation</a><br></li>
+<li><a href="https://huggingface.co/docs/datasets/v2.16.1/process">Exporting a Dataset</a><br></li>
+</ul>
 <p>We’ve already imported dataset using the hugging face library. The next step is to pass this over to pytorch so we can train our model but we could pass this over to tensorflow if required. Before we pass it over we need to transform the data to tensors instead of PIL.jpeg format as shown below.</p>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"image"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"image"</span>][:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>[&lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
  &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
  &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
  &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;,
- ...]</code></pre>
+ &lt;PIL.JpegImagePlugin.JpegImageFile image mode=RGB size=500x500&gt;]</code></pre>
 </div>
 </div>
-<p>this requires installing pytorch and transforms from the torchvision library. Create a function to convert jpg into Tensors and then pass this function to datasets using the with_transform function.</p>
+<p>This requires installing pytorch and importing transforms from the torchvision library. Create a function to convert jpg into Tensors and then pass this function to datasets using the with_transform function.</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a ToTensor object that converts the image to a tensor</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> transforms</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>to_tensor <span class="op">=</span> transforms.ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a transform that converts the image to a tensor</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> transforms</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>to_tensor <span class="op">=</span> transforms.ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a function that takes in a batch and returns the batch a tensors (previously images were in PIL format)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_images(batch):</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    batch[<span class="st">'image'</span>] <span class="op">=</span> [to_tensor(image) <span class="cf">for</span> image <span class="kw">in</span> batch[<span class="st">'image'</span>]]</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> batch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates a function that takes in a batch and returns the batch with the image converted to a tensor</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_images(batch):</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    batch[<span class="st">'image'</span>] <span class="op">=</span> [to_tensor(image) <span class="cf">for</span> image <span class="kw">in</span> batch[<span class="st">'image'</span>]]</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> batch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Executes what we have set above the transform on the dataset, the returning dataset[image] will be a tensor  </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> dataset.with_transform(transform_images, batched<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="75">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># executes the transform on the dataset, the returning dataset[image] will be a tensor  </span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> dataset.with_transform(transform_images)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now we can access the first image as a tensor</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>tensor([[[0.2196, 0.2196, 0.2196,  ..., 0.8000, 0.2588, 0.2118],
-         [0.2118, 0.2157, 0.2157,  ..., 0.6706, 0.3843, 0.2078],
-         [0.1961, 0.2000, 0.2039,  ..., 0.6706, 0.4039, 0.3333],
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># now we can access the first image as a tensor</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>tensor([[[0.2196, 0.2196, 0.2196,  ..., 0.8078, 0.2627, 0.2118],
+         [0.2118, 0.2157, 0.2157,  ..., 0.6706, 0.3843, 0.2000],
+         [0.1961, 0.2000, 0.2039,  ..., 0.6706, 0.3961, 0.3294],
          ...,
          [0.2196, 0.1882, 0.2275,  ..., 0.5804, 0.6353, 0.5529],
          [0.1961, 0.1922, 0.2706,  ..., 0.6196, 0.5843, 0.6157],
-         [0.2275, 0.2118, 0.1882,  ..., 0.5569, 0.6196, 0.5961]],
+         [0.2275, 0.2118, 0.1882,  ..., 0.5647, 0.6196, 0.6000]],
 
-        [[0.1490, 0.1490, 0.1490,  ..., 0.6118, 0.0706, 0.0235],
-         [0.1412, 0.1451, 0.1451,  ..., 0.4941, 0.2039, 0.0275],
-         [0.1333, 0.1373, 0.1412,  ..., 0.5176, 0.2431, 0.1843],
+        [[0.1490, 0.1490, 0.1490,  ..., 0.6039, 0.0667, 0.0196],
+         [0.1412, 0.1451, 0.1451,  ..., 0.4980, 0.2078, 0.0314],
+         [0.1333, 0.1373, 0.1412,  ..., 0.5216, 0.2510, 0.1882],
          ...,
          [0.1020, 0.0706, 0.1098,  ..., 0.7020, 0.7569, 0.6745],
          [0.0784, 0.0745, 0.1529,  ..., 0.7255, 0.6824, 0.7137],
-         [0.1098, 0.0941, 0.0706,  ..., 0.6510, 0.7059, 0.6824]],
+         [0.1098, 0.0941, 0.0706,  ..., 0.6471, 0.7020, 0.6784]],
 
-        [[0.0078, 0.0078, 0.0078,  ..., 0.5255, 0.0157, 0.0000],
-         [0.0000, 0.0039, 0.0039,  ..., 0.4039, 0.1412, 0.0000],
-         [0.0000, 0.0039, 0.0078,  ..., 0.4039, 0.1569, 0.1020],
+        [[0.0078, 0.0078, 0.0078,  ..., 0.5490, 0.0314, 0.0039],
+         [0.0000, 0.0039, 0.0039,  ..., 0.3843, 0.1255, 0.0000],
+         [0.0000, 0.0039, 0.0078,  ..., 0.3804, 0.1373, 0.1020],
          ...,
-         [0.0706, 0.0392, 0.0706,  ..., 0.4039, 0.4588, 0.3765],
+         [0.0706, 0.0392, 0.0706,  ..., 0.4039, 0.4588, 0.3686],
          [0.0471, 0.0431, 0.1137,  ..., 0.4627, 0.4235, 0.4549],
-         [0.0784, 0.0627, 0.0314,  ..., 0.4078, 0.4627, 0.4392]]])</code></pre>
+         [0.0784, 0.0627, 0.0314,  ..., 0.4157, 0.4706, 0.4471]]])</code></pre>
 </div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"labels"</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>int</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dataset.set_format(<span class="bu">type</span><span class="op">=</span><span class="st">'torch'</span>, columns<span class="op">=</span>[<span class="st">'image'</span>, <span class="st">'labels'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"labels"</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="creating-a-dataset-from-data-ive-collected" class="level1">
-<h1>Creating a dataset from data ive collected</h1>
+<section id="creating-a-hugging-face-dataset-from-scratch" class="level1">
+<h1>Creating a hugging face dataset from scratch</h1>
 <section id="create-the-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-dataset">create the dataset</h2>
 <p>For this I will be using a dataset ive created myself for mapping pictures of me at the screen and co-ordinates on screen. The data was collected by writing a program that placed “x” on the screen at random coordinates. The program then recorded the coordinates of the “x” and a picture of the user’s face. The program then saved the image and named the file as the coordinates of the “x”. The process was repeated until the model was able to predict the coordinates of the “x” with a high degree of accuracy.</p>
-<div class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> Dataset, Image</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dataset location on my drive </span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data_science_folder <span class="op">=</span> <span class="st">'G:\My Drive\Learning\data_science'</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>sys.path.append(data_science_folder)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>dataset_path <span class="op">=</span> data_science_folder <span class="op">+</span> <span class="st">"</span><span class="ch">\\</span><span class="st">datasets_folder\gaze-points\work-laptop"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <p>A typical file name looks like the :</p>
 <ul>
 <li>20240123-140252-hieght2560-width1440-computerwork-laptop_2232_230.png</li>
 </ul>
 <p>with the targets (the pixel im looking at on screen) in the file name and the file contents is a image of me looking at the screen. The last 2 numbers 2232 and 230 are the pixel co-ordinates that need to be stripped out of the file name. Below, ill detail how to strip out the co-ordinates.</p>
-<div class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracts screen coordinates from the filenames and stores in a list of tensors</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>label_tensors <span class="op">=</span> [torch.tensor([<span class="bu">int</span>(f.split(<span class="st">'_'</span>)[<span class="op">-</span><span class="dv">2</span>]), <span class="bu">int</span>(f.split(<span class="st">'_'</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">'.'</span>)[<span class="dv">0</span>])]) <span class="cf">for</span> f <span class="kw">in</span> os.listdir(dataset_path) <span class="cf">if</span> os.path.isfile(os.path.join(dataset_path, f))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracts screen coordinates from the filenames and stores in a list of tensors</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>label_tensors <span class="op">=</span> [torch.tensor([<span class="bu">int</span>(f.split(<span class="st">'_'</span>)[<span class="op">-</span><span class="dv">2</span>]), <span class="bu">int</span>(f.split(<span class="st">'_'</span>)[<span class="op">-</span><span class="dv">1</span>].split(<span class="st">'.'</span>)[<span class="dv">0</span>])]) <span class="cf">for</span> f <span class="kw">in</span> os.listdir(dataset_path) <span class="cf">if</span> os.path.isfile(os.path.join(dataset_path, f))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>label_tensors <span class="op">=</span> label_tensors[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We have imported the dataset using the hugging face library. The next step is to get a list of the full file names to pass to the Dataset object to be load the images.</p>
-<div class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gets a list of all images in a directory and stores in a list of strings</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>image_files <span class="op">=</span> [os.path.join(dataset_path, f) <span class="cf">for</span> f <span class="kw">in</span> os.listdir(dataset_path) <span class="cf">if</span> os.path.isfile(os.path.join(dataset_path, f))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># gets a list of all images in a directory and stores in a list of strings</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>image_files <span class="op">=</span> [os.path.join(dataset_path, f) <span class="cf">for</span> f <span class="kw">in</span> os.listdir(dataset_path) <span class="cf">if</span> os.path.isfile(os.path.join(dataset_path, f))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm that the length of the labels and images are the same so they can be paired together during the creation of the dataset</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>len_image_files <span class="op">=</span> <span class="bu">len</span>(image_files)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>len_labels <span class="op">=</span> <span class="bu">len</span>(label_tensors)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"confirm length of labels </span><span class="sc">{</span>len_labels<span class="sc">}</span><span class="ss"> and length of image_files </span><span class="sc">{</span>len_image_files<span class="sc">}</span><span class="ss"> are the same"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>image_files <span class="op">=</span> image_files[:<span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm that the length of the labels and images are the same so they can be paired together during the creation of the dataset</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>len_image_files <span class="op">=</span> <span class="bu">len</span>(image_files)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>len_labels <span class="op">=</span> <span class="bu">len</span>(label_tensors)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"confirm length of labels </span><span class="sc">{</span>len_labels<span class="sc">}</span><span class="ss"> and length of image_files </span><span class="sc">{</span>len_image_files<span class="sc">}</span><span class="ss"> are the same"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>confirm length of labels 2060 and length of image_files 2060 are the same</code></pre>
+<pre><code>confirm length of labels 5 and length of image_files 5 are the same</code></pre>
 </div>
 </div>
 <p>Load the images and cast (use the pil library to convert the images)</p>
-<div class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the dataset from the image files and labels</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> Dataset.from_dict({<span class="st">"image"</span>: image_files}).cast_column(<span class="st">"image"</span>, Image())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create the dataset from the image files and labels</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> Dataset.from_dict({<span class="st">"image"</span>: image_files}).cast_column(<span class="st">"image"</span>, Image())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new dictionary with the images and labels</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># i'm not happy with having to add the labels to the dataset after as it takes alot longer</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># but i'm not sure how to do it in the the from_dict method above.</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>updated_dataset_dict <span class="op">=</span> {<span class="st">"image"</span>: dataset[<span class="st">"image"</span>], <span class="st">"label"</span>: label_tensors}</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>updated_dataset <span class="op">=</span> Dataset.from_dict(updated_dataset_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a new dictionary with the images and labels</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># i'm not happy with having to add the labels to the dataset after as it takes alot longer</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co"># but i'm not sure how to do it in the the from_dict method above.</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>updated_dataset_dict <span class="op">=</span> {<span class="st">"image"</span>: dataset[<span class="st">"image"</span>], <span class="st">"label"</span>: label_tensors}</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>updated_dataset <span class="op">=</span> Dataset.from_dict(updated_dataset_dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>updated_dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="144">
+<pre><code>Dataset({
+    features: ['image', 'label'],
+    num_rows: 5
+})</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"image"</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="145">
+<p><img src="Hugging_face_datasets_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="146">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"label"</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="146">
+<pre><code>[526, 1015]</code></pre>
+</div>
 </div>
 </section>
 <section id="transforming-the-dataset-into-tensors-ready-for-pytorch" class="level2">
 <h2 class="anchored" data-anchor-id="transforming-the-dataset-into-tensors-ready-for-pytorch">Transforming the dataset into tensors ready for pytorch</h2>
-<p>Transform the data to tensors instead of PIL.jpeg format. You can see from viewing the first element in the fow below that its a list of 2 intergers. The image is a picture of me looking at the screen. We now need to convert the labels and images to tensors using pytorches vision library using the transforms function. We can then pass this to the dataset object using the with_transform function.</p>
-<p>There a couple of ways to do this in hugging face datasets library. The first is to use the map function and the second is to use the with_transform function. The map function is applies straight away but consumes a lot of memory and the with_transform function is applied when the data is loaded. The with_transform function is the best option for large datasets. The map function is the best option for small datasets. The with_transform method is show below.</p>
-<div class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"label"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="112">
-<pre><code>[850, 976]</code></pre>
+<p>We will need to transform the data to tensors instead of PIL.jpeg format and the labels will need to be tensors. You can see from viewing the first element in the cell below that its a list of 2 intergers. The image is a picture of me looking at the screen. We now need to convert the labels and images to tensors using pytorches vision library using the transforms function. We can then pass this to the dataset object using the with_transform function.</p>
+<p>There a couple of ways to do this in hugging face datasets library. The first is to use the map function and the second is to use the with_transform function. The map function is applies straight away but consumes a lot of memory and the with_transform function is applied when the data is loaded. The with_transform function is the best option for large datasets. The map function is the best option for small datasets. The with_transform method is shown below.</p>
+</section>
+<section id="example-using-pytorches-with_tranform-and-pytorch-vision-library-to-transform-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="example-using-pytorches-with_tranform-and-pytorch-vision-library-to-transform-the-data">Example Using pytorches with_tranform and pytorch vision library to transform the data</h2>
+<p>add descript of with_transform and pytorch vision library</p>
+<div class="cell" data-execution_count="175">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates a transform that converts the image to a tensor</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> transforms</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>to_tensor <span class="op">=</span> transforms.ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-execution_count="176">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates a function that takes in a batch of the dataset and returns the batch with the image converted to a tensor</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_images(batch):</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="st">"image"</span> <span class="kw">in</span> batch <span class="kw">and</span> <span class="st">"label"</span> <span class="kw">in</span> batch:</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(batch[<span class="st">'image'</span>])):</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>            batch[<span class="st">'image'</span>][i] <span class="op">=</span> to_tensor(batch[<span class="st">'image'</span>][i])</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>            batch[<span class="st">'label'</span>][i] <span class="op">=</span> torch.tensor(batch[<span class="st">'label'</span>][i])</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"image"</span> <span class="kw">in</span> batch:</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(batch[<span class="st">'image'</span>])):</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>            batch[<span class="st">'image'</span>][i] <span class="op">=</span> to_tensor(batch[<span class="st">'image'</span>][i])</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> <span class="st">"label"</span> <span class="kw">in</span> batch:</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(batch[<span class="st">'label'</span>])):</span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>            batch[<span class="st">'label'</span>][i] <span class="op">=</span> torch.tensor(batch[<span class="st">'label'</span>][i])</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> batch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="106">
-<p><img src="Hugging_face_datasets_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="177">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Executes the transform on the dataset, the returning dataset[image] will be a tensor  </span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>updated_dataset_with_transform <span class="op">=</span> updated_dataset.with_transform(transform_images)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates a transform that converts the image to a tensor</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision <span class="im">import</span> transforms</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>to_tensor <span class="op">=</span> transforms.ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="113">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creates a function that takes in a batch and returns the batch with the image converted to a tensor</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform_images(batch):</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    batch[<span class="st">'image'</span>] <span class="op">=</span> [to_tensor(image) <span class="cf">for</span> image <span class="kw">in</span> batch[<span class="st">'image'</span>]]</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#batch['label'] = [torch.tensor(label) for label in batch['label']]</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> batch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="114">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Executes the transform on the dataset, the returning dataset[image] will be a tensor  </span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>updated_dataset <span class="op">=</span> updated_dataset.with_transform(transform_images)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We can now see the that the image is 3 channels (Red, Blue, Green) and the size of the image is 500 by 500. We can also see that the labels are now tensors.</p>
-<div class="cell" data-execution_count="115">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"image"</span>][<span class="dv">0</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="115">
+<div class="cell" data-execution_count="178">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># notice that the shape is channel first, height, width</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>updated_dataset_with_transform[<span class="st">"image"</span>][<span class="dv">0</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="178">
 <pre><code>torch.Size([3, 480, 640])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
-<pre><code>tensor([[[0.2196, 0.2196, 0.2196,  ..., 0.8000, 0.2588, 0.2118],
-         [0.2118, 0.2157, 0.2157,  ..., 0.6706, 0.3843, 0.2078],
-         [0.1961, 0.2000, 0.2039,  ..., 0.6706, 0.4039, 0.3333],
+<div class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prints the image now in tensor format</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>updated_dataset_with_transform[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="164">
+<pre><code>tensor([[[0.8157, 0.8157, 0.8157,  ..., 0.8196, 0.8196, 0.8196],
+         [0.8196, 0.8196, 0.8196,  ..., 0.8196, 0.8235, 0.8235],
+         [0.8196, 0.8196, 0.8196,  ..., 0.8196, 0.8196, 0.8235],
          ...,
-         [0.2196, 0.1882, 0.2275,  ..., 0.5804, 0.6353, 0.5529],
-         [0.1961, 0.1922, 0.2706,  ..., 0.6196, 0.5843, 0.6157],
-         [0.2275, 0.2118, 0.1882,  ..., 0.5569, 0.6196, 0.5961]],
+         [0.8078, 0.8196, 0.8314,  ..., 0.5922, 0.5961, 0.6000],
+         [0.8000, 0.8118, 0.8314,  ..., 0.5882, 0.5961, 0.5961],
+         [0.8196, 0.8314, 0.8431,  ..., 0.5882, 0.5922, 0.5961]],
 
-        [[0.1490, 0.1490, 0.1490,  ..., 0.6118, 0.0706, 0.0235],
-         [0.1412, 0.1451, 0.1451,  ..., 0.4941, 0.2039, 0.0275],
-         [0.1333, 0.1373, 0.1412,  ..., 0.5176, 0.2431, 0.1843],
+        [[0.7647, 0.7647, 0.7647,  ..., 0.7608, 0.7608, 0.7608],
+         [0.7686, 0.7686, 0.7686,  ..., 0.7608, 0.7647, 0.7647],
+         [0.7686, 0.7686, 0.7686,  ..., 0.7686, 0.7686, 0.7725],
          ...,
-         [0.1020, 0.0706, 0.1098,  ..., 0.7020, 0.7569, 0.6745],
-         [0.0784, 0.0745, 0.1529,  ..., 0.7255, 0.6824, 0.7137],
-         [0.1098, 0.0941, 0.0706,  ..., 0.6510, 0.7059, 0.6824]],
+         [0.8314, 0.8431, 0.8588,  ..., 0.5098, 0.5098, 0.5137],
+         [0.8235, 0.8392, 0.8588,  ..., 0.5020, 0.5098, 0.5098],
+         [0.8431, 0.8588, 0.8706,  ..., 0.5020, 0.5059, 0.5098]],
 
-        [[0.0078, 0.0078, 0.0078,  ..., 0.5255, 0.0157, 0.0000],
-         [0.0000, 0.0039, 0.0039,  ..., 0.4039, 0.1412, 0.0000],
-         [0.0000, 0.0039, 0.0078,  ..., 0.4039, 0.1569, 0.1020],
+        [[0.7333, 0.7333, 0.7333,  ..., 0.7412, 0.7412, 0.7412],
+         [0.7373, 0.7373, 0.7373,  ..., 0.7412, 0.7451, 0.7451],
+         [0.7373, 0.7373, 0.7373,  ..., 0.7451, 0.7451, 0.7490],
          ...,
-         [0.0706, 0.0392, 0.0706,  ..., 0.4039, 0.4588, 0.3765],
-         [0.0471, 0.0431, 0.1137,  ..., 0.4627, 0.4235, 0.4549],
-         [0.0784, 0.0627, 0.0314,  ..., 0.4078, 0.4627, 0.4392]]])</code></pre>
+         [0.8627, 0.8745, 0.8941,  ..., 0.4431, 0.4510, 0.4549],
+         [0.8549, 0.8706, 0.8941,  ..., 0.4471, 0.4549, 0.4588],
+         [0.8745, 0.8902, 0.9059,  ..., 0.4471, 0.4549, 0.4627]]])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="97">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>updated_dataset[<span class="st">"label"</span>][<span class="dv">0</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: 'image'</code></pre>
+<div class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_with_transform[<span class="st">"label"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="167">
+<pre><code>tensor([1073,    4])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>dataset[<span class="st">"label"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: "Column label not in the dataset. Current columns in the dataset: ['image_file_path', 'image', 'labels']"</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="116">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># need to sort shape out.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-
-
 </section>
+<section id="using-hugginfaces-set_format-and-its-own-torch-function-to-transform-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="using-hugginfaces-set_format-and-its-own-torch-function-to-transform-the-data">using hugginfaces set_format and its own torch function to transform the data</h2>
+<p>add a bit of descript of set_format and its own torch function</p>
+<div class="cell" data-execution_count="181">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format <span class="op">=</span> updated_dataset</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="182">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format.set_format(<span class="bu">type</span><span class="op">=</span><span class="st">'torch'</span>, columns<span class="op">=</span>[<span class="st">'image'</span>,<span class="st">'label'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Notice the shape is different to before, height, width, channel </span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format[<span class="st">"image"</span>][<span class="dv">0</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="183">
+<pre><code>torch.Size([480, 640, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format[<span class="st">"image"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="184">
+<pre><code>tensor([[[208, 195, 187],
+         [208, 195, 187],
+         [208, 195, 187],
+         ...,
+         [209, 194, 189],
+         [209, 194, 189],
+         [209, 194, 189]],
+
+        [[209, 196, 188],
+         [209, 196, 188],
+         [209, 196, 188],
+         ...,
+         [209, 194, 189],
+         [210, 195, 190],
+         [210, 195, 190]],
+
+        [[209, 196, 188],
+         [209, 196, 188],
+         [209, 196, 188],
+         ...,
+         [209, 196, 190],
+         [209, 196, 190],
+         [210, 197, 191]],
+
+        ...,
+
+        [[206, 212, 220],
+         [209, 215, 223],
+         [212, 219, 228],
+         ...,
+         [151, 130, 113],
+         [152, 130, 115],
+         [153, 131, 116]],
+
+        [[204, 210, 218],
+         [207, 214, 222],
+         [212, 219, 228],
+         ...,
+         [150, 128, 114],
+         [152, 130, 116],
+         [152, 130, 117]],
+
+        [[209, 215, 223],
+         [212, 219, 227],
+         [215, 222, 231],
+         ...,
+         [150, 128, 114],
+         [151, 129, 116],
+         [152, 130, 118]]], dtype=torch.uint8)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="185">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format[<span class="st">"label"</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="185">
+<pre><code>torch.Size([5, 2])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="186">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_set_format[<span class="st">"label"</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="186">
+<pre><code>tensor([1073,    4])</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-dataloader" class="level1">
+<h1>The dataloader</h1>
+<div class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torch.utils.data <span class="im">import</span> DataLoader</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="196">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>updated_dataset_split <span class="op">=</span> updated_dataset_set_format.train_test_split(test_size<span class="op">=</span><span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="195">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="195">
+<pre><code>Dataset({
+    features: ['image', 'label'],
+    num_rows: 5
+})</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="197">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Split the dataset into train and test (if not already split)</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>train_dataset <span class="op">=</span> updated_dataset_split[<span class="st">'train'</span>]</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a PyTorch DataLoader for the train dataset</span></span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>train_loader <span class="op">=</span> DataLoader(train_dataset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="198">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>test_dataset <span class="op">=</span> updated_dataset_split[<span class="st">'test'</span>]</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Similarly for the test dataset (optional)</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>test_loader <span class="op">=</span> DataLoader(test_dataset, batch_size<span class="op">=</span><span class="dv">32</span>, shuffle<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="200">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> test_loader:</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(item[<span class="st">'image'</span>].shape)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(item[<span class="st">'label'</span>].shape)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">break</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>torch.Size([1, 480, 640, 3])
+torch.Size([1, 2])</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
