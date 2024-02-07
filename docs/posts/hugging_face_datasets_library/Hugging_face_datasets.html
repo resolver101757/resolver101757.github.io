@@ -9,7 +9,7 @@
 <meta name="author" content="Alex Paul Kelly">
 <meta name="dcterms.date" content="2024-02-06">
 
-<title>Alex Paul Kelly - Leveraging Hugging Face for Deep Learning: A Guide to Datasets to Model Training - part 2 - eye tracking</title>
+<title>Alex Paul Kelly - Leveraging Hugging Face for Deep Learning: A Guide to Datasets to Model Training - part 1 Eye-Tracking</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Leveraging Hugging Face for Deep Learning: A Guide to Datasets to Model Training - part 2 - eye tracking</h1>
+      <h1 class="title">Leveraging Hugging Face for Deep Learning: A Guide to Datasets to Model Training - part 1 Eye-Tracking</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Machine Learning</div>
                 <div class="quarto-category">Deep Learning</div>
@@ -1201,30 +1201,6 @@ Batch 0 loss: nan
 Batch 0 loss: nan
 Finished Training</code></pre>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(num_epochs):</span>
-<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>    running_loss <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>    batch_counter <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> item <span class="kw">in</span> train_loader:</span>
-<span id="cb87-5"><a href="#cb87-5" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Get the inputs; data is a list of [inputs, labels]</span></span>
-<span id="cb87-6"><a href="#cb87-6" aria-hidden="true" tabindex="-1"></a>        inputs <span class="op">=</span> item[<span class="st">'image'</span>]</span>
-<span id="cb87-7"><a href="#cb87-7" aria-hidden="true" tabindex="-1"></a>        labels <span class="op">=</span> item[<span class="st">'label'</span>]</span>
-<span id="cb87-8"><a href="#cb87-8" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Zero the parameter gradients</span></span>
-<span id="cb87-9"><a href="#cb87-9" aria-hidden="true" tabindex="-1"></a>        optimizer.zero_grad()</span>
-<span id="cb87-10"><a href="#cb87-10" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Forward + backward + optimize</span></span>
-<span id="cb87-11"><a href="#cb87-11" aria-hidden="true" tabindex="-1"></a>        outputs <span class="op">=</span> model(inputs)</span>
-<span id="cb87-12"><a href="#cb87-12" aria-hidden="true" tabindex="-1"></a>        loss <span class="op">=</span> criterion(outputs, labels.<span class="bu">float</span>())  <span class="co"># Ensure labels are float for regression</span></span>
-<span id="cb87-13"><a href="#cb87-13" aria-hidden="true" tabindex="-1"></a>        loss.backward()</span>
-<span id="cb87-14"><a href="#cb87-14" aria-hidden="true" tabindex="-1"></a>        optimizer.step()</span>
-<span id="cb87-15"><a href="#cb87-15" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Print statistics</span></span>
-<span id="cb87-16"><a href="#cb87-16" aria-hidden="true" tabindex="-1"></a>        running_loss <span class="op">+=</span> loss.item()</span>
-<span id="cb87-17"><a href="#cb87-17" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f'Batch </span><span class="sc">{</span>batch_counter<span class="sc">}</span><span class="ss"> loss: </span><span class="sc">{</span>loss<span class="sc">.</span>item()<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb87-18"><a href="#cb87-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> batch_counter <span class="op">%</span> <span class="dv">200</span> <span class="op">==</span> <span class="dv">199</span>:    <span class="co"># Print every 200 mini-batches</span></span>
-<span id="cb87-19"><a href="#cb87-19" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="ss">f'[</span><span class="sc">{</span>epoch <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>i <span class="op">+</span> <span class="dv">1</span><span class="sc">}</span><span class="ss">] loss: </span><span class="sc">{</span>running_loss <span class="op">/</span> <span class="dv">200</span><span class="sc">:.3f}</span><span class="ss">'</span>)</span>
-<span id="cb87-20"><a href="#cb87-20" aria-hidden="true" tabindex="-1"></a>            running_loss <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb87-21"><a href="#cb87-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb87-22"><a href="#cb87-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Finished Training'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="conclusion" class="level1">
