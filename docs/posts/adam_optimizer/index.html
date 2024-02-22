@@ -736,31 +736,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-12" data-code-lines="7">Checks avg tensor doesnt exist in p, if doesnt existit creates a matching size tensor of all parameters to store averages, they will all be zeros.</span>
+<span data-code-lines="7" data-code-annotation="1" data-code-cell="annotated-cell-12">Checks avg tensor doesnt exist in p, if doesnt existit creates a matching size tensor of all parameters to store averages, they will all be zeros.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-12" data-code-lines="8">Checks sqr_avg doesnt exist in p, if it doesnt exist it creates a matching sized tensor of all parameters to store sqr averages, they will all be zeros.</span>
+<span data-code-lines="8" data-code-annotation="2" data-code-cell="annotated-cell-12">Checks sqr_avg doesnt exist in p, if it doesnt exist it creates a matching sized tensor of all parameters to store sqr averages, they will all be zeros.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-12" data-code-lines="11">p.avg is to store the averages, it can be thought of as a balance between the old gradients and the new gradiants<br> Beta is set between 1 or 0, when its closer to 1 it takes more of the historical gradients into account and when close to 0, it takes more of the new gradients into account.<br> When its closer to 1, it will be a smoother path and when its zero it will respond to changes in gradients much quicker and appear more erratic.<br> Note, on the first run the calculation of p.avg is solely based on the latter part of the equation “(1 - self.beta1) * p.grad”.<br> The first part of the equation “self.beta1 * p.avg” is zero meaning due to p.avg being set to zeros in the line “p.avg = torch.zeros_like(p.grad.data)”.<br> The next time opt_step is called, The first part of the equation will influence the result “self.beta1 * p.avg”.<br></span>
+<span data-code-lines="11" data-code-annotation="3" data-code-cell="annotated-cell-12">p.avg is to store the averages, it can be thought of as a balance between the old gradients and the new gradiants<br> Beta is set between 1 or 0, when its closer to 1 it takes more of the historical gradients into account and when close to 0, it takes more of the new gradients into account.<br> When its closer to 1, it will be a smoother path and when its zero it will respond to changes in gradients much quicker and appear more erratic.<br> Note, on the first run the calculation of p.avg is solely based on the latter part of the equation “(1 - self.beta1) * p.grad”.<br> The first part of the equation “self.beta1 * p.avg” is zero meaning due to p.avg being set to zeros in the line “p.avg = torch.zeros_like(p.grad.data)”.<br> The next time opt_step is called, The first part of the equation will influence the result “self.beta1 * p.avg”.<br></span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-12" data-code-lines="12">Unbias_avg purpose is to correct p.avg for the earier few times called when p.avg is initialised as zero as described in point 1. Something is required to reduce the depency on p.avg during the early calls, this is where unbias comes into play and will be more significant for the early iterations and gradually becomes less significant for later iterations.</span>
+<span data-code-lines="12" data-code-annotation="4" data-code-cell="annotated-cell-12">Unbias_avg purpose is to correct p.avg for the earier few times called when p.avg is initialised as zero as described in point 1. Something is required to reduce the depency on p.avg during the early calls, this is where unbias comes into play and will be more significant for the early iterations and gradually becomes less significant for later iterations.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="5">5</dt>
 <dd>
-<span data-code-annotation="5" data-code-cell="annotated-cell-12" data-code-lines="15">Squaring the gradients (p.grad**2) emphasizes larger gradients and diminishes the impact of smaller ones. We dont want this but will become clearer on point 7.</span>
+<span data-code-lines="15" data-code-annotation="5" data-code-cell="annotated-cell-12">Squaring the gradients (p.grad**2) emphasizes larger gradients and diminishes the impact of smaller ones. We dont want this but will become clearer on point 7.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="6">6</dt>
 <dd>
-<span data-code-annotation="6" data-code-cell="annotated-cell-12" data-code-lines="16">unbias_sqr_avg purpose is to correct p.sqr_avg for the first few times called. Remember that in the previous step, the p.sqr_avg is zero so isnt included in the calculations.<br> The unbias will is more significant for the early iterations and gradually becomes less significant for later iterations.</span>
+<span data-code-lines="16" data-code-annotation="6" data-code-cell="annotated-cell-12">unbias_sqr_avg purpose is to correct p.sqr_avg for the first few times called. Remember that in the previous step, the p.sqr_avg is zero so isnt included in the calculations.<br> The unbias will is more significant for the early iterations and gradually becomes less significant for later iterations.</span>
 </dd>
 <dt data-target-cell="annotated-cell-12" data-target-annotation="7">7</dt>
 <dd>
-<span data-code-annotation="7" data-code-cell="annotated-cell-12" data-code-lines="19">The final peice is to update the parameters (weights and bias’s). The second part of the equation is to “(unbias_sqr_avg + self.eps).sqrt()” is to get the distance (the 2nd momentum), unbias_sqr_avg will lead to overshooting so square root the value to get a smoother line. The 1st part of equation is 1st moment (the direction of travel) and its to get at the average direction of the travel taking into a account the learning rate, following on from the anology of the compass, this means the more epoch’s (one pass through the dat) through the data, the less the direction changes.</span>
+<span data-code-lines="19" data-code-annotation="7" data-code-cell="annotated-cell-12">The final peice is to update the parameters (weights and bias’s). The second part of the equation is to “(unbias_sqr_avg + self.eps).sqrt()” is to get the distance (the 2nd momentum), unbias_sqr_avg will lead to overshooting so square root the value to get a smoother line. The 1st part of equation is 1st moment (the direction of travel) and its to get at the average direction of the travel taking into a account the learning rate, following on from the anology of the compass, this means the more epoch’s (one pass through the dat) through the data, the less the direction changes.</span>
 </dd>
 </dl>
 </div>
