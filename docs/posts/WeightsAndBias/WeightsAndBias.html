@@ -219,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="all-the-setup-code-from-part-1" class="level2">
 <h2 class="anchored" data-anchor-id="all-the-setup-code-from-part-1">all the setup code from part 1</h2>
 <p>Creating the dataset</p>
-<p>code calapsed as we have already seen this in the previous blog post</p>
+<p>code calapsed as we have already covered this in a previous blog post but provided for convience.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:12964,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708618576475,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="0a74c9ae-6a43-4ef1-bb1d-c79031a28029">
 <details>
 <summary>Code</summary>
@@ -322,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-loaders-following-fast-ai-method" class="level2">
 <h2 class="anchored" data-anchor-id="data-loaders-following-fast-ai-method">data loaders (following Fast ai method)</h2>
 <p>dataset to dataloaders</p>
-<p>code calapsed as we have already seen this in the previous blog post</p>
+<p>code calapsed as we have already covered this in a previous blog post but provided for convience.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:94,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708619002015,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}">
 <details>
 <summary>Code</summary>
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="load-the-optimizer-and-learner" class="level2">
 <h2 class="anchored" data-anchor-id="load-the-optimizer-and-learner">Load the optimizer and learner</h2>
-<p>code calapsed as we have already seen this in the previous blog post</p>
+<p>code calapsed as we have already covered this in a previous blog post but provided for convience.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:10,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708619003386,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-execution_count="69">
 <details>
 <summary>Code</summary>
@@ -377,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="the-learner" class="level2">
 <h2 class="anchored" data-anchor-id="the-learner">The learner</h2>
-<p>code calapsed as we have already seen this in the previous blog post</p>
+<p>code calapsed as we have already covered this in a previous blog post but provided for convience.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:8,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708618722564,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-execution_count="32">
 <details>
 <summary>Code</summary>
@@ -433,14 +433,14 @@ Installing collected packages: smmap, setproctitle, sentry-sdk, docker-pycreds, 
 Successfully installed GitPython-3.1.42 docker-pycreds-0.4.0 gitdb-4.0.11 sentry-sdk-1.40.5 setproctitle-1.3.3 smmap-5.0.1 wandb-0.16.3</code></pre>
 </div>
 </div>
-<p>The activationsStats class callback collects stats on the weights and bias’s of each of the models layers. It’s from the Fast.AI mini AI library with some extra details.</p>
-<p>The initialization_neural_networks post here () shows the details of this. In sumarry :</p>
+<p>The activationsStats class callback collects stats on each of the models layers. It’s from the Fast.AI mini AI library with some extra details.</p>
+<p>The initialization_neural_networks <a href="../../posts/initialization_neural_networks/index.html">post here</a> shows the details of this. In sumarry :</p>
 <ul>
 <li>Color_dim shows a histogram shows the frequency of activations</li>
 <li>Dead_chart shows the inactive activations</li>
 <li>Plot_stats shows the mean and standard deviations of each of the layers</li>
 </ul>
-<p>A few changes has been made. I’ve added return_fig=False to each of the charts so the function returns a matplotlib fig to pass to the weights and bias’s callback below.</p>
+<p>A few changes has been made. I’ve added <code>return_fig=False</code> to each of the charts so the function returns a matplotlib fig to pass to the weights and bias’s callback below.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:424,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708619667306,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -497,7 +497,7 @@ Successfully installed GitPython-3.1.42 docker-pycreds-0.4.0 gitdb-4.0.11 sentry
 <span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span> :</span>
 <span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>          plt.tight_layout()  <span class="co"># Prevent overlap</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The weights and bias’s callback WandBC taken from jonathan witakers mini ai and slightly modified to do a few extra things i required. I’ve added a few things i thought would be useful@</p>
+<p>The weights and bias’s callback WandBC taken from jonathan witakers mini ai and slightly modified to do a few extra things i required.</p>
 <ul>
 <li>a option to upload a notebook for each training run, providing the data and hte same hardware you can reproduce the same results.<br>
 </li>
@@ -614,6 +614,7 @@ Successfully installed GitPython-3.1.42 docker-pycreds-0.4.0 gitdb-4.0.11 sentry
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:3,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708619672853,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-execution_count="81">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cbs <span class="op">=</span> [DeviceCB(),wandbcb, ProgressCB(plot<span class="op">=</span><span class="va">True</span>), astats]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>The code runs the results of the training loop and logs the results to weights and bias. As the training loop runs, the results are logged to weights and bias. The results can be viewed in the weights and bias’s dashboard by following the links. You can walk away and view the reults on your phone or another device and see progress live giving you the option to stop the training run if the results are not as desired.</p>
 <div class="cell" data-executioninfo="{&quot;elapsed&quot;:185058,&quot;status&quot;:&quot;ok&quot;,&quot;timestamp&quot;:1708619860804,&quot;user&quot;:{&quot;displayName&quot;:&quot;alex kelly&quot;,&quot;userId&quot;:&quot;14681700393893986055&quot;},&quot;user_tz&quot;:0}" data-outputid="210442da-a3f1-41cd-f84c-c637ba9d56e0" data-execution_count="83">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creates the learner object and passes the model, dataloaders (the data), loss function, learning rate,</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># callbacks and optimizer function</span></span>
@@ -789,7 +790,7 @@ Find logs at: <code>./wandb/run-20240222_163435-e4xt8oty/logs</code>
 <p><img src="WeightsAndBias_files/figure-html/cell-13-output-19.png" class="img-fluid"></p>
 </div>
 </div>
-<p>The picture below shows a screen shot of the weights and bias’s dashboard showing the training run. The dashboard shows the loss, the accuracy and activations charts among other things like gpu usage and system metrics.</p>
+<p>The picture below shows a screen shot of the weights and bias’s dashboard showing the training run. The dashboard shows the loss, the accuracy and activations charts among other things like gpu usage and system metrics. Lots more you can do with this but this is a simple example to get you started.</p>
 <p><img src="weights_bias.png" class="img-fluid"></p>
 </section>
 <section id="retreive-results" class="level1">
