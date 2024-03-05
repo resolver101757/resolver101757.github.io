@@ -10,30 +10,42 @@ draft: True
 image: "arrow-inverse.png"
 ---
 
-# Why write about Apache Arrow
+# Why spend the effort to write about Apache Arrow
 
-I came across Apache Arrow when I was looking into the Hugging Face library and I've always been a fan of the work that [Wes McKinney](https://wesmckinney.com/blog/voltron-data-transitions/), everything he touches seams to turn to gold so I was interested what Apache arrow is, what it means and the related projects that Wes is part of and why hugging face documentation keeps mentioneing it.
+I came across Apache Arrow when I was looking into the Hugging Face library and they made a big deal of it.  So I searched for more information about it and I found out [Wes McKinney](https://wesmckinney.com/blog/voltron-data-transitions/) was a big part of it.  I've followed Wes before from his time at Pandas and Everything he touches turns to gold so I started asking myself, what is Apache Arrow, what it means to the industry and how might this help me in job.  Other related projects will get a boost from this and Wes is part of some of those too.  Time to dive deeper.
 
-A lot of other products are also using apache arrow, e.g. Pandas, Palars, Hugging Face Datasets and SafeTensors,  Apache Spark, R, influxdb which i've used extensivly in work.   [click here see more examples](https://arrow.apache.org/powered_by/#:~:text=IOx%20uses%20Apache%20Arrow%20as,and%20built%20on%20Apache%20Arrow.&text=MATLAB%3A%20A%20numerical%20computing%20environment%20for%20engineers%20and%20scientists). 
+Some of the projects i'ce heard about using Apache Arrow are :
 
+- Pandas a data frame library for manipulating data and presenting said data. 
+- Polars similar to pandas but written in Rust and are much faster but not as feature-rich as pandas and as many integrations.
+- Hugging Face Datasets and SafeTensors a library for AI and machine learning.
+- Apache Spark is a big data processing library that is used in many big data pipelines and is also used as part of Databricks. 
+- R is a programming lanaguage for data analysis and visualisation.
+- InfluxDB which I've used extensively in work. Its a time series database used for sensor data and other time series data like servers.
+
+[more examples can be found here](https://arrow.apache.org/powered_by/#:~:text=IOx%20uses%20Apache%20Arrow%20as,and%20built%20on%20Apache%20Arrow.&text=MATLAB%3A%20A%20numerical%20computing%20environment%20for%20engineers%20and%20scientists).
+ 
 # What is Apache Arrow
  
-In summary its an in-memory columnar format thats not designed for storage but for in memory use, hence the in-memory.
+In summary, it's an in-memory columnar format that is not designed for storage but for in-memory use, hence the in-memory.  Columular format allows acceleration on multicore CPUs and GPUs for faster data processing and faster due to the columns all having the same datatype (rows are usually different data types), and less waiting for your queries. The memory in use part means that data is optimized to be processed straight away whereas some formats are compressed or need to be converted, again slowing the data pipeline down.
 
 # Why are people (and companies) developing with Apache Arrow
 
-Why invent something that already exist.  If your creating a new data manipulation library, why not use something apache arrow as the data backend, it's widely used and lots of people are activly making it better and it has Apache Arrow behind it with all their governance.  The thing that interest me for my day job is that moving data between one library (e.g polars) and another (e.g. pandas) or one programming language (e.g. python) and another (e.g rust), uses something they call zero copy which I understand means the data stays in the same format/location and you just pass the pointer to the different libararies.
+Why invent something that already exists.  If you're creating a new data manipulation library, why not use Apache Arrow as the data backend, it's widely used and lots of people are actively making it better and it has Apache Arrow behind it with all their governance.  It has a big community behind it and is well-maintained.  Just create an issue on their git page to get issues fixed and it's all transparent. 
 
-I listened to a podcast by the creator of Influx DB [listen here](https://podcasts.google.com/feed/aHR0cHM6Ly93d3cuZGF0YWVuZ2luZWVyaW5ncG9kY2FzdC5jb20vcnNz/episode/OGU2OTA5OWUtNGQwYy00ZGFlLWEwODUtYmUxNDI5OWM3ODBm?ep=14) and his take was that if you spend all the time to develop a data backend, you might have lost against the compitition as you've spent all your time creating something that already exist and pipped you to the market. It's hard running a big team and not having to spend brain cycles to work on the backend can free up the creativity and work on features that make your product unique. He also mentioned that the Apache Arrow team are doing a great job so why not use it.  
+The thing that interests me for my day job is moving data between one library (e.g polars) and another (e.g. pandas) or one programming language (e.g. python) and another (e.g rust), using something they call zero copy which I understand means the data stays in the same format/location and you just pass the pointer to the different libraries.
 
-Hugging face are using it for its effiecent handling of data which is incredible important in AI and machine learning pipelines.  They make a lot of reference to the zero copy of the data for things like saving weights of (large) models. 
+I listened to a podcast by the creator of Influx DB [listen here](https://podcasts.google.com/feed/aHR0cHM6Ly93d3cuZGF0YWVuZ2luZWVyaW5ncG9kY2FzdC5jb20vcnNz/episode/OGU2OTA5OWUtNGQwYy00ZGFlLWEwODUtYmUxNDI5OWM3ODBm?ep=14) and his take was that if you spend all the time to developing a data backend.  By the time it's finished, you probably already lost against the competition as competition has already built using Apache Arrow and grabbed your customers. It's also hard running a big team of developers, not just technically but dealing with people and all the other things that come with it.  So why not use Apache Arrow and work on customer experience features that make your product unique. He also mentioned that the Apache Arrow team are doing a great job, if you cant beat them, join them!
 
-# How will this affect me and the task i do regulary 
+Hugging Faces is using it for its efficient handling of data which is incredibly important in AI and Machine Learning pipelines.  They make a lot of reference to the zero-copy of the data for things like saving weights of (large) models.
 
-For work, I perform data manipulation in Pandas buts its slow and where as something like Polar is quick but is still young so doesn't have all the features and intergrations that Pandas has.  I have some slow routines in Pandas that I'm going to use Polar for and then pass to Pandas other task that I need other features, I'm mostly seeing positves from libraries using Apache Arrow rather than their own custom datatypes.  From a end user perspective, due to the data staying in the same format (apache arrow) i change from one tool to the next, use the right tools for a specific part in the data pipeline.
+# How will this affect me and the tasks I do regularly 
 
-I've also heard good things about DuckDB which uses Apache Arrow so hopefuly I will get around to trying it.
+For work, I perform data manipulation in Pandas but it's slow whereas something like Polar is quick but is still young so doesn't have all the features and integrations that Pandas has.  I have some slow routines in Pandas where it's looping through GBs of data, I'm going to use Polar for the data intensice part and then pass to Pandas for things like charting and other intergrations. I'm mostly seeing positives from libraries using Apache Arrow rather than companies/developers designing their data backends.  From an end-user perspective, it's great that I can use different tools throughout the pipeline and not have any incompatibility issues because the data is always the same datatype.  This means I can use the best tool for the job at any particular part of the data pipeline.
 
-I use Pytorch pretty much every day and I've seen a project on there website [torcharrow](https://pytorch.org/torcharrow/beta/index.html) thats in beta.  I've not used it yet but will do when I get time.  
+I've also heard good things about DuckDB which is a in-memory database that uses Apache Arrow.  
 
-It is going to be interesting to see where else Apache Arrow pops up as I keep hearing more about it as the days go by.s
+
+I use Pytorch pretty much every day and I've seen a project on their website [torcharrow](https://pytorch.org/torcharrow/beta/index.html) that's in beta.  It's said to be similar to torch.tensor but I've not used it yet, I will when I get time or maybe when it's more mature.  
+
+It is going to be interesting to see where else Apache Arrow pops up as I keep hearing more about it as the days go by.
