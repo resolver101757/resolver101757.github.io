@@ -1,0 +1,30 @@
+---
+title: "Paper reading group - Attention is All You Need"
+author: "Alex Paul Kelly"
+date: "2024-03-30"
+categories: ["AI", "NLP", "Attention", "Transformer"]
+toc: true
+draft: true 
+toc-depth: 4
+--- 
+
+# Introduction
+
+Every other Saturday we have a paper reading group where we submit papers we are interested in reading and vote for favourite paper to read together.  This week we discussed the paper "Attention is All You Need" (2017). This paper introduced the Transformer model, which has since become the foundation for many state-of-the-art models such as ChatGPT.  This is my take on Transformers and why it is so important and why its used so much.
+
+# Why transformers
+
+To look at transformers, first you need to understand what came before.  RNNs which are sequenced based and each word or token has to be processed before the next token can be processed.  This doesnt lend itself to utilizating the GPUs as the model is limited by waiting for the previous token. They are deep networks with lots of layers, the idea being the more layers the better but that comes with a tradeoffs of gradients exploding which reduces the effectivness of the network.  To resovle these issues,  LSTMs (long short memory) model was desingned which aim has 2 pathways, one for the learn the next token and another pathway for a longer memory.  This has the same squence issue but has a improvement on longer range context.  However, this still didnt provide enough for accurate predictions of tokens and was still sequential and didnt use all the resources of the GPUs. 
+
+Next comes transformers with there paper "attention is all you need". Transformers are fantastic models that change how the models are organized, they incorporate the idea of attention, hence the papers name "attention is all you need" using a method of Query, Key and Value vectors to keep multiple perspectives of relationships between tokens (or words).  This makes the Transformer model highly parallelizable and efficient, leading to significant improvements in training speed and performance for all type of modalities more noteabily text as described in the paper.   In sumarry this has the following benefits:
+
+- It does not use recurrence or convolution which are the traditional methods for sequence modeling such as RNNs and LSTMs
+- Relies entirely on attention mechanisms to draw global dependencies between input and output
+- Parallelization allows for faster training times and full use of GPU resources
+- The model is highly modular and can be easily adapted to different tasks by changing the input and output representations
+
+# Model Architecture
+
+![Transformer Model Architecture](transformer.png)
+
+Your can think of the flow as stage 1. All inputs are processed and then passed through to stage 2 and step 2 runs untils finished.  To break down further, Step 1 will pass each of the tokens in parell (rather than sequenctial).  This makes the speed to process as all of the GPU can be used to calculate the multiple headed attention and build the QKV matrices.  This is then sent onto the stage 2 for later processing.  Before this takes place, the outputs (which you can think of as labels) are process thought a masked headed.  This is done sequential so any word apart from the 1st word (or token) is masked out, then any word apart from the 2nd word is masked out, the 3rd word so on.  The idea behind this 
