@@ -7,7 +7,7 @@ categories: [data]
 toc: true
 toc-depth: 4
 draft: True
-image: "arrow-inverse.png"
+image: "arrow.png"
 ---
 
 # Why spend the effort to write about Apache Arrow
