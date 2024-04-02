@@ -4,19 +4,19 @@ author: "Alex Paul Kelly"
 date: "2024-03-30"
 categories: ["AI", "NLP", "Attention", "Transformer"]
 toc: true
-draft: true 
+draft: false 
 toc-depth: 4
 --- 
 
 # Introduction
 
-Every other Saturday we have a paper reading group where we submit papers we are interested in reading and vote for favourite paper to read together.  This week we discussed the paper "Attention is All You Need" (2017). This paper introduced the Transformer model, which has since become the foundation for many state-of-the-art models such as ChatGPT.  This is my take on Transformers and why it is so important and why its used so much.
+Every 2nd Saturday we have a paper reading group where we submit papers we are interested in reading and vote for our favorite paper to read together.  This week we discussed the paper "Attention is All You Need" (2017). This paper introduced the Transformer model, which has since become the foundation for many state-of-the-art models such as ChatGPT.  This is my take on Transformers, why it is so important and why it's used so widely. The aim is not to go into extensive details as numerous resources online already exist but to give an intuitive understanding and provide resources I found useful in understanding transformers from different perspectives, e.g. from a visual, maths, code and  conceptual.  I will assume you have basic understanding of Neural networks, back propagation ect and i will be using the token and words interchangeably, token being part of a word that language models use. 
 
 # Why transformers
 
-To look at transformers, first you need to understand what came before.  RNNs which are sequenced based and each word or token has to be processed before the next token can be processed.  This doesnt lend itself to utilizating the GPUs as the model is limited by waiting for the previous token. They are deep networks with lots of layers, the idea being the more layers the better but that comes with a tradeoffs of gradients exploding which reduces the effectivness of the network.  To resovle these issues,  LSTMs (long short memory) model was desingned which aim has 2 pathways, one for the learn the next token and another pathway for a longer memory.  This has the same squence issue but has a improvement on longer range context.  However, this still didnt provide enough for accurate predictions of tokens and was still sequential and didnt use all the resources of the GPUs. 
+To understand why Transformers, first, you need to understand what came before.  RNNs are sequenced based models and each word or token has to be processed before the next token can be processed.  This doesn't lend itself to utilizing the GPUs as the model is limited by waiting for the previous token. They are deep networks with lots of layers with hidden states that carry information from previously seen inputs.  When long sequences are passed this increases the chances of vanishing and exploding gradients which reduces the effectiveness of the network, a flaw in the design.  To resolve these issues,  LSTMs (long short memory) models is designed with 2 pathways, one for learning the more immediate tokens and another pathway for a longer memory.  This has the same sequence issue but has an improvement in longer-range context.  However, this still didn't provide accurate enough predictions of tokens, was still sequential and didn't use all the resources of the GPUs which means slower training.
 
-Next comes transformers with there paper "attention is all you need". Transformers are fantastic models that change how the models are organized, they incorporate the idea of attention, hence the papers name "attention is all you need" using a method of Query, Key and Value vectors to keep multiple perspectives of relationships between tokens (or words).  This makes the Transformer model highly parallelizable and efficient, leading to significant improvements in training speed and performance for all type of modalities more noteabily text as described in the paper.   In sumarry this has the following benefits:
+Next comes transformers with their paper "attention is all you need". Transformers are fantastic models that change how the models are organized, they incorporate the idea of attention, hence the paper's name "attention is all you need".  They use a method called Query, Key and Value vectors (attention headers) to keep multiple perspectives of relationships between tokens (or words) and their meanings.  This makes the Transformer model highly parallelizable and efficient, leading to significant improvements in training speed and performance for all types of modalities more notably text as described in the paper. The attention also increases the performance with longer sequences. In summary, this has the following benefits:
 
 - It does not use recurrence or convolution which are the traditional methods for sequence modeling such as RNNs and LSTMs
 - Relies entirely on attention mechanisms to draw global dependencies between input and output
@@ -27,4 +27,84 @@ Next comes transformers with there paper "attention is all you need". Transforme
 
 ![Transformer Model Architecture](transformer.png)
 
-Your can think of the flow as stage 1. All inputs are processed and then passed through to stage 2 and step 2 runs untils finished.  To break down further, Step 1 will pass each of the tokens in parell (rather than sequenctial).  This makes the speed to process as all of the GPU can be used to calculate the multiple headed attention and build the QKV matrices.  This is then sent onto the stage 2 for later processing.  Before this takes place, the outputs (which you can think of as labels) are process thought a masked headed.  This is done sequential so any word apart from the 1st word (or token) is masked out, then any word apart from the 2nd word is masked out, the 3rd word so on.  The idea behind this 
+The architecture above is split into 2 ways, the left side is the encoder and the right side is the decoder.  A good way to think about good way to think about this is that the encoder is like a meticulous note-taker, capturing all the critical information and its interrelations.  The decoder is like a storyteller or translator, using those notes to create a new, coherent narrative or translation that reflects the captured information accurately but in a different form.
+ 
+# (input) encoder components
+
+- Input Embedding: This can be thought of as a dictionary, each word (or token) is referenced as a single vector.  This also captures the semantic information of the words and their relationship to each other.  This context information is important for the understanding of the meaning of each word is to each other.  
+- Positional Encodings: This is used to track the position of the word for the model to understand its relevance due to its position.  The words are not inherently processed in order so keeping track of the order is important.  This is an important part that allows the model to process in parallel.  
+- Multi-headed Attention: This is where the magic of the self-attention is performed.  Each head will keep track of it's relationship to other words and its semantic understanding.  In the paper, there are 8 heads meaning there are 8 different perspectives for each word (or token) and their relationship to the other words and the great meaning.  Each head is different due to the random weights assigned at the start, these weights are then updated during training to hone in on different perspectives that matter the most in reference to the training data.  
+- The feed forward layer: before the forward feed, the heads are concatenated and sent to the feed foward layer for further transformations to improve the understanding of all the heads and gain a better conceptual understanding to improve the overall accuracy of the model.
+- Finally, this is then passed to the decoder part of the model to be decoded
+
+
+# (output) decoder 
+
+- Output Embeddings: This is the same as the input embeddings, there is no difference on this layer, only when the embeddings reach the masked layers.  They can be thought of as a dictionary, each word (or token) is referenced as a single vector.  This also captures the semantic information of the words and their relationship to each other.  This context information is important for the understanding of the meaning of each word is to each other.  
+- Positional Encodings: This is used to track the position of the word for the model to understand its relevance due to its position.  The words are not inherently processed in order so keeping track of the order is important.  This is an important part that allows the model to process in parallel.  
+- Masked multi-head attention: Its aim is similar to the multi-headed attention in the encoder but to iteratively learn the relationship and semantic meanings one token at a time to predict the next token.  For example, if the sentence to translate is "you are the best" to French, the first token is "you", then the 2nd word "you are", 3rd word "you are the" and 4th "you are the best" each time asking "given what you know so far, whats the next token".  This is how the masking process works but this can be done in parallel.
+- Multi-headed Attention:  This again is where this gets really interesting.  This layer takes the whole semantic meaning from the encoder of the whole input tokens and also the masked multi-head attention (up to the point it's at e.g. "you Are") to predict the next token.  It applies several heads to pay attention to different aspects of the information passed.  
+- - The feed forward layer: before the forward feed, the heads are concatenated and sent to the feed foward layer for further transformations to improve the understanding of all the heads and gain a better conceptual understanding to improve the overall accuracy of the model.
+- Linear Layer: The linear layers gain further understanding and produce the logits to pass to the softmax function
+- Softmax function: The softmax function converts the logits to a probability and the highest probability word is selected. 
+
+
+# Further understanding of the multi-attention headers
+
+Understanding the intuition behind multi-attention headers is quite difficult.  I found these analogies helped in understanding and also retaining the purpose. The multi-attention headers are made of Query, Key and Value. Let's simplify the concept of the QKV mechanism in transformers and the rationale behind using multiple heads with an easy-to-grasp analogies
+
+## Easy Analogy for QKV Mechanism
+
+Imagine you're at a large dinner party, trying to follow the conversations around the table:
+
+Query (Q): This is like you trying to understand a comment made by someone. You're focused on this comment and trying to figure out its context and relevance to the conversation.
+Key (K): Think of every person at the table as holding a "key" to different pieces of information. Some of what they say will be more relevant to understanding the comment you're focused on, and some less so.
+Value (V): The "value" is the actual content or meaning each person (key) can contribute to help you understand the comment in question. After deciding whose input is most relevant, you'll pay more attention to what those few people are saying.
+The transformer, like you in this scenario, uses the QKV mechanism to decide which parts of the input (the conversation) to pay attention to when trying to understand each piece (word or comment).
+
+## Easy Analogy for Multiple Heads
+
+Continuing with the dinner party analogy, imagine now that you're not just trying to understand the content of the conversation but also the emotional tone, who's leading the conversation, and how topics are changing over time.
+
+Having multiple heads is like having several versions of you at the party, each with a different focus. One version of you is trying to follow the main topic, another is paying attention to the emotional undercurrents, another is noting how the conversation topics shift, and so on.
+Each "version" of you can focus on different aspects of the conversation simultaneously, ensuring that you get a fuller understanding of what's happening at the dinner party than you would if you were just trying to follow the main topic.
+In essence, the QKV mechanism with multiple heads allows the transformer to "attend" to a complex sequence (like a conversation) from multiple perspectives at once, ensuring it captures the rich, multifaceted nature of the data it's processing.
+
+# Futher studying 
+
+These are all the links, blogs to help understand transformers better.  If you want to dive deeper, understand your own learning style and pick option that suites you:
+
+[The paper](https://arxiv.org/abs/1706.03762)
+
+[A two-part blog post on creating a transformer from scratch in PyTorch - Part 1](https://benjaminwarner.dev/2023/07/01/attention-mechanism)
+
+[A two-part blog post on creating a transformer from scratch in PyTorch - Part 2](https://benjaminwarner.dev/2023/07/28/rest-of-the-transformer)
+
+[Introduction to RNNs (by our very own)](https://maximilian-weichart.de/posts/rnn-1/)
+
+[Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+[Understanding Encoder and Decoder LLMs](https://magazine.sebastianraschka.com/p/understanding-encoder-and-decoder)
+
+[The Illustrated Transformer](https://jalammar.github.io/illustrated-transformer/)
+
+[The Illustrated GPT-2](https://jalammar.github.io/illustrated-gpt2/)
+
+[Visual video on transformers by 3Blue1Brown](https://www.youtube.com/watch?v=wjZofJX0v4M)
+
+[What are Word and Sentence Embeddings? (5-10 minute read)](https://txt.cohere.com/sentence-word-embeddings/)
+
+
+## Video Summaries
+[15 min---really fantastic animated summary](https://www.youtube.com/watch?v=4Bdc55j80l8)
+[30 min--video supplement to The Illustrated Transformer](https://www.youtube.com/watch?v=-QH8fRhqFHM)
+[50 min---fantastic code walkthrough of encoder](https://youtu.be/g3sEsBGkLU0?feature=shared) 
+[40 min---fantastic code walkthrough of decoder](https://youtu.be/MqDehUoMk-E?feature=shared)
+
+## Statquest youtube videos 
+[Transformers](https://www.youtube.com/watch?v=zxQyTK8quyY&pp=ygUJc3RhdHF1ZXN0)<br>
+[Decoders only trasnformers](https://www.youtube.com/watch?v=bQ5BoolX9Ag&t=1936s&pp=ygUJc3RhdHF1ZXN0)<br>
+[LSTMs](https://www.youtube.com/watch?v=YCzL96nL7j0)<br>
+[Seq2Seq](https://www.youtube.com/watch?v=L8HKweZIOmg)<br>
+[Attention for neural networks](https://www.youtube.com/watch?v=PSs6nxngL6k)<br>
+[Cosine similarity](https://www.youtube.com/watch?v=e9U0QAFbfLI&t)<br>
