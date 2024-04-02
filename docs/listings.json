@@ -6,6 +6,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/apache_arrow/apache_arrow.html",
       "/posts/WeightsAndBias/WeightsAndBias.html",
       "/posts/hugging_face_datasets_library/Hugging_face_datasets.html",
       "/posts/eye_tracking_start/eye_tracking.html",
