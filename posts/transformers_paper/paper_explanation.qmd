@@ -35,16 +35,16 @@ The architecture above is split into 2 ways, the left side is the encoder and th
 - Positional Encodings: This is used to track the position of the word for the model to understand its relevance due to its position.  The words are not inherently processed in order so keeping track of the order is important.  This is an important part that allows the model to process in parallel.  
 - Multi-headed Attention: This is where the magic of the self-attention is performed.  Each head will keep track of it's relationship to other words and its semantic understanding.  In the paper, there are 8 heads meaning there are 8 different perspectives for each word (or token) and their relationship to the other words and the great meaning.  Each head is different due to the random weights assigned at the start, these weights are then updated during training to hone in on different perspectives that matter the most in reference to the training data.  
 - The feed forward layer: before the forward feed, the heads are concatenated and sent to the feed foward layer for further transformations to improve the understanding of all the heads and gain a better conceptual understanding to improve the overall accuracy of the model.
-- Finally, this is then passed to the decoder part of the model to be decoded
+- Finally, this is then passed to the decoder part of the model to aid prediction in its new form. 
 
 
 # (output) decoder 
 
-- Output Embeddings: This is the same as the input embeddings, there is no difference on this layer, only when the embeddings reach the masked layers.  They can be thought of as a dictionary, each word (or token) is referenced as a single vector.  This also captures the semantic information of the words and their relationship to each other.  This context information is important for the understanding of the meaning of each word is to each other.  
+- Output Embeddings: This is the same as the input embeddings, there is no difference on this layer, only when the embeddings reach the masked layers.  The embeddings can be thought of as a dictionary, each word (or token) is referenced as a single vector.  This also captures the semantic information of the words and their relationship to each other.  This context information is important for the understanding of the meaning of each word is to each other.  
 - Positional Encodings: This is used to track the position of the word for the model to understand its relevance due to its position.  The words are not inherently processed in order so keeping track of the order is important.  This is an important part that allows the model to process in parallel.  
 - Masked multi-head attention: Its aim is similar to the multi-headed attention in the encoder but to iteratively learn the relationship and semantic meanings one token at a time to predict the next token.  For example, if the sentence to translate is "you are the best" to French, the first token is "you", then the 2nd word "you are", 3rd word "you are the" and 4th "you are the best" each time asking "given what you know so far, whats the next token".  This is how the masking process works but this can be done in parallel.
 - Multi-headed Attention:  This again is where this gets really interesting.  This layer takes the whole semantic meaning from the encoder of the whole input tokens and also the masked multi-head attention (up to the point it's at e.g. "you Are") to predict the next token.  It applies several heads to pay attention to different aspects of the information passed.  
-- - The feed forward layer: before the forward feed, the heads are concatenated and sent to the feed foward layer for further transformations to improve the understanding of all the heads and gain a better conceptual understanding to improve the overall accuracy of the model.
+- The feed forward layer: before the forward feed, the heads are concatenated and sent to the feed foward layer for further transformations to improve the understanding of all the heads and gain a better conceptual understanding to improve the overall accuracy of the model.
 - Linear Layer: The linear layers gain further understanding and produce the logits to pass to the softmax function
 - Softmax function: The softmax function converts the logits to a probability and the highest probability word is selected. 
 
@@ -76,7 +76,7 @@ These are all the links, blogs to help understand transformers better.  If you w
 
 [The paper](https://arxiv.org/abs/1706.03762)
 
-[A two-part blog post on creating a transformer from scratch in PyTorch - Part 1](https://benjaminwarner.dev/2023/07/01/attention-mechanism)
+[A two-part blog post on creating a transformer from scratch in PyTorch - Part 1](https://benjaminwarner.dev/2023/07/01/attention-mechanism) - 
 
 [A two-part blog post on creating a transformer from scratch in PyTorch - Part 2](https://benjaminwarner.dev/2023/07/28/rest-of-the-transformer)
 
