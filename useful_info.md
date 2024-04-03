@@ -28,3 +28,6 @@ https://quarto.org/docs/reference/cells/cells-jupyter.html
 - Create a script to copy file to local installation and run "quarto render ." to create the html file. see file located C:\development\github projects\AlexPaulKelly\copy_lsuv_from_colab.bat
 - Edit the notebook in colab and run the script to render the html file, repeat until happy with the result and publish to github.
 
+# Uploaded to netlify 
+
+quarto publish netlify
