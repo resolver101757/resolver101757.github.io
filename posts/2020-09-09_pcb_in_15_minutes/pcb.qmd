@@ -1,0 +1,52 @@
+---
+title: "order PCB with surface mount components in under 15 minutes with easyEDA circuit design"
+author: "Alex Kelly"
+date: "2021-06-17"
+draft : False
+---
+
+
+# Designing Electrical Circuits with EasyEDA: A Step-by-Step Guide
+
+In this blog post, we delve into the world of electrical circuit design, particularly focusing on software that simplifies this complex task for beginners. My journey began with exploring various tools, including KiCad, which I found overly complicated for those new to circuit design. This exploration led me to discover **EasyEDA**, a user-friendly alternative that significantly eases the process of designing circuits and preparing them for printing.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zZYB9mE8Phc?start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Getting Started with EasyEDA
+
+**EasyEDA** stands out for its simplicity and integrated services that take you from design to the final product. Here's how you can start designing your own circuit:
+
+1. **Open EasyEDA** and select the **EasyEDA Designer**.
+2. You'll see previous projects, but let's **create a new project**. For demonstration purposes, I'll name it **LED Light Circuit Demo**.
+
+## Designing the Circuit
+
+EasyEDA's interface provides a straightforward way to design your circuit:
+
+- **Adding Components**: Begin by adding essential components, such as a battery holder. EasyEDA offers a feature to select components that can be directly assembled onto your circuit board, saving you from soldering hassles.
+
+- **Component Selection**: For our LED light circuit, we need a battery holder, a resistor, and an LED. I opted for a CR32 button cell for the battery, a 330 ohm resistor, and a white LED. These components are chosen for their compatibility with JLC's assembly service, ensuring they can be easily mounted on the board.
+
+- **Circuit Assembly**: With all components added, the next step is to connect them to form a complete circuit. This process involves drawing connections between the battery holder, resistor, and LED, ensuring the correct orientation and arrangement.
+
+## From Schematic to PCB
+
+After designing the schematic, it's time to convert it into a physical board (PCB):
+
+1. **Convert to PCB**: EasyEDA allows for a seamless transition from schematic to PCB design. Adjust the board size to fit your components within a 100mm x 100mm area to optimize cost.
+
+2. **Routing**: Manually route the components to ensure optimal placement and connections. EasyEDA's auto-route feature can assist, but manual adjustments offer precision.
+
+3. **Finalizing the Design**: Add text or labels to your board for clarity. Save your design and prepare it for printing by generating the necessary files, including the BOM (Bill of Materials) and CPL (Component Placement List).
+
+## Ordering Your Circuit Board
+
+The final step is to order your circuit board through EasyEDA's integrated service:
+
+1. **Export Files**: Export the BOM and CPL files, which are crucial for assembly.
+2. **Place an Order**: Navigate to the PCB order section and upload your design files. You can choose assembly options, such as the number of layers and whether components should be mounted on one or both sides.
+3. **Review and Confirm**: Before finalizing your order, review the details, including component placement and board specifications. Adjust quantities and select shipping options based on your needs.
+
+## Conclusion
+
+Designing and ordering a circuit board with EasyEDA is a straightforward process that demystifies electrical engineering for beginners. This guide walked you through creating a simple LED circuit, from conceptualization to ordering the finished product. Whether you're a hobbyist or aspiring engineer, EasyEDA offers the tools and services to bring your electronic projects to life.

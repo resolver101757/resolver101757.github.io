@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alex Kelly">
-<meta name="dcterms.date" content="2023-12-28">
+<meta name="dcterms.date" content="2021-06-17">
 
-<title>Alex Paul Kelly - Adam optimizer with annealing learning rate</title>
+<title>Alex Paul Kelly - Integrating AI with LoRaWAN: A guide using edge impulse</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -100,7 +66,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -147,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Adam optimizer with annealing learning rate</h1>
+      <h1 class="title">Integrating AI with LoRaWAN: A guide using edge impulse</h1>
                       </div>
   </div>
     
@@ -164,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 28, 2023</p>
+        <p class="date">June 17, 2021</p>
       </div>
     </div>
     
@@ -175,33 +141,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode python code-annotation-code code-with-copy code-annotated"><code class="sourceCode python"><a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-1-1" class="code-annotation-target"><a href="#annotated-cell-1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a test"</span>)</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-1-2" class="code-annotation-target"><a href="#annotated-cell-1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"this is a test2"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-lines="1" data-code-annotation="1" data-code-cell="annotated-cell-1">this is a interesting line of code</span>
-</dd>
-<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-lines="2" data-code-annotation="2" data-code-cell="annotated-cell-1">this is a interesting line of code</span>
-</dd>
-</dl>
-</div>
-</div>
+<section id="exploring-wireless-signal-interference-with-a-spectrum-analyzer" class="level1">
+<h1>Exploring Wireless Signal Interference with a Spectrum Analyzer</h1>
+<p>I recently acquired a spectrum analyzer to help resolve a problem with wireless signals at the 2.4 GHz frequency. The specs show that it works at the 240 to 960 MHz range, but I’m particularly interested in the 2.35 to 2.55 GHz frequency. This equipment, made by Seeed Studios, is a decent piece of hardware for analyzing frequency interference in wireless networks.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4HRHEV6m-UA?start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+<section id="overview-of-the-spectrum-analyzer" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-spectrum-analyzer">Overview of the Spectrum Analyzer</h2>
+<ul>
+<li><strong>Manufacturer</strong>: Seeed Studios.</li>
+</ul>
+<p>I’m going to give you a quick tour of the software and the website for the makers of this equipment.</p>
+<section id="the-manufacturers-website" class="level3">
+<h3 class="anchored" data-anchor-id="the-manufacturers-website">The Manufacturer’s Website</h3>
+<p>The website for Seeed Studios displays a range of frequency spectrum analyzers. The one I’ve got is highlighted among their offerings. They also offer a Wi-Fi combo analyzer that covers both 2.4 GHz and 5 GHz frequencies. The more frequencies and range the device can cover, the more expensive it tends to be.</p>
+</section>
+<section id="wi-fi-frequency-range" class="level3">
+<h3 class="anchored" data-anchor-id="wi-fi-frequency-range">Wi-Fi Frequency Range</h3>
+<ul>
+<li><strong>Starts at</strong>: 2.412 GHz for Channel 1.</li>
+<li><strong>Ends at</strong>: 2.472 GHz for Channel 13.</li>
+</ul>
+</section>
+<section id="software-walkthrough" class="level3">
+<h3 class="anchored" data-anchor-id="software-walkthrough">Software Walkthrough</h3>
+<p>Upon connecting the spectrum analyzer to the computer and launching the software, it starts collecting data on the frequency usage. The interface shows a live view of the frequency spectrum, with the X-axis representing frequency and the Y-axis showing signal strength. You can observe spikes on certain frequencies, indicating constant traffic or noise.</p>
+<section id="adjusting-frequency-range" class="level4">
+<h4 class="anchored" data-anchor-id="adjusting-frequency-range">Adjusting Frequency Range</h4>
+<p>You can specify the start and end frequencies for analysis, allowing for targeted investigation of specific ranges. Adjusting these settings refreshes the display and focuses the analysis on the selected range.</p>
+</section>
+<section id="d-view" class="level4">
+<h4 class="anchored" data-anchor-id="d-view">3D View</h4>
+<p>The software offers a 3D view of the frequency spectrum, which provides a dynamic perspective on the peaks and troughs of signal strength over time. Changing the perspective can offer new insights into the data.</p>
+</section>
+</section>
+<section id="signal-generator" class="level3">
+<h3 class="anchored" data-anchor-id="signal-generator">Signal Generator</h3>
+<p>The spectrum analyzer also features a signal generator, useful for testing or for educational purposes. It can generate signals that mimic common wireless devices, such as car fobs or doorbells or manufacturing equipment.</p>
+</section>
+<section id="data-sniffing-and-decoding" class="level3">
+<h3 class="anchored" data-anchor-id="data-sniffing-and-decoding">Data Sniffing and Decoding</h3>
+<p>Although I haven’t delved deeply into data sniffing and decoding capabilities since they’re in beta, the software promises the ability to decode data signals into decimal, binary, or according to the specific protocol being used.</p>
+</section>
+<section id="considering-other-equipment" class="level3">
+<h3 class="anchored" data-anchor-id="considering-other-equipment">Considering Other Equipment</h3>
+<ul>
+<li><strong>HackRF One</strong>: An open-source device that covers a frequency range from 1 MHz to 6 GHz. It’s compatible with various software tools like AirSpy and Universal Radio Hacker, making it a versatile choice for serious enthusiasts.</li>
+</ul>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Deciding between the RF Explorer and the HackRF One depends on your needs and budget. The HackRF One offers a broader frequency range, but at a higher cost. Both pieces of equipment, however, are valuable tools for anyone looking to delve into the world of wireless signals and frequency analysis.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

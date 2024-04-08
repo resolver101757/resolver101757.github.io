@@ -1,0 +1,57 @@
+---
+title: "Integrating AI with LoRaWAN: A guide using edge impulse"
+author: "Alex Kelly"
+date: "2021-06-17"
+draft : False
+---
+
+
+# Exploring Wireless Signal Interference with a Spectrum Analyzer
+
+I recently acquired a spectrum analyzer to help resolve a problem with wireless signals at the 2.4 GHz frequency. The specs show that it works at the 240 to 960 MHz range, but I'm particularly interested in the 2.35 to 2.55 GHz frequency. This equipment, made by Seeed Studios, is a decent piece of hardware for analyzing frequency interference in wireless networks.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4HRHEV6m-UA?start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Overview of the Spectrum Analyzer
+
+- **Manufacturer**: Seeed Studios.
+
+I'm going to give you a quick tour of the software and the website for the makers of this equipment.
+
+### The Manufacturer's Website
+
+The website for Seeed Studios displays a range of frequency spectrum analyzers. The one I've got is highlighted among their offerings. They also offer a Wi-Fi combo analyzer that covers both 2.4 GHz and 5 GHz frequencies. The more frequencies and range the device can cover, the more expensive it tends to be.
+
+### Wi-Fi Frequency Range
+
+- **Starts at**: 2.412 GHz for Channel 1.
+- **Ends at**: 2.472 GHz for Channel 13.
+
+### Software Walkthrough
+
+Upon connecting the spectrum analyzer to the computer and launching the software, it starts collecting data on the frequency usage. The interface shows a live view of the frequency spectrum, with the X-axis representing frequency and the Y-axis showing signal strength. You can observe spikes on certain frequencies, indicating constant traffic or noise.
+
+#### Adjusting Frequency Range
+
+You can specify the start and end frequencies for analysis, allowing for targeted investigation of specific ranges. Adjusting these settings refreshes the display and focuses the analysis on the selected range.
+
+#### 3D View
+
+The software offers a 3D view of the frequency spectrum, which provides a dynamic perspective on the peaks and troughs of signal strength over time. Changing the perspective can offer new insights into the data.
+
+### Signal Generator
+
+The spectrum analyzer also features a signal generator, useful for testing or for educational purposes. It can generate signals that mimic common wireless devices, such as car fobs or doorbells or manufacturing equipment.
+
+### Data Sniffing and Decoding
+
+Although I haven't delved deeply into data sniffing and decoding capabilities since they're in beta, the software promises the ability to decode data signals into decimal, binary, or according to the specific protocol being used.
+
+### Considering Other Equipment
+
+- **HackRF One**: An open-source device that covers a frequency range from 1 MHz to 6 GHz. It's compatible with various software tools like AirSpy and Universal Radio Hacker, making it a versatile choice for serious enthusiasts.
+
+## Conclusion
+
+Deciding between the RF Explorer and the HackRF One depends on your needs and budget. The HackRF One offers a broader frequency range, but at a higher cost. Both pieces of equipment, however, are valuable tools for anyone looking to delve into the world of wireless signals and frequency analysis.

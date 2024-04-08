@@ -1,0 +1,49 @@
+---
+title: "Integrating AI with LoRaWAN: A guide using edge impulse"
+author: "Alex Kelly"
+date: "2021-06-17"
+draft : False
+---
+
+# How to Recognize Objects with an Arduino and AI
+
+In this short video, we demonstrate how to use an **Arduino Portenta Laura Board**, equipped with a camera and AI capabilities. We'll take pictures of bulldog clips to see if we can recognize them, as well as what's not a bulldog clip.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I7YcHTYTmqo?start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+## Using OpenMV and Edge Impulse
+
+To accomplish this, we use the **OpenMV** software to capture images. These images are then uploaded to a service called **Edge Impulse**, where we'll generate an AI model.
+
+### Connecting to the Camera
+
+First, we connect to the camera and start the script in OpenMV, which involves importing sensor image libraries and the time library. The script will take pictures intermittently, and we can create folders for the images directly from the OpenMV interface.
+
+#### Creating Data Sets
+
+We create a folder named `bulldog clip` and another one for non-bulldog items. This organization aids in training our model by distinguishing between the two categories.
+
+### Training with Edge Impulse
+
+After gathering our dataset, we upload it to Edge Impulse and start working on our AI model.
+
+1. **Project Creation:** We create a new project named "Bulldog Clips."
+2. **Data Upload:** We upload our images, specifying how many will be used for training versus testing.
+3. **Model Training:** Through Edge Impulse's intuitive interface, we select processing blocks and learning blocks suitable for our data, focusing on image recognition.
+4. **Generating Features:** Edge Impulse processes the images, preparing them for AI model training.
+5. **Model Evaluation:** After training, we evaluate the model's accuracy and loss, making adjustments as necessary.
+
+### Deployment
+
+Once satisfied with the model, we deploy it back to the Arduino Portenta. This involves exporting the model from Edge Impulse and loading it onto our device.
+
+## Running the Model
+
+With the model deployed, we run it on the Arduino Portenta, observing its predictions. We test it with various objects, noting how it distinguishes between bulldog clips and other items with impressive accuracy.
+
+### Integrating with LoRa
+
+Lastly, we expand the script to send predictions over a LoRa network, demonstrating a practical application of our AI-powered device. This script, along with detailed instructions, is available on our GitHub page.
+
+Thank you for following along with this tutorial on object recognition with Arduino and AI. We hope it inspires you to create your own AI-powered projects.
