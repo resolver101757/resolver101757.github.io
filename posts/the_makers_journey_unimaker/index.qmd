@@ -5,11 +5,12 @@ date: "2020-09-08"
 categories: ["IoT", "LoRaWAN", "Makerspaces", "SELA", "data"]
 toc: true
 toc-depth: 4
+image: "maker_space.jpg"
 ---
 
 # Introduction
 
-Here's a article based on a talk I gave on 8th September 2020 for the Sheffield University. The talk was about my journey as a maker and how I've been able to apply my skills and knowledge in the industrial environment at Tinsel Bridge. I've also included a video of the talk for those that prefer to watch rather than read.
+Here's an article based on a talk I gave on 8th September 2020 for the Sheffield University. The talk was about my journey as a maker and how I've been able to apply my skills and knowledge in the industrial environment at Tinsel Bridge. I've also included a video of the talk for those who prefer to watch rather than read.
 
 ```{=html}
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ti6-nrjWNlI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -26,7 +27,7 @@ My passion for making is rooted in the philosophy of makerspaces – the essence
 
 Over the past three years at the Sheffield Makerspace, I've discovered the true value of community learning. Here, knowledge and skills are shared organically, fostering an environment of mutual teaching and learning. Whether it's soldering, designing circuits, coding, laser cutting, or using a bandsaw, there's always an opportunity to learn something new or to share your expertise with others.
 
-## Turning Passion into Profession
+## Turning Passion into a Profession
 
 Makerspaces aren't just about hobbies; they're breeding grounds for innovation and entrepreneurship. I've seen firsthand how a simple project can evolve into a business venture. Pimoroni, for instance, started as a project in the hackspace and has now grown into a renowned electronics company. This transformation from maker to entrepreneur is a journey that truly inspires me.
 
@@ -40,4 +41,4 @@ Being involved in the SELA project as a mentor has been another enriching experi
 
 ## Conclusion
 
-My journey in the world of makerspaces and IoT has been more than just about learning new technologies or skills. It's about being part of a community that thrives on collaboration, creativity, and shared knowledge. From fostering friendships to enhancing communication and leadership skills, the experiences I've gathered have shaped me both professionally and personally. Whether it's through making, mentoring, or exploring new technologies, the journey continues to be an exciting and fulfilling one.
+My journey in the world of maker spaces and IoT has been more than just about learning new technologies or skills. It's about being part of a community that thrives on collaboration, creativity, and shared knowledge. From fostering friendships to enhancing communication and leadership skills, the experiences I've gathered have shaped me both professionally and personally. Whether it's through making, mentoring, or exploring new technologies, the journey continues to be an exciting and fulfilling one.

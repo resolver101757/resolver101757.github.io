@@ -5,6 +5,7 @@ date: "2020-10-16"
 categories: ["Leadership", "Education", "EEUK", "Event", "2020"]
 toc: true
 toc-depth: 4
+image: "leadership_skills.jpg"
 ---
 
 # Introduction

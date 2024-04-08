@@ -5,6 +5,7 @@ date: "2022-07-19"
 categories: ["IoT", "Manufacturing", "LoRaWAN", "Industrial IoT", "Raspberry Pi", "InfluxDB", "Grafana","data"]
 toc: true
 toc-depth: 4
+image: "IOT_in_manufacturing.png"
 ---
 
 ## Introduction
