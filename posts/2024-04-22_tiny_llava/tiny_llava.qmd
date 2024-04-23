@@ -7,26 +7,34 @@ draft : False
 
 # Why did I want to present this paper?
 
-The TinyLLaVA paper shows the usual multimodeal model of image and text in and text out but there are many more modalities. I think sometimes it's hard to compete with the larger companies that have the resources to train ever larger models as it raises the bar to such a high level, it's not impossible but there are other ways. Most of the larger companies concentrate on these modalities: images in colour (RGB), audio speech, and images and video as that's the largest market. There are a whole lot more modalities that are being neglected and this leaves a lot of opportunities. Huggingface has 10,000's of models that can be used as ingredients and you can easily train your own small model with your own data. This paper shows how to do it and I think it's a great starting point for anyone who wants to get into multimodal models. I have a passion for understanding the physical world through IOT and robotics as a hobby and work.   We humans have 5 senses to understand the world but there are many more, for example :
+The TinyLLaVA paper shows the usual multimodeal model of image and text in and text out but there are many more modalities. I think sometimes it's hard to compete with the larger companies that have the resources to train ever larger models as it raises the bar to such a high level, it's not impossible but there are other ways. Most of the larger companies concentrate on these modalities: images in colour (RGB), audio speech, and images and video as that's the largest market. There are a whole lot more modalities that are being neglected and this leaves a lot of opportunities. Huggingface has 10,000's of models that can be used as ingredients and you can easily train your own small model with your own data. This paper shows how to do create your own multimodal model and I think it's a great starting point for anyone who wants to get into multimodal models. I have a passion for understanding the physical world through IOT and robotics as a hobby and work.   We humans have 5 senses to understand the world but there are many more, for example :
 
-**Vision**: Humans only see Blue (Approximately 450–495 nm) to Red (Approximately 620–750 nm), but there's a whole range from Gamma Rays (less than 0.01 nanometers (nm)), X-rays (0.01 nm to 10 nm), Ultraviolet Light (10 nm to 400 nm), through to the longer wavelengths like Infrared Light (750 nm to 1 millimeter (mm)), Microwaves (1 mm to 1 meter), and Radio Waves (1 meter to 100 kilometers (km) or more), each with its own unique applications and phenomena in the electromagnetic spectrum.
+ - **Vision**: Humans only see Blue (Approximately 450–495 nm) to Red (Approximately 620–750 nm), but there's a whole range from Gamma Rays (less than 0.01 nanometers (nm)), X-rays (0.01 nm to 10 nm), Ultraviolet Light (10 nm to 400 nm), through to the longer wavelengths like Infrared Light (750 nm to 1 millimeter (mm)), Microwaves (1 mm to 1 meter), and Radio Waves (1 meter to 100 kilometers (km) or more), each with its own unique applications and phenomena in the electromagnetic spectrum.
 
-**Vibration**: Humans primarily sense vibration through touch but our range is limited, feeling oscillations or movements through solid objects. Beyond this, technologies like seismographs can detect vibrations in the earth, used in earthquake detection and analysis, while various animals, such as snakes and elephants, use ground vibrations for communication and to sense approaching threats.
+- **Vibration**: Humans primarily sense vibration through touch but our range is limited, feeling oscillations or movements through solid objects. Beyond this, technologies like seismographs can detect vibrations in the earth, used in earthquake detection and analysis, while various animals, such as snakes and elephants, use ground vibrations for communication and to sense approaching threats.
 
-**Magnetoreception**: Some animals, such as migratory birds, turtles, and bees, have the ability to detect the Earth's magnetic field, aiding in navigation across great distances. This sense, known as magnetoreception, is something humans are not naturally equipped with, but technology can emulate this through devices that measure magnetic fields for navigation and mapping.
+- **Magnetoreception**: Some animals, such as migratory birds, turtles, and bees, have the ability to detect the Earth's magnetic field, aiding in navigation across great distances. This sense, known as magnetoreception, is something humans are not naturally equipped with, but technology can emulate this through devices that measure magnetic fields for navigation and mapping.
 
-**Electroreception**: Certain aquatic animals, like sharks and rays, possess an ability known as electroreception, which allows them to detect electrical fields created by other organisms. This sensory modality is crucial for hunting as it helps these predators locate prey hidden in sand or mud.
+- **Electroreception**: Certain aquatic animals, like sharks and rays, possess an ability known as electroreception, which allows them to detect electrical fields created by other organisms. This sensory modality is crucial for hunting as it helps these predators locate prey hidden in sand or mud.
 
-**Chemical Sensing (Gustation and Olfaction)**: Beyond human taste and smell, chemical sensors can detect and analyze substances in the environment, with applications ranging from detecting pollutants in the air and water to analyzing soil composition in agriculture. This also includes technologies in artificial noses and tongues, which use sensors to mimic human olfaction and gustation for food safety inspections and quality control.
+- **Chemical Sensing (Gustation and Olfaction)**: Beyond human taste and smell, chemical sensors can detect and analyze substances in the environment, with applications ranging from detecting pollutants in the air and water to analyzing soil composition in agriculture. This also includes technologies in artificial noses and tongues, which use sensors to mimic human olfaction and gustation for food safety inspections and quality control.
 
-**Thermal Sensing** : While humans sense temperature primarily through the skin, certain species like pit vipers and some insects can detect infrared radiation, effectively "seeing" heat. Technological adaptations of this include thermal imaging cameras, which are used in a variety of fields, from medical diagnostics to surveillance, by detecting heat emitted by objects.
+- **Thermal Sensing**: While humans sense temperature primarily through the skin, certain species like pit vipers and some insects can detect infrared radiation, effectively "seeing" heat. Technological adaptations of this include thermal imaging cameras, which are used in a variety of fields, from medical diagnostics to surveillance, by detecting heat emitted by objects.
 
-and many more different types.
+and many more different types, these types of modalities are where novelty and practical applications are where we're going to solve realworld problems and this can be done on a budget. For example,
+
+- **Ultraviolet Light**: Use in agricultural drones to monitor plant health and detect diseases early by observing changes in UV reflection from plant leaves.
+
+- **Infrared, Microwaves, and Radio Waves**: Implement in smart home systems for enhanced security features, such as through-wall motion detection or advanced fire safety systems that can detect irregular heat patterns.
+
+- **Electroreception**: Create navigation systems for autonomous vehicles that can detect magnetic fields as an additional layer of positioning, enhancing GPS systems especially in underground or enclosed environments.
+
+- **Thermal Sensing**: Employ in energy efficiency applications, for instance, in smart buildings to optimize heating and cooling systems based on detailed thermal maps.
 
 
 ## Overview 
 
-Every week we meet on the Fast.ai group and discuss all things deep learning and every other week we have reading week where one of us presents a paper. This week it was my turn to read the paper "TinyLLaVA: A Framework of Small-scale Large Multimodal Models". There are a lot of models commercial and open source trying to solve the multimodal problem. The TinyLLava multimodal model takes in an image of what you want to understand along with your text (your question) and outputs an answer in the text so you can have a back-and-forth questioning about the image, like a chatbot. The main thrust of the industry has been to create bigger and bigger models in the hope that they will be able to understand more and more about the image. However, the authors of this paper have taken a different approach and have created an interesting architecture that can be followed to create your own small multimodal models that to solve the multimodal problem. It paper and github repository works abit like a cooking recipe, where you have the ingredients and the processes you use to mix and convert those ingredients into the final product but in this instance, we can change the ingredients (the models) and change the process if we like to achieve solve different problems or leave them the same.
+Every week we meet on the Fast.ai group and discuss all things deep learning and every other week we have reading week where one of us presents a paper. This week it was my turn to read the paper "TinyLLaVA: A Framework of Small-scale Large Multimodal Models". There are a lot of models commercial and open source trying to solve the multimodal problem. The TinyLLava multimodal model takes in an image of what you want to understand along with your text (your question) and outputs an answer in the text so you can have a back-and-forth questioning about the image, like a chatbot. The main thrust of the industry has been to create bigger and bigger models in the hope that they will be able to understand more and more about the image. However, the authors of this paper have taken a different approach and have created an interesting architecture that can be followed to create your own small multimodal models to solve the multimodal problem. Its paper and github repository works abit like a cooking recipe, where you have the ingredients and the processes you use to mix and convert those ingredients into the final product but in this instance, we can change the ingredients (the models) and change the process if we like to achieve solve different problems.
  
 ## Importance of small-scale LMMs (Large Multimodal Models)
 
@@ -56,7 +64,7 @@ TinyLLaVA leverages a combination of pre-training and supervised fine-tuning sta
 The framework tests two main recipes : 
 
 1. **Base Recipe**: Keeps the vision encoder and small-scale LLM frozen during pre-training, focusing updates on the connector.
-2. **Share Recipe**: Starts with the base recipe's pretrained connector but allows updates to parts of the vision encoder and the LLM during training.
+2. **Share Recipe**: Starts with the base recipe's pre-trained connector but allows updates to parts of the vision encoder and the LLM during training.
 
 The empirical results demonstrate that while both recipes are effective, the share recipe generally provides superior performance by dynamically adapting more components of the model.
 
@@ -69,5 +77,3 @@ More information can be found here including the paper, the github repository an
 [Link to the paper](https://arxiv.org/abs/2402.14289)
 [Link to the GitHub repository](https://github.com/DLCV-BUAA/TinyLLaVABench)
 [Link to the presentation](TinyLLaVA.pptx.pdf)
-
-
