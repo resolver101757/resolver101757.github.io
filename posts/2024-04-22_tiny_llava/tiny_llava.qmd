@@ -34,11 +34,13 @@ and many more different types, these types of modalities are where novelty and p
 
 ## Overview 
 
-Every week we meet on the Fast.ai group and discuss all things deep learning and every other week we have reading week where one of us presents a paper. This week it was my turn to read the paper "TinyLLaVA: A Framework of Small-scale Large Multimodal Models". There are a lot of models commercial and open source trying to solve the multimodal problem. The TinyLLava multimodal model takes in an image of what you want to understand along with your text (your question) and outputs an answer in the text so you can have a back-and-forth questioning about the image, like a chatbot. The main thrust of the industry has been to create bigger and bigger models in the hope that they will be able to understand more and more about the image. However, the authors of this paper have taken a different approach and have created an interesting architecture that can be followed to create your own small multimodal models to solve the multimodal problem. Its paper and github repository works abit like a cooking recipe, where you have the ingredients and the processes you use to mix and convert those ingredients into the final product but in this instance, we can change the ingredients (the models) and change the process if we like to achieve solve different problems.
+Every week we meet on the Fast.ai group and discuss all things deep learning and every other week we have reading week where one of us presents a paper. This week it was my turn to read the paper "TinyLLaVA: A Framework of Small-scale Large Multimodal Models". There are a lot of models commercial and open source trying to solve the multimodal problem. The TinyLLava multimodal model takes in an image of what you want to understand along with your text (your question) and outputs an answer in the text so you can have a back-and-forth questioning about the image, like a chatbot. The main thrust of the industry has been to create bigger and bigger models in the hope that they will be able to understand more and more about the image. However, the authors of this paper have taken a different approach and have created an interesting architecture that can be followed to create your own small multimodal models to solve the multimodal problem. Its paper and github repository works abit like a cooking recipe, where you have the ingredients and the processes you use to mix and convert those ingredients into the final product Using TinyLLava we can change the ingredients (the models) and modify the process if we like to solve different multimodal models problems.
  
 ## Importance of small-scale LMMs (Large Multimodal Models)
 
 Large models are great and have every chance to create better understanding but they are expensive and time-consuming (potentially many months) to train making them prohibitive to people like myself who don't have access to the resources. Smaller models can perform as well as larger models providing they have the right data, the right architecture and applied to the right problem. This lowers the results entry point as it can be done on modest hardware and much quicker meaning more people can get involved in creating their own experiments to solve their own multimodal problems. It also has the benefits of cheaper inference, less energy consumption and faster responce times on lesser hardware. Hugging Face has 10000's of models that can be used for ingredients in producing your own multimodal models.
+
+<br>
  
 ## Architecture Deep Dive: Building Blocks of TinyLLaVA
 
@@ -74,6 +76,6 @@ Through ablation studies, the researchers found that tweaking the size and type 
 
 More information can be found here including the paper, the github repository and the presentation.
 
-[Link to the paper](https://arxiv.org/abs/2402.14289)
-[Link to the GitHub repository](https://github.com/DLCV-BUAA/TinyLLaVABench)
-[Link to the presentation](TinyLLaVA.pptx.pdf)
+[Link to the paper](https://arxiv.org/abs/2402.14289) <br>
+[Link to the GitHub repository](https://github.com/DLCV-BUAA/TinyLLaVABench) <br>
+[Link to the presentation](TinyLLaVA.pptx.pdf) <br>
