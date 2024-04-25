@@ -7,7 +7,11 @@ draft : False
 
 # Why did I want to present this paper?
 
-The TinyLLaVA paper shows the usual multimodeal model of image and text in and text out but there are many more modalities. I think sometimes it's hard to compete with the larger companies that have the resources to train ever larger models as it raises the bar to such a high level, it's not impossible but there are other ways. Most of the larger companies concentrate on these modalities: images in colour (RGB), audio speech, and images and video as that's the largest market. There are a whole lot more modalities that are being neglected and this leaves a lot of opportunities. Huggingface has 10,000's of models that can be used as ingredients and you can easily train your own small model with your own data. This paper shows how to do create your own multimodal model and I think it's a great starting point for anyone who wants to get into multimodal models. I have a passion for understanding the physical world through IOT and robotics as a hobby and work.   We humans have 5 senses to understand the world but there are many more, for example :
+The TinyLLaVA paper shows the usual multimodeal model of image and text in and text out but there are many more modalities. One thing I keep asking myself is why am I still training deep learning, taking up my time in the my evenings and weekends, it's near impossible to compete with the larger companies like Google, OpenAI and Microsoft to name a few (would more of my time be better spent on the application layer???)
+
+For example, [Meta has purchase £350,000 H100 at around £40,000 each](https://www.techtarget.com/searchenterpriseai/news/366573246/Meta-intros-two-GPU-training-clusters-for-Llama-3).  Thats over 14 billion outlay.  Companies like Meata have the resources to train ever larger models that raise the bar to such a high level, it's not impossible to beat them but incredibly unlikley.  There are other ways! 
+
+Most of the larger companies concentrate on these modalities: images in colour (RGB), audio speech, and images and video as that's the largest market. There are a whole lot more modalities that are being neglected and this leaves a lot of opportunities. Huggingface has tens of thousands of models that can be used as components, and you can easily train your own small model with your data to be part of a much larger ensemble of models. This paper shows how to create your own multimodal model and I think it's a great starting point for anyone who wants to get into multimodal models. I have a passion for understanding the physical world. IoT (Internet of Things) and robotics is a hobby of mine, they are a great way to sense the physical world. Multimodal models are going to be a key area to understand these senses and link them with other machines to take action and understand. We humans have 5 senses to understand the world but there are many more, for example :
 
  - **Vision**: Humans only see Blue (Approximately 450–495 nm) to Red (Approximately 620–750 nm), but there's a whole range from Gamma Rays (less than 0.01 nanometers (nm)), X-rays (0.01 nm to 10 nm), Ultraviolet Light (10 nm to 400 nm), through to the longer wavelengths like Infrared Light (750 nm to 1 millimeter (mm)), Microwaves (1 mm to 1 meter), and Radio Waves (1 meter to 100 kilometers (km) or more), each with its own unique applications and phenomena in the electromagnetic spectrum.
 
@@ -21,7 +25,11 @@ The TinyLLaVA paper shows the usual multimodeal model of image and text in and t
 
 - **Thermal Sensing**: While humans sense temperature primarily through the skin, certain species like pit vipers and some insects can detect infrared radiation, effectively "seeing" heat. Technological adaptations of this include thermal imaging cameras, which are used in a variety of fields, from medical diagnostics to surveillance, by detecting heat emitted by objects.
 
+<br>
+
 and many more different types, these types of modalities are where novelty and practical applications are where we're going to solve realworld problems and this can be done on a budget. For example,
+
+<br>
 
 - **Ultraviolet Light**: Use in agricultural drones to monitor plant health and detect diseases early by observing changes in UV reflection from plant leaves.
 
@@ -41,7 +49,7 @@ Every week we meet on the Fast.ai group and discuss all things deep learning and
 Large models are great and have every chance to create better understanding but they are expensive and time-consuming (potentially many months) to train making them prohibitive to people like myself who don't have access to the resources. Smaller models can perform as well as larger models providing they have the right data, the right architecture and applied to the right problem. This lowers the results entry point as it can be done on modest hardware and much quicker meaning more people can get involved in creating their own experiments to solve their own multimodal problems. It also has the benefits of cheaper inference, less energy consumption and faster responce times on lesser hardware. Hugging Face has 10000's of models that can be used for ingredients in producing your own multimodal models.
 
 <br>
- 
+
 ## Architecture Deep Dive: Building Blocks of TinyLLaVA
 
 
@@ -54,7 +62,7 @@ Large models are great and have every chance to create better understanding but 
 
 - **Vision encoder**: The aim of the vision encoder is to understand what is happening in an image and output a text vector of its understanding.
 - **Connector**: The aim of the connector is to take the output from the vision encoder and align it with the shared project embedding space.
-- **Small-scale LMMs**: The aim of the small-scale LMMs is to take the text vector from the shared embedding space and understand it and output a text of its understanding.
+- **Small-scale LLMs**: The aim of the small-scale LLMs is to take the text vector from the shared embedding space and understand it and output a text of its understanding.
 
 
 ## Overview of the Training Data and Methodologies
@@ -72,7 +80,9 @@ The empirical results demonstrate that while both recipes are effective, the sha
 
 ### Ablation Studies and Empirical Results
 
-Through ablation studies, the researchers found that tweaking the size and type of the vision encoder and the LLM can have significant impacts on the model's effectiveness. For instance, using different sizes of LMMs from the TinyLLaVA series like Phi-2 and TinyLlama showed varied performances across benchmarks, highlighting the importance of model selection based on specific needs.
+Through ablation studies, the researchers found that tweaking the size and type of the vision encoder and the LLM can have significant impacts on the model's effectiveness. For instance, using different sizes of LLMs from the TinyLLaVA series like Phi-2 and TinyLlama showed varied performances across benchmarks, highlighting the importance of model selection based on specific needs.
+
+one thing that we took away from the results is that we dont fully understand or trust the results of the test from the ablation studies, they give a guide but they could be trained on the questions and answers.  One of the more trusted methods is [leader board](https://chat.lmsys.org/?leaderboard) which is a blind test from users and we feel this is a better method.  The majoy drawback is that there is not a multimodal test, only pure LLM (language) test.
 
 More information can be found here including the paper, the github repository and the presentation.
 
