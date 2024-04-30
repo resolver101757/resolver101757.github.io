@@ -1,0 +1,15 @@
+---
+title: "Create a chatbot using langchain running on HuggingFace"
+author: "Alex Kelly"
+date: "2024-04-22"
+draft : False
+---
+
+# Introduction
+
+AI models are on the rise and the most common method to comunicate or request information from Large Language models is the chatbot.  The most used chatbot is from OpenAI but it isnt as flexiable as building your own and it isnt private.  Creating your own chatbot, you can host on a local server and its completly private.  There so many opensource models to choose that close to GPT4 now or which i find acceptatble to chat to wasnt the case a year ago. For this project I wanted to prove out and explore a few things:
+
+- Can I create a chatbot and host for free
+- I wanted to further explore the huggingface spaces. I love looking at other peoples experiments on hugginfave spaces and thinks its a great way to understand ML latest topics.
+- I also wanted to re-explore langchain. I looked Langchain over a year ago and the code.   The documentain was buggy, it wasnt functional and had only existed for about a month or 2 so I'll cut them some slack.  I spoke to Jack one of the guys from our AI meetup on fast.ai discord and he was showing me the documentation and all the comunity updates and plugins and thought it was time to dip my toes in again. 
+- 
