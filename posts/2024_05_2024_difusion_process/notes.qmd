@@ -1,0 +1,13 @@
+
+
+
+Visual Analogy
+Imagine you have a map with several locations (data points). Instead of pinpointing each location exactly, you draw a circle (distribution) around each point. The size of the circle depends on how certain you are about the point's location:
+
+Mean (μ): The center of the circle.
+Standard Deviation (σ): The radius of the circle.
+When you sample a point, you randomly pick a point within the circle:
+
+Random Noise (ε): Determines the exact position within the circle.
+Reparameterization: Ensures you can adjust the circle's position and size (mean and standard deviation) during training.
+
