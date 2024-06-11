@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Alex Kelly">
-<meta name="dcterms.date" content="2024-04-22">
+<meta name="dcterms.date" content="2024-06-24">
 
-<title>Alex Paul Kelly - Scaling Down to Scale Up: Exploring TinyLLaVA’s Multimodal Framework</title>
+<title>Alex Paul Kelly - Smart manufacturing expo 2024</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Scaling Down to Scale Up: Exploring TinyLLaVA’s Multimodal Framework</h1>
+      <h1 class="title">Smart manufacturing expo 2024</h1>
                       </div>
   </div>
     
@@ -130,7 +130,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">April 22, 2024</p>
+        <p class="date">June 24, 2024</p>
       </div>
     </div>
     
@@ -148,80 +148,42 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="why-did-i-want-to-present-this-paper" class="level1">
-<h1>Why did I want to present this paper?</h1>
-<p>The TinyLLaVA paper shows the usual multimodeal model of image and text in and text out but there are many more modalities.&nbsp;One thing I keep asking myself is why am I still training deep learning, taking up my time in the my evenings and weekends, it’s near impossible to compete with the larger companies like Google, OpenAI and Microsoft to name a few (would more of my time be better spent on the application layer???)</p>
-<p>For example, <a href="https://www.techtarget.com/searchenterpriseai/news/366573246/Meta-intros-two-GPU-training-clusters-for-Llama-3">Meta has purchase £350,000 H100 at around £40,000 each</a>. Thats over 14 billion outlay. Companies like Meata have the resources to train ever larger models that raise the bar to such a high level, it’s not impossible to beat them but incredibly unlikley. There are other ways!&nbsp;</p>
-<p>Most of the larger companies concentrate on these modalities: images in colour (RGB), audio speech, and images and video as that’s the largest market.&nbsp;There are a whole lot more modalities that are being neglected and this leaves a lot of opportunities.&nbsp;Huggingface has tens of thousands of models that can be used as components, and you can easily train your own small model with your data to be part of a much larger ensemble of models.&nbsp;This paper shows how to create your own multimodal model and I think it’s a great starting point for anyone who wants to get into multimodal models.&nbsp;I have a passion for understanding the physical world.&nbsp;IoT (Internet of Things) and robotics is a hobby of mine, they are a great way to sense the physical world.&nbsp;Multimodal models are going to be a key area to understand these senses and link them with other machines to take action and understand.&nbsp;We humans have 5 senses to understand the world but there are many more, for example :</p>
-<ul>
-<li><p><strong>Vision</strong>: Humans only see Blue (Approximately 450–495 nm) to Red (Approximately 620–750 nm), but there’s a whole range from Gamma Rays (less than 0.01 nanometers (nm)), X-rays (0.01 nm to 10 nm), Ultraviolet Light (10 nm to 400 nm), through to the longer wavelengths like Infrared Light (750 nm to 1 millimeter (mm)), Microwaves (1 mm to 1 meter), and Radio Waves (1 meter to 100 kilometers (km) or more), each with its own unique applications and phenomena in the electromagnetic spectrum.</p></li>
-<li><p><strong>Vibration</strong>: Humans primarily sense vibration through touch but our range is limited, feeling oscillations or movements through solid objects. Beyond this, technologies like seismographs can detect vibrations in the earth, used in earthquake detection and analysis, while various animals, such as snakes and elephants, use ground vibrations for communication and to sense approaching threats.</p></li>
-<li><p><strong>Magnetoreception</strong>: Some animals, such as migratory birds, turtles, and bees, have the ability to detect the Earth’s magnetic field, aiding in navigation across great distances. This sense, known as magnetoreception, is something humans are not naturally equipped with, but technology can emulate this through devices that measure magnetic fields for navigation and mapping.</p></li>
-<li><p><strong>Electroreception</strong>: Certain aquatic animals, like sharks and rays, possess an ability known as electroreception, which allows them to detect electrical fields created by other organisms. This sensory modality is crucial for hunting as it helps these predators locate prey hidden in sand or mud.</p></li>
-<li><p><strong>Chemical Sensing (Gustation and Olfaction)</strong>: Beyond human taste and smell, chemical sensors can detect and analyze substances in the environment, with applications ranging from detecting pollutants in the air and water to analyzing soil composition in agriculture. This also includes technologies in artificial noses and tongues, which use sensors to mimic human olfaction and gustation for food safety inspections and quality control.</p></li>
-<li><p><strong>Thermal Sensing</strong>: While humans sense temperature primarily through the skin, certain species like pit vipers and some insects can detect infrared radiation, effectively “seeing” heat. Technological adaptations of this include thermal imaging cameras, which are used in a variety of fields, from medical diagnostics to surveillance, by detecting heat emitted by objects.</p></li>
-</ul>
-<p><br></p>
-<p>and many more different types, these types of modalities are where novelty and practical applications are where we’re going to solve realworld problems and this can be done on a budget. For example,</p>
-<p><br></p>
-<ul>
-<li><p><strong>Ultraviolet Light</strong>: Use in agricultural drones to monitor plant health and detect diseases early by observing changes in UV reflection from plant leaves.</p></li>
-<li><p><strong>Infrared, Microwaves, and Radio Waves</strong>: Implement in smart home systems for enhanced security features, such as through-wall motion detection or advanced fire safety systems that can detect irregular heat patterns.</p></li>
-<li><p><strong>Electroreception</strong>: Create navigation systems for autonomous vehicles that can detect magnetic fields as an additional layer of positioning, enhancing GPS systems especially in underground or enclosed environments.</p></li>
-<li><p><strong>Thermal Sensing</strong>: Employ in energy efficiency applications, for instance, in smart buildings to optimize heating and cooling systems based on detailed thermal maps.</p></li>
-</ul>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>Every week we meet on the Fast.ai group and discuss all things deep learning and every other week we have reading week where one of us presents a paper. This week it was my turn to read the paper “TinyLLaVA: A Framework of Small-scale Large Multimodal Models”.&nbsp;There are a lot of models commercial and open source trying to solve the multimodal problem.&nbsp;The TinyLLava multimodal model takes in an image of what you want to understand along with your text (your question) and outputs an answer in the text so you can have a back-and-forth questioning about the image, like a chatbot. The main thrust of the industry has been to create bigger and bigger models in the hope that they will be able to understand more and more about the image. However, the authors of this paper have taken a different approach and have created an interesting architecture that can be followed to create your own small multimodal models to solve the multimodal problem.&nbsp;Its paper and github repository works abit like a cooking recipe, where you have the ingredients and the processes you use to mix and convert those ingredients into the final product Using TinyLLava we can change the ingredients (the models) and modify the process if we like to solve different multimodal models problems.</p>
-</section>
-<section id="importance-of-small-scale-lmms-large-multimodal-models" class="level2">
-<h2 class="anchored" data-anchor-id="importance-of-small-scale-lmms-large-multimodal-models">Importance of small-scale LMMs (Large Multimodal Models)</h2>
-<p>Large models are great and have every chance to create better understanding but they are expensive and time-consuming (potentially many months) to train making them prohibitive to people like myself who don’t have access to the resources.&nbsp;Smaller models can perform as well as larger models providing they have the right data, the right architecture and applied to the right problem.&nbsp;This lowers the results entry point as it can be done on modest hardware and much quicker meaning more people can get involved in creating their own experiments to solve their own multimodal problems.&nbsp;It also has the benefits of cheaper inference, less energy consumption and faster responce times on lesser hardware.&nbsp;Hugging Face has 10000’s of models that can be used for ingredients in producing your own multimodal models.</p>
-<p><br></p>
-</section>
-<section id="architecture-deep-dive-building-blocks-of-tinyllava" class="level2">
-<h2 class="anchored" data-anchor-id="architecture-deep-dive-building-blocks-of-tinyllava">Architecture Deep Dive: Building Blocks of TinyLLaVA</h2>
-</section>
-<section id="detailed-look-at-the-model-components-vision-encoders-small-scale-llms-connectors" class="level2">
-<h2 class="anchored" data-anchor-id="detailed-look-at-the-model-components-vision-encoders-small-scale-llms-connectors">Detailed look at the model components: Vision Encoders, Small-Scale LLMs, Connectors</h2>
+<p>First time out of the office in a while but I’ve finally managed to escape to Smart manufacturing expo 2024. I think its been since covid, and after that there is a lot of changes happening in the business that meant I was tied to my desk.</p>
+<p>A quick some up of the the event, there more mature IOT solutions, lots of ERP type information systems (apparently lots of companies still using spreadsheets in 2024!) and more Robotics. Heres a video of some of the more visually appealing parts of the conference.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/I5TMvIhOadQ" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Anyways, this is a quick recap of interesting things I’ve seen at the event. Sometimes Industry 4 linked and sometimes a little more distance to my day job. Here’s a quick rundown of new things I’ve found interesting I thought was worth sharing.</p>
+<p>First on the list and the one I’m most excited by is looking at the un-discovered world using sound waves. I’ve seen this tech before but never in a finished product you can buy. They have multiple devices, the one I’m going to write about today is a handheld device that you can point at objects and it will measure sound waves and over the lay it on a camera (a normal RGB camera) so you can see any objects emitting sound, it just changes the pixels omitting sound to a red colour. you can now see sounds. It helps detect leaks in compressed air but it could be anything like a motor, faulty ball bearing on a motor fan ect or anything that emits a sound. The products website is https://www.acoustic-camera-uk.com/ and https://www.linkedin.com/in/ricardo-s-78aa032b/</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="diagram.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Diagram</figcaption>
+<p><img src="sound_cam_uk.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">sound_cam_uk</figcaption>
 </figure>
 </div>
-</section>
-<section id="overview-of-the-training-data-and-methodologies" class="level2">
-<h2 class="anchored" data-anchor-id="overview-of-the-training-data-and-methodologies">Overview of the Training Data and Methodologies</h2>
-<ul>
-<li><strong>Vision encoder</strong>: The aim of the vision encoder is to understand what is happening in an image and output a text vector of its understanding.</li>
-<li><strong>Connector</strong>: The aim of the connector is to take the output from the vision encoder and align it with the shared project embedding space.</li>
-<li><strong>Small-scale LLMs</strong>: The aim of the small-scale LLMs is to take the text vector from the shared embedding space and understand it and output a text of its understanding.</li>
-</ul>
-</section>
-<section id="overview-of-the-training-data-and-methodologies-1" class="level2">
-<h2 class="anchored" data-anchor-id="overview-of-the-training-data-and-methodologies-1">Overview of the Training Data and Methodologies</h2>
-<p>TinyLLaVA leverages a combination of pre-training and supervised fine-tuning stages. Pre-training aligns the vision and text information in an embedding space using image-caption style data, which helps the model learn basic associations. Supervised fine-tuning then adjusts the model using image-text pairs in a multi-turn conversation style, which sharpens its ability to handle complex queries.</p>
-<section id="comparison-of-training-recipes" class="level3">
-<h3 class="anchored" data-anchor-id="comparison-of-training-recipes">Comparison of Training Recipes</h3>
-<p>The framework tests two main recipes :</p>
-<ol type="1">
-<li><strong>Base Recipe</strong>: Keeps the vision encoder and small-scale LLM frozen during pre-training, focusing updates on the connector.</li>
-<li><strong>Share Recipe</strong>: Starts with the base recipe’s pre-trained connector but allows updates to parts of the vision encoder and the LLM during training.</li>
-</ol>
-<p>The empirical results demonstrate that while both recipes are effective, the share recipe generally provides superior performance by dynamically adapting more components of the model.</p>
-</section>
-<section id="ablation-studies-and-empirical-results" class="level3">
-<h3 class="anchored" data-anchor-id="ablation-studies-and-empirical-results">Ablation Studies and Empirical Results</h3>
-<p>Through ablation studies, the researchers found that tweaking the size and type of the vision encoder and the LLM can have significant impacts on the model’s effectiveness. For instance, using different sizes of LLMs from the TinyLLaVA series like Phi-2 and TinyLlama showed varied performances across benchmarks, highlighting the importance of model selection based on specific needs.</p>
-<p>one thing that we took away from the results is that we dont fully understand or trust the results of the test from the ablation studies, they give a guide but they could be trained on the questions and answers. One of the more trusted methods is <a href="https://chat.lmsys.org/?leaderboard">leader board</a> which is a blind test from users and we feel this is a better method. The majoy drawback is that there is not a multimodal test, only pure LLM (language) test.</p>
-<p>More information can be found here including the paper, the github repository and the presentation.</p>
-<p><a href="https://arxiv.org/abs/2402.14289">Link to the paper</a> <br> <a href="https://github.com/DLCV-BUAA/TinyLLaVABench">Link to the GitHub repository</a> <br> <a href="TinyLLaVA.pptx.pdf">Link to the presentation</a> <br></p>
+<p>Cyberweld - Tinsley Bridge has got some experience in robot welders and although the demonstrated robot arm is not as big, this robot does look capable piece of equipment and I think one of the main selling points is how easy it is to program. The engineer programmed it while i was chatting in 5 minutes. It looks a good product and easy to implement. https:/www.cyberweld.co.uk/about</p>
+<p>Cranfield offering robotics apprenticeships, apparently a UK first. I was chatting with one of the lectures and sounds like the UK is in good hands in robotics at https://www.cranfield.ac.uk/.</p>
+<p>Mission engineering sell microscopes for inspection and measurements. The stand out product they displayed were 3d inspections for looking at parts in 3d zoom in 1000x and more. Quite useful in certain applications like electronics.</p>
+<p>Synsapse innovation. I had a good talk to these guys, mainly chatting about AI and genetic algorithms working together with IOT and information systems.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/lO9t18D5lIM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Balluff A IOT supplier of parts with support but without subscriptions. They offer unique sensors and automating using IOT. I had a good conversation with the well informed sales engineer Andrew Blears</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="balluff.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">balluff</figcaption>
+</figure>
+</div>
+<p>Cambridge university are offering FREE IOT solutions to help monitoring your factory. They can measure temperature, air quality, downtime capture, job tracking and a SMDH MultiSense. This is linked to the industry4 on a shoe string. https://smdh.uk/sensor-solutions#Form</p>
+<p>Dafo.ai is the training software that watches what you do and suggest corrections to any changes. For example, if your assembling components and screw on a bolt the wrong way then will inform you. It will also guide you through the assembling through its training mode.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="dafo-ai.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Dafo AI</figcaption>
+</figure>
+</div>
+<p>Bussroot from output.industries - This is a short interveiw from the makers of Busroot who make IOT hardware to help understand whats happening in manufacturing enviroments.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/k5hlAIUDzgI" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<p>Thats my take folks.</p>
 
 
-</section>
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

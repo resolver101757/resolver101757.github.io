@@ -2,6 +2,8 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2024_05_2024_difusion_process/notes.html",
+      "/posts/2024-06-24_smart_factory_2024/smart_factory_2024.html",
       "/posts/2024-04-22_tiny_llava/tiny_llava.html",
       "/posts/transformers_paper/paper_explanation.html",
       "/posts/apache_arrow/apache_arrow.html",

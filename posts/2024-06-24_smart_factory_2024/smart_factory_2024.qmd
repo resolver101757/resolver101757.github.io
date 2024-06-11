@@ -1,8 +1,16 @@
-# Smart manufacturing expo 2024
+---
+title: "Smart manufacturing expo 2024"
+author: "Alex Kelly"
+date: "2024-06-24"
+draft : False
+---
 
 First time out of the office in a while but I've finally managed to escape to Smart manufacturing expo 2024. I think its been since covid, and after that there is a lot of changes happening in the business that meant I was tied to my desk.
 
-A quick some up of the the event, there more mature IOT solutions, lots of ERP type information systems (apparently lots of companies still using spreadsheets in 2024!) and more Robotics. 
+A quick some up of the the event, there more mature IOT solutions, lots of ERP type information systems (apparently lots of companies still using spreadsheets in 2024!) and more Robotics. Heres a video of some of the more visually appealing parts of the conference.
+
+{{< video https://youtu.be/I5TMvIhOadQ >}}
+
 
 Anyways, this is a quick recap of interesting things I've seen at the event. Sometimes Industry 4 linked and sometimes a little more distance to my day job. Here's a quick rundown of new things I've found interesting I thought was worth sharing.
 
@@ -18,6 +26,9 @@ Mission engineering sell microscopes for inspection and measurements. The stand 
 
 Synsapse innovation. I had a good talk to these guys, mainly chatting about AI and genetic algorithms working together with IOT and information systems.
 
+{{< video https://youtu.be/lO9t18D5lIM >}}
+
+
 Balluff A IOT supplier of parts with support but without subscriptions. They offer unique sensors and automating using IOT. I had a good conversation with the well informed sales engineer Andrew Blears
 
 ![balluff](balluff.jpg)
@@ -28,4 +39,10 @@ Dafo.ai is the training software that watches what you do and suggest correction
 
 ![Dafo AI](dafo-ai.jpg)
 
+
+Bussroot from output.industries - This is a short interveiw from the makers of Busroot who make IOT hardware to help understand whats happening in manufacturing enviroments.
+
+{{< video https://youtu.be/k5hlAIUDzgI >}}
+
 Thats my take folks. 
+

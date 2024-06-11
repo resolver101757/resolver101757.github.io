@@ -2,90 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://alexkelly.world/useful_info.html</loc>
-    <lastmod>2024-04-22T16:27:41.143Z</lastmod>
+    <lastmod>2024-06-11T16:47:27.246Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/transformers_paper/paper_explanation.html</loc>
-    <lastmod>2024-04-22T16:27:37.774Z</lastmod>
+    <lastmod>2024-06-11T16:47:23.914Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/iot_in_a_factory/index.html</loc>
-    <lastmod>2024-04-22T16:27:34.361Z</lastmod>
+    <lastmod>2024-06-11T16:47:19.904Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/hugging_face_datasets_library/Hugging_face_datasets.html</loc>
-    <lastmod>2024-04-22T16:27:27.535Z</lastmod>
+    <lastmod>2024-06-11T16:47:13.095Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/eye_tracking_start/eye_tracking.html</loc>
-    <lastmod>2024-04-22T16:27:18.389Z</lastmod>
+    <lastmod>2024-06-11T16:47:04.974Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/developing_the_skils_for_smart_futures/index.html</loc>
-    <lastmod>2024-04-22T16:27:15.422Z</lastmod>
+    <lastmod>2024-06-11T16:47:01.690Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/apache_arrow/apache_arrow.html</loc>
-    <lastmod>2024-04-22T16:26:55.099Z</lastmod>
+    <lastmod>2024-06-11T16:46:46.349Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/AI_ethics/index.html</loc>
-    <lastmod>2024-04-22T16:26:51.335Z</lastmod>
+    <lastmod>2024-06-11T16:46:40.778Z</lastmod>
   </url>
   <url>
-    <loc>https://alexkelly.world/posts/2024-04-24_AI_LORAWAN_portenta/Arduino.html</loc>
-    <lastmod>2024-04-22T16:26:43.253Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexkelly.world/posts/2021-01-27_exploring_wireless_spectrum/wirelss_spectrum.html</loc>
-    <lastmod>2024-04-22T16:26:38.373Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexkelly.world/index.html</loc>
-    <lastmod>2024-04-22T16:26:34.640Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexkelly.world/about.html</loc>
-    <lastmod>2024-04-22T16:26:25.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alexkelly.world/posts/2020-09-09_pcb_in_15_minutes/pcb.html</loc>
-    <lastmod>2024-04-22T16:26:36.609Z</lastmod>
+    <loc>https://alexkelly.world/posts/2024_05_2024_difusion_process/notes.html</loc>
+    <lastmod>2024-06-11T16:46:33.706Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/2024-04-22_tiny_llava/tiny_llava.html</loc>
-    <lastmod>2024-04-22T16:26:41.455Z</lastmod>
+    <lastmod>2024-06-11T16:46:29.275Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/posts/2020-09-09_pcb_in_15_minutes/pcb.html</loc>
+    <lastmod>2024-06-11T16:46:25.527Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/about.html</loc>
+    <lastmod>2024-06-11T16:46:18.474Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/index.html</loc>
+    <lastmod>2024-06-11T16:46:23.520Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/posts/2021-01-27_exploring_wireless_spectrum/wirelss_spectrum.html</loc>
+    <lastmod>2024-06-11T16:46:26.935Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/posts/2024-04-24_AI_LORAWAN_portenta/Arduino.html</loc>
+    <lastmod>2024-06-11T16:46:30.758Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alexkelly.world/posts/2024-06-24_smart_factory_2024/smart_factory_2024.html</loc>
+    <lastmod>2024-06-11T16:46:32.738Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/adam_optimizer/index.html</loc>
-    <lastmod>2024-04-22T16:26:49.347Z</lastmod>
+    <lastmod>2024-06-11T16:46:39.071Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/all_things_RAG_paper_discussion/all_things_rag_paper_discussion.html</loc>
-    <lastmod>2024-04-22T16:26:53.167Z</lastmod>
+    <lastmod>2024-06-11T16:46:44.354Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/chatGPT_audio_conversation/index.html</loc>
-    <lastmod>2024-04-22T16:26:57.310Z</lastmod>
+    <lastmod>2024-06-11T16:46:48.494Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/Exploring_GTP4V_paper/index.html</loc>
-    <lastmod>2024-04-22T16:27:17.289Z</lastmod>
+    <lastmod>2024-06-11T16:47:03.184Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/future_skills_in_ai/index.html</loc>
-    <lastmod>2024-04-22T16:27:21.099Z</lastmod>
+    <lastmod>2024-06-11T16:47:07.613Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/initialization_neural_networks/index.html</loc>
-    <lastmod>2024-04-22T16:27:32.378Z</lastmod>
+    <lastmod>2024-06-11T16:47:18.318Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/the_makers_journey_unimaker/index.html</loc>
-    <lastmod>2024-04-22T16:27:35.721Z</lastmod>
+    <lastmod>2024-06-11T16:47:21.646Z</lastmod>
   </url>
   <url>
     <loc>https://alexkelly.world/posts/WeightsAndBias/WeightsAndBias.html</loc>
-    <lastmod>2024-04-22T16:27:39.589Z</lastmod>
+    <lastmod>2024-06-11T16:47:26.060Z</lastmod>
   </url>
 </urlset>
