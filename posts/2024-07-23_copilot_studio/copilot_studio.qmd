@@ -7,36 +7,34 @@ image: "microsoft-copilot.jpg"
 
 ---
 
-
 Someone asked me to look at using Microsoft's new Co-pilot and give my thoughts for a project.  Since I’ve already created the notes, why not share them so other people can take a look.
 
-Microsoft co-pilot is an integrated solution into Microsoft's platform that will make it easier for people to get into creating LLM and chatbot-type applications.  From the perspective of someone who has built LLMs apps in the Python ecosystem, I think Microsoft Co-pilot studio lacks some control that might give the user that extra bit of functionality required but saying that, I think it simplifies the process, open the tech to more people and will be a good addition to have in the marketplace.  
+Microsoft co-pilot is an integrated solution into Microsoft's platform that will make it easier for people to get into creating LLM and chatbot-type applications.  From the perspective of someone who has built LLMs apps in the Python ecosystem, I think Microsoft Co-pilot studio lacks some control that might give the user that extra bit of functionality required but saying that, I think it simplifies the process, open the tech to more people and will be a good addition to have in the marketplace.
+
+Heres a quick overview of the video 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FnJYJ3KqriE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Microsoft has renamed a few technologies and I think it’s useful to understand how they relate to terms we all know.  They have along  the top that perform related tasks and here the terms put into the usual language:
 
-Knowledge -> RAG 
-Topics -> runs a piece of code (or in Microsoft language a flow) basd on keywords in chat
-Actions -> is a function call.
-Analytics -> A PowerBIi dashboard to show things like customer satisfaction, billing, engagement etc. 
-Channels -> where the app is going to be shown e.g. teams, dynamics. 
+- Knowledge -> RAG 
+- Topics -> runs a piece of code (or in Microsoft language a flow) basd on keywords in chat
+- Actions -> is a function call.
+- Analytics -> A PowerBIi dashboard to show things like customer satisfaction, billing, engagement etc. 
+- Channels -> where the app is going to be shown e.g. teams, dynamics. 
 
-Some of the things I can’t see that would worry me about low code and no code is the same thing as always, such as flexibility.  Here are some things that I would need to think about before going ahead.
+Some of the things I can’t see that would worry me about low code and no code is the same thing as always, flexibility.  Here are some things that I would need to think about before going ahead.
 
-Which models are being used and will you be forced to swapped out when it's not suitable for you?
-
-There are lots of models, here is a list of models for function calling.  Does Microsoft offer the best model on the [leaderboard here](https://gorilla.cs.berkeley.edu/leaderboard.html)?
-
-How is the RAG working? This is the same problem with OpenAI and their product.  They never said how chunking works on their platform, how many documents/chunks is it retrieving, is it using a reranking algorithm.  How much control do you have of this now and in the future....
-
-The tests copilot isn’t super responsive but I am running it in the test mode, so it maybe quicker when published or maybe time of day I use it.
-
-If a new state of the art technique is released or there is something to your particular industry/use case that would be really useful, how do you implement these?
-
-For example, here's some tools that might be useful but are not included
+- Which models are being used and will you be forced to swapped out when it's not suitable for you?
+- There are lots of models, here is a list of models for function calling.  Does Microsoft offer the best model on the [leaderboard here](https://gorilla.cs.berkeley.edu/leaderboard.html)?
+- How is the RAG working? This is the same problem with OpenAI and their product.  They never said how chunking works on their platform, how many documents/chunks is it retrieving, is it using a reranking algorithm.  How much control do you have of this now and in the future....
+- The tests copilot isn’t super responsive but I am running it in the test mode, so it maybe quicker when published or maybe time of day I use it.
+- If a new state of the art technique is released or there is something to your particular industry/use case that would be really useful, how do you implement these?
+- For example, here's some tools that might be useful but are not included
  
-https://neo4j.com/
-https://github.com/microsoft/graphrag
+<br>https://neo4j.com/
+<br>https://github.com/microsoft/graphrag
 
-When would I use a system like this?  I think it is a great prototyping for rapid implementation if your company is already in the MS ecosystem.  If the prototype has all the functionality that you need, why not keep it?  I think you will soon understand when to use this tool and when not to.  It does give a good environment for piecing together LLMs and Microsoft services, when you find it doesn't offer the functionality required, you have some understanding that can be applied to more flexible frameworks. 
+When would I use a system like this?  I think it is a great prototyping for rapid implementation if your company is already in the MS ecosystem.  If the prototype has all the functionality that you need, why not keep it?  I think you will soon understand when to use this tool and when not to.  It does give a good environment for piecing together LLMs and Microsoft services.  When you find it doesn't offer the functionality required, you have some understanding that can be applied to more flexible frameworks. 
 
-Thanks 
+Thanks

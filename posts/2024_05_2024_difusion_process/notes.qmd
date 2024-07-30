@@ -1,4 +1,9 @@
-
+---
+title: "Diffusion process"
+author: "Alex Kelly"
+date: "2021-06-17"
+draft : Yes
+---
 
 
 Visual Analogy
